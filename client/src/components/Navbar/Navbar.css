@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eee;
+  padding: 10px 20px;
+}
+.navbar.dark {
+  background: #333;
+  color: white;
+}
+.navbar a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: block;
+  position: absolute;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 5px;
+  z-index: 1;
+}
+.sub-menu {
+  margin-left: 120px;
+  position: absolute;
+  top: 0;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 5px;
+}

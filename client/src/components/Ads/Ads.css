@@ -1,0 +1,21 @@
+.ads {
+  border: 1px dashed #aaa;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+}
+.side-ads {
+  position: fixed;
+  top: 100px;
+  width: 120px;
+}
+.popup-ads {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: yellow;
+}
+.row-ads {
+  margin: 20px 0;
+  background: #f4f4f4;
+}

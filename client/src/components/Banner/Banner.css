@@ -1,0 +1,20 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+.banner-content {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+.banner-content img {
+  width: 150px;
+  margin-right: 20px;
+}
+.banner-text {
+  text-align: left;
+}
