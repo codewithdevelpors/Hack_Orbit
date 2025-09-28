@@ -32,8 +32,8 @@ function Details() {
         </>
       ) : (
         <>
-          <button>Preview HTML</button>
-          <button>Preview CSS</button>
+          <Link to={`/preview/${file._id}?type=html`}><button>Preview HTML</button></Link>
+          <Link to={`/preview/${file._id}?type=css`}><button>Preview CSS</button></Link>
         </>
       )}
 

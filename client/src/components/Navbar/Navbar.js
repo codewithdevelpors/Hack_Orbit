@@ -1,18 +1,30 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
   const [showFreeSub, setShowFreeSub] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
+    }
+  };
 
   return (
     <nav className={`navbar ${darkMode ? "dark" : ""}`}>
       <div className="navbar-left">
-        <Link to="/" className="logo">Developer's Hub</Link>
+        <Link to="/" className="logo">
+          <img src="/logo.fav" alt="Code Galaxy Logo" />
+          Code Galaxy
+        </Link>
         <Link to="/">Home</Link>
         <div
           className="dropdown"
@@ -46,8 +58,15 @@ function Navbar() {
       </div>
 
       <div className="navbar-right">
-        <input type="text" placeholder="Search..." />
-        <button>🔍</button>
+        <form onSubmit={handleSearch} className="search-form">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button type="submit">🔍</button>
+        </form>
         <button onClick={toggleDarkMode}>{darkMode ? "🌙" : "☀️"}</button>
       </div>
     </nav>

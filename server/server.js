@@ -1,32 +1,34 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const morgan = require("morgan");
+// Import required modules
+const express = require("express"); // Web framework for Node.js
+const dotenv = require("dotenv"); // Load environment variables
+const mongoose = require("mongoose"); // MongoDB ODM
+const cors = require("cors"); // Enable CORS
+const morgan = require("morgan"); // HTTP request logger
 
-// Load .env
+// Load environment variables from .env file
 dotenv.config();
 
+// Create Express application
 const app = express();
 
-// Middleware
-app.use(express.json());
-app.use(cors());
-app.use(morgan("dev"));
+// Middleware setup
+app.use(express.json()); // Parse JSON bodies
+app.use(cors()); // Enable Cross-Origin Resource Sharing
+app.use(morgan("dev")); // Log HTTP requests in development mode
 
-// Routes
+// Import and use file routes
 const fileRoutes = require("./routes/fileRoutes");
-app.use("/develpors", fileRoutes);
+app.use("/developers", fileRoutes); // All file-related routes under /developers
 
-// MongoDB connection
+// Connect to MongoDB
 const connectDB = require("./config/db");
 connectDB();
 
-// Health Check
-app.get("/develpors/health", (req, res) => {
+// Health check endpoint to verify server and DB status
+app.get("/developers/health", (req, res) => {
   res.json({ server: "running", db: mongoose.connection.readyState === 1 ? "connected" : "disconnected" });
 });
 
-// Start server
+// Start the server
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}/develpors`));
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}/developers`));

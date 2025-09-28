@@ -40,30 +40,42 @@ function Home() {
 
   return (
     <div className="home">
-      <h1>Welcome to Developer's Hub</h1>
+      <h1>Welcome to Code Galaxy</h1>
       <Banner />
 
       <div className="content">
         <Ads type="side" />
         <div className="placeholders">
           {files.length > 0 ? (
-            files.map((file) => (
-              <div key={file._id} className="placeholder">
-                <img src={file.imgUrl} alt={file.fileName} />
-                <h3>{file.fileName}</h3>
-                <p>{file.type} | {file.category}</p>
-                <p>{file.shortDescription}</p>
-                <button onClick={() => handleNextClick(file)}>Next</button>
-              </div>
-            ))
+            (() => {
+              const rows = [];
+              for (let i = 0; i < files.length; i += 2) {
+                rows.push(files.slice(i, i + 2));
+              }
+              return rows.map((row, rowIndex) => (
+                <React.Fragment key={rowIndex}>
+                  <div className="placeholder-row">
+                    {row.map((file) => (
+                      <div key={file._id} className="placeholder">
+                        <img src={file.imgUrl} alt={file.fileName} />
+                        <h3>{file.fileName}</h3>
+                        <p>{file.type} | {file.category === 'free' ? 'Free' : 'Paid'}</p>
+                        <p>Created: {new Date(file.createdDate).toLocaleDateString()}</p>
+                        <p>{file.shortDescription}</p>
+                        <button onClick={() => handleNextClick(file)}>Next</button>
+                      </div>
+                    ))}
+                  </div>
+                  {(rowIndex + 1) % 3 === 0 && rowIndex < rows.length - 1 && <Ads type="row" />}
+                </React.Fragment>
+              ));
+            })()
           ) : (
             <p>Welcome! Data cannot be fetched right now.</p>
           )}
         </div>
         <Ads type="side" />
       </div>
-
-      <Ads type="row" />
 
       <div className="pagination">
         <button disabled={page === 1} onClick={() => setPage(page - 1)}>Prev</button>

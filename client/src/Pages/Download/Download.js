@@ -31,6 +31,7 @@ function Download() {
   return (
     <div className="download">
       <h1>Download: {file.fileName}</h1>
+      <img src={file.imgUrl} alt={file.fileName} />
       {countdown > 0 ? (
         <p>Download starts in {countdown} seconds...</p>
       ) : (

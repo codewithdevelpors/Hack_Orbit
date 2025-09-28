@@ -6,7 +6,8 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-logo">
-        <h2>Developer's Hub</h2>
+        <img src="/logo.fav" alt="Code Galaxy Logo" />
+        <h2>Code Galaxy</h2>
       </div>
       <div className="footer-links">
         <Link to="/">Home</Link>

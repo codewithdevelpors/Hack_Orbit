@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# Code Galaxy - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based frontend for the Code Galaxy website, a platform for sharing and downloading code files.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Home Page**: Displays placeholders for code files with images, names, types, creation dates, and free/paid status. Shows 14 files per page in 2 columns, with ads on sides and after every 3 rows.
+- **Navbar**: Includes Home, Category dropdown (Free with Python/HTML&CSS submenus, Paid), About Us, search bar, and dark mode toggle.
+- **Search**: Functional search bar that redirects to a dedicated search page showing results or "no data found".
+- **Details Page**: Shows file details with preview/download buttons based on file type (separate for HTML&CSS).
+- **Preview Page**: Displays file content in text form with copy and close buttons. For HTML&CSS, shows HTML or CSS separately based on query param.
+- **Download Page**: Shows file image, 10-second countdown, then auto-downloads or provides manual link.
+- **Rate Us**: Popup after clicking "Next" on placeholders, includes ads at top right.
+- **Ads**: Three types - side ads, popup ads, and row ads after 3 rows.
+- **Footer**: Includes logo, quick links (Home, About Us, Contact Us), social media (YouTube, Facebook, TikTok, Instagram), and legal links (Privacy Policy, Terms of Service, About Us).
+- **Banners**: Auto-moving banners on home page after welcome message, with navigation buttons.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 18
+- React Router DOM
+- Axios for API calls
+- CSS for styling
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Environment Variables
 
-### `npm test`
+Create a `.env` file in the client directory:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+REACT_APP_API_URL=http://localhost:8000/developers
+REACT_APP_WEBSITE_NAME=Code Galaxy
+REACT_APP_DEFAULT_THEME=light
+```
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Navigate to the client directory:
+   ```
+   cd client
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the development server:
+   ```
+   npm start
+   ```
 
-### `npm run eject`
+The app will run on [http://localhost:3000](http://localhost:3000).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## API Endpoints
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `GET /developers/files?page={page}&limit=14` - Get paginated files
+- `GET /developers/search?query={query}` - Search files
+- `GET /developers/details/{id}` - Get file details
+- `POST /developers/rate/{id}` - Rate a file
+- `GET /developers/download/{id}` - Download a file
+- `GET /developers/health` - Health check
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+client/
+├── public/
+│   ├── logo.fav
+│   └── ...
+├── src/
+│   ├── components/
+│   │   ├── Ads/
+│   │   ├── Banner/
+│   │   ├── Footer/
+│   │   ├── Navbar/
+│   │   └── RateUs/
+│   ├── Pages/
+│   │   ├── Home/
+│   │   ├── About/
+│   │   ├── SearchPage/
+│   │   ├── Details/
+│   │   ├── Preview/
+│   │   └── Download/
+│   ├── utils/
+│   │   └── api.js
+│   ├── App.js
+│   └── index.js
+├── .env
+└── README.md
+```
 
-## Learn More
+## Components
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **App**: Main component with routing
+- **Navbar**: Navigation with search and categories
+- **Home**: Home page with placeholders and banners
+- **SearchPage**: Displays search results
+- **Details**: File details with action buttons
+- **Preview**: File content preview
+- **Download**: Download page with countdown
+- **Footer**: Site footer
+- **Ads**: Advertisement components
+- **Banner**: Moving banners
+- **RateUs**: Rating popup
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Styling
 
-### Code Splitting
+CSS files are located in each component's directory. The app supports dark mode toggle.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contributing
 
-### Analyzing the Bundle Size
+1. Fork the repository
+2. Create a feature branch
+3. Make changes
+4. Test thoroughly
+5. Submit a pull request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.

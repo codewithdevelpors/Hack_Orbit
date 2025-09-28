@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./RateUs.css";
 import { rateFile } from "../../utils/api";
+import Ads from "../Ads/Ads";
 
 function RateUs({ fileId, onClose }) {
   const [rating, setRating] = useState(0);
@@ -17,6 +18,7 @@ function RateUs({ fileId, onClose }) {
 
   return (
     <div className="rateus-overlay">
+      <Ads type="popup" />
       <div className="rateus-popup">
         {!submitted ? (
           <>
