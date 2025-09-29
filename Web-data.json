@@ -1,0 +1,130 @@
+[
+    {
+        "File Name":"Chroma Helix.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/Chroma_Helix.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/Chroma_Helix.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/Chroma_Helix.png",
+        "Short Description":"Colorful spiral art with rainbow transitions.",
+        "Full Description":"This Python program uses Turtle graphics to create colorful spiral art. It starts with a 15-second countdown on a black background. Then, it draws looping circular patterns with smoothly shifting rainbow colors. The hue transitions continuously, giving a dynamic and hypnotic visual effect."
+    },
+    {
+        "File Name":"Circle Flower.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/circle_flower.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/circle_flower.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/circle_flower.png",
+        "Short Description":"Colorful overlapping circles forming spiral art.",
+        "Full Description":"This Python Turtle program displays a countdown before drawing colorful circular art. It uses a white turtle to count down from 15 seconds on a black screen. After the countdown, a new turtle draws 36 overlapping colored circles. Each circle is rotated slightly to form a vibrant spiral pattern. The program ends by hiding the turtle and keeping the window open."
+    },
+    {
+        "File Name":"Colorful Starburst.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/colorful_starburst.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/colorful_starburst.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/colorful_starburst.png",
+        "Short Description":"Rainbow-like starburst pattern.",
+        "Full Description":"This Python script uses Turtle graphics to draw a colorful starburst pattern. It starts with a 15-second countdown on a black screen. Then the turtle draws lines radiating from the center in different colors. The result is a vibrant circular burst of rainbow-like beams."
+    },
+    {
+        "File Name":"Heart Animation.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/heart_animation.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/heart_animation.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/heart_animation.png",
+        "Short Description":"Heart animation using Turtle graphics.",
+        "Full Description":"This Python program uses the Turtle graphics library to create a heart animation with a countdown. It sets up a black screen and displays a countdown from 15 seconds using a white turtle. After the countdown, it draws a red heart using turtle movements and curves. The heart is filled with red color and has smooth, rounded edges. The program ends by hiding the turtle and keeping the window open."
+    },
+    {
+        "File Name":"Hexagon Spiral.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/hexagon_spiral.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/hexagon_spiral.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/hexagon_spiral.png",
+        "Short Description":"Spiral hexagon art with countdown.",
+        "Full Description":"This Python script uses Turtle graphics to show a countdown and draw spiral hexagon art. It begins with a 15-second countdown message on a black background. Afterward, it draws expanding hexagonal patterns in light green color. The design combines time-based animation with geometric drawing effects."
+    },
+    {
+        "File Name":"Hypnotic Concentric Circles.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/Hypnotic_Concentric_Circles.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/Hypnotic_Concentric_Circles.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/Hypnotic_Concentric_Circles.png",
+        "Short Description":"Hypnotic concentric circles with rainbow hues.",
+        "Full Description":"This Python script uses Turtle graphics to create hypnotic concentric circles. It begins with a 15-second countdown on a black background. Then it draws 100 colorful circles with increasing radius and slight positional shifts. The hues change gradually, producing a mesmerizing spiral-like visual effect."
+    },
+    {
+        "File Name":"Nested Triangles.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/nested_triangles.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/nested_triangles.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/nested_triangles.png",
+        "Short Description":"Spiral of rotating triangles.",
+        "Full Description":"This Python script uses Turtle graphics to draw a spiral of expanding triangles. It starts with a 15-second countdown on a black background. After the countdown, white triangles are drawn while gradually rotating. The result is a hypnotic, flower-like geometric pattern."
+    },
+    {
+        "File Name":"Pentagon Web.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/pentagon_web.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/pentagon_web.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/pentagon_web.png",
+        "Short Description":"Geometric pentagon web design.",
+        "Full Description":"This Python script uses Turtle graphics to display a countdown and then draw geometric art. It shows a 15-second countdown in the center of the screen. After the countdown, it draws multiple cyan-colored pentagons in a circular pattern. The program blends time-based animation and creative turtle drawing."
+    },
+    {
+        "File Name":"Prismatic Mandala.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/Prismatic_Mandala.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/Prismatic_Mandala.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/Prismatic_Mandala.png",
+        "Short Description":"Mandala-like rainbow spiral art.",
+        "Full Description":"This Python program uses the Turtle Graphics library to create a mesmerizing spiral art. It begins with a 15-second countdown displayed on the screen. Then, colorful circular patterns are drawn using HSV color transitions. The artwork evolves through looping shapes forming a hypnotic design."
+    },
+    {
+        "File Name":"Rainbow Spiral.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/rainbow_spiral.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/rainbow_spiral.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/rainbow_spiral.png",
+        "Short Description":"Rainbow-colored spiral using HSV.",
+        "Full Description":"This Turtle Graphics program displays a countdown timer before starting the drawing. It draws a colorful spiral pattern on a black background. The colors change smoothly using the colorsys library (HSV to RGB conversion). The result is a vibrant and mesmerizing piece of generative art."
+    },
+    {
+        "File Name":"Spectral Spirograph.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/Spectral_Spirograph.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/Spectral_Spirograph.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/Spectral_Spirograph.png",
+        "Short Description":"Colorful spirograph-like design.",
+        "Full Description":"This Python script uses Turtle graphics to draw a spirograph-like pattern. It starts with a 15-second countdown on a black background. Then it uses mathematical spirograph equations to plot smooth curves. The result is a colorful, intricate geometric design made of looping paths."
+    },
+    {
+        "File Name":"Spiral Square.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/spiral_square.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/spiral_square.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/spiral_square.png",
+        "Short Description":"Cyan spiral square design.",
+        "Full Description":"This Python script uses Turtle graphics to create a countdown followed by spiral art. It displays a 15-second countdown timer at the center of the screen. After the countdown, a cyan spiral pattern is drawn continuously. The program combines time-based animation and geometric drawing in one project."
+    },
+    {
+        "File Name":"Square Flower.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/square_flower.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/square_flower.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/square_flower.png",
+        "Short Description":"Overlapping colorful squares forming mandala.",
+        "Full Description":"Create stunning geometric art using Python\u2019s Turtle graphics. A countdown timer builds excitement before the drawing starts. Colorful overlapping squares spin to form a mandala-like pattern. Fun, simple, and perfect for learning coding with visuals."
+    },
+    {
+        "File Name":"Square Spiral.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/square_spiral.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/square_spiral.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/square_spiral.png",
+        "Short Description":"White square spiral pattern.",
+        "Full Description":"This Python Turtle program creates a countdown followed by a geometric spiral. It starts with a 15-second countdown shown in white text on a black screen. Afterward, a turtle draws a square spiral using increasing lengths and right turns. The design is made with white lines, giving it a clean, modern look. The program ends by hiding the turtle and keeping the drawing visible."
+    },
+    {
+        "File Name":"Star.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/star.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/star.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/star.png",
+        "Short Description":"Colorful animated star design.",
+        "Full Description":"This Python program uses the Turtle graphics module to create an animated art display. It begins with a countdown timer displayed on the screen. After the countdown, a colorful star is drawn using turtle graphics. The program combines animation, user interface, and geometric drawing in one script."
+    },
+    {
+        "File Name":"Triangle Flower.py",
+        "Raw File Link":"https:\/\/raw.githubusercontent.com\/codewithdevelpors\/Program-data\/main\/Python\/triangle_flower.py",
+        "Direct Download Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/triangle_flower.py?download=1",
+        "Direct Image Link":"https:\/\/github.com\/codewithdevelpors\/Program-data\/raw\/main\/Python\/triangle_flower.png",
+        "Short Description":"Rotating triangle flower pattern.",
+        "Full Description":"This Python script uses Turtle graphics to draw a rotating triangle pattern. It starts with a 15-second countdown on a black background. After the countdown, lime-colored triangles are drawn repeatedly in rotation. The overlapping shapes create a geometric, flower-like visual design."
+    }
+]

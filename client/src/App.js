@@ -2,12 +2,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-// Import components
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
+// Import global styles
+import "./styles/global.css";
+
+// Import layout
+import MainLayout from "./layouts/MainLayout";
 
 // Import page components
-import Home from "./Pages/Home/Home";
+import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import Details from "./pages/Details/Details";
@@ -17,8 +19,7 @@ import Download from "./pages/Download/Download";
 // Main App component
 function App() {
   return (
-    <div className="App">
-      <Navbar /> {/* Navigation bar */}
+    <MainLayout>
       <Routes>
         <Route path="/" element={<Home />} /> {/* Home page */}
         <Route path="/about" element={<About />} /> {/* About page */}
@@ -27,8 +28,7 @@ function App() {
         <Route path="/preview/:id" element={<Preview />} /> {/* File preview page */}
         <Route path="/download/:id" element={<Download />} /> {/* File download page */}
       </Routes>
-      <Footer /> {/* Footer */}
-    </div>
+    </MainLayout>
   );
 }
 

@@ -1,0 +1,28 @@
+/* Main Layout Styles */
+.main-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 80px; /* Account for fixed navbar */
+  min-height: calc(100vh - 160px); /* Account for footer */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px;
+    min-height: calc(100vh - 140px);
+  }
+}
+
+@media (max-width: 640px) {
+  .main-content {
+    padding-top: 60px;
+    min-height: calc(100vh - 120px);
+  }
+}
