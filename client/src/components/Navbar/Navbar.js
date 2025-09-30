@@ -11,6 +11,7 @@ function Navbar() {
   const [showCategories, setShowCategories] = useState(false);
   const [showFreeSub, setShowFreeSub] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,75 +30,124 @@ function Navbar() {
     }
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="navbar-left">
-          <Link to="/" className="navbar-logo">
-            <span className="logo-icon">🚀</span>
+        {/* Logo and Brand Name */}
+        <div className="navbar-brand">
+          <Link to="/" className="navbar-logo" onClick={closeMenu}>
+            <img src="/logo.png" alt="Code Galaxy Logo" className="logo-icon" />
             <span className="logo-text">Code Galaxy</span>
           </Link>
+        </div>
 
-          <div className="navbar-links">
-            <Link to="/" className="navbar-link">Home</Link>
+        {/* Mobile Menu Toggle */}
+        <button
+          className={`navbar-toggle ${isMenuOpen ? 'active' : ''}`}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Main Navigation Row - All elements in one amazing line */}
+        <div className={`navbar-main ${isMenuOpen ? 'active' : ''}`}>
+          {/* Navigation Links with Icons */}
+          <div className="navbar-nav-section">
+            <Link to="/" className="navbar-link modern-nav-item" onClick={closeMenu}>
+              <span className="nav-icon">🏠</span>
+              <span className="nav-text">Home</span>
+            </Link>
 
             <div
-              className="navbar-dropdown"
+              className="navbar-dropdown modern-nav-item"
               onMouseEnter={() => setShowCategories(true)}
               onMouseLeave={() => {
                 setShowCategories(false);
                 setShowFreeSub(false);
               }}
             >
-              <button className="navbar-dropdown-btn">Categories</button>
+              <button className="navbar-dropdown-btn">
+                <span className="nav-icon">📂</span>
+                <span className="nav-text">Categories</span>
+                <span className="dropdown-arrow">▼</span>
+              </button>
               {showCategories && (
-                <div className="navbar-dropdown-menu">
+                <div className="navbar-dropdown-menu modern-dropdown">
                   <div
                     className="navbar-dropdown-item"
                     onMouseEnter={() => setShowFreeSub(true)}
                     onMouseLeave={() => setShowFreeSub(false)}
                   >
-                    <span>Free Programs</span>
+                    <span>🆓 Free Programs</span>
                     {showFreeSub && (
                       <div className="navbar-submenu">
-                        <Link to="/search?category=free&type=python">Python</Link>
-                        <Link to="/search?category=free&type=htmlcss">HTML & CSS</Link>
+                        <Link to="/search?category=free&type=python" onClick={closeMenu}>
+                          🐍 Python
+                        </Link>
+                        <Link to="/search?category=free&type=htmlcss" onClick={closeMenu}>
+                          🎨 HTML & CSS
+                        </Link>
                       </div>
                     )}
                   </div>
-                  <Link to="/search?category=paid" className="navbar-dropdown-item">
-                    Paid Programs
+                  <Link to="/search?category=paid" className="navbar-dropdown-item" onClick={closeMenu}>
+                    💎 Paid Programs
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link to="/about" className="navbar-link">About</Link>
+            <Link to="/about" className="navbar-link modern-nav-item" onClick={closeMenu}>
+              <span className="nav-icon">ℹ️</span>
+              <span className="nav-text">About Us</span>
+            </Link>
           </div>
-        </div>
 
-        <div className="navbar-right">
-          <form onSubmit={handleSearch} className="navbar-search">
-            <input
-              type="text"
-              placeholder="Search programs..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="navbar-search-input"
-            />
-            <Button type="submit" variant="ghost" size="sm">
-              🔍
-            </Button>
+          {/* Modern Search Bar */}
+          <form onSubmit={handleSearch} className="navbar-search modern-search">
+            <div className="search-container">
+              <span className="search-icon">🔍</span>
+              <input
+                type="text"
+                placeholder="Search amazing programs..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="navbar-search-input"
+              />
+              <button type="submit" className="search-btn">
+                <span>Search</span>
+              </button>
+            </div>
           </form>
 
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={toggleTheme}
-            className="theme-toggle"
-          >
-            {theme === THEMES.dark ? "☀️" : "🌙"}
-          </Button>
+          {/* Modern Theme Toggle */}
+          <div className="theme-toggle-container">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              className="theme-toggle modern-theme-toggle"
+              title={`Switch to ${theme === THEMES.dark ? 'Light' : 'Dark'} Mode`}
+            >
+              <span className="theme-icon">
+                {theme === THEMES.dark ? "☀️" : "🌙"}
+              </span>
+              <span className="theme-text">
+                {theme === THEMES.dark ? "Light" : "Dark"}
+              </span>
+            </Button>
+          </div>
         </div>
       </div>
     </nav>

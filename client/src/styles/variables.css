@@ -1,11 +1,13 @@
 /* Design System Variables */
 :root {
   /* Colors */
-  --primary-color: #2563eb;
-  --primary-hover: #1d4ed8;
-  --secondary-color: #64748b;
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --secondary-color: #6c757d;
+  --secondary-hover: #545b62;
+  --secondary-text: #666;
   --accent-color: #f59e0b;
-  --success-color: #10b981;
+  --success-color: #28a745;
   --error-color: #ef4444;
   --warning-color: #f59e0b;
 
@@ -16,6 +18,21 @@
   --bg-dark: #0f172a;
   --bg-card: #ffffff;
   --bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Additional theme variables for consistency */
+  --bg-color: #f8f9fa;
+  --page-bg: #ffffff;
+  --text-color: #333;
+  --card-bg: #fff;
+  --border-color: #e0e0e0;
+  --hover-bg: rgba(0, 0, 0, 0.1);
+  --navbar-bg: #ffffff;
+  --search-bg: #f8f9fa;
+  --search-border: #e9ecef;
+  --placeholder-color: #6c757d;
+  --theme-toggle-bg: #f8f9fa;
+  --theme-toggle-border: #e9ecef;
+  --active-bg: rgba(0, 123, 255, 0.15);
 
   /* Text Colors */
   --text-primary: #1e293b;
@@ -108,6 +125,22 @@
   --border-light: #334155;
   --border-medium: #475569;
   --border-dark: #64748b;
+
+  /* Dark mode overrides for consistency */
+  --page-bg: #121212;
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --secondary-text: #cccccc;
+  --border-color: #333333;
+  --card-bg: #1e1e1e;
+  --hover-bg: rgba(255, 255, 255, 0.1);
+  --navbar-bg: #1a1a1a;
+  --search-bg: #2a2a2a;
+  --search-border: #444;
+  --placeholder-color: #aaa;
+  --theme-toggle-bg: #2a2a2a;
+  --theme-toggle-border: #444;
+  --active-bg: rgba(0, 123, 255, 0.3);
 }
 
 /* Responsive Design Helpers */

@@ -60,3 +60,20 @@ export const healthCheck = async () => {
   const response = await api.get(`/health`);
   return response.data;
 };
+
+// =====================
+// Banner
+// =====================
+
+// Get featured files for banner display
+export const getBannerFiles = async () => {
+  try {
+    // Try to get featured files, fallback to regular files if no specific endpoint
+    const response = await api.get(`/files?featured=true&limit=3`);
+    return response.data;
+  } catch (error) {
+    // Fallback to getting first 3 files if featured endpoint doesn't exist
+    const response = await api.get(`/files?page=1&limit=3`);
+    return response.data;
+  }
+};

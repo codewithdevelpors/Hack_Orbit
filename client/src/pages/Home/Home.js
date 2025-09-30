@@ -43,6 +43,10 @@ function Home() {
 
   return (
     <div className="home">
+      {/* Side Ads */}
+      <Ads type="side" position="left" />
+      <Ads type="side" position="right" />
+
       <div className="hero-section">
         <h1 className="hero-title">Welcome to Code Galaxy</h1>
         <p className="hero-subtitle">Discover amazing Python programs and code snippets</p>
@@ -60,7 +64,12 @@ function Home() {
                 <div className="files-grid">
                   {files.map((file, index) => (
                     <React.Fragment key={file._id}>
-                      <Card className="file-card">
+                      <Card
+                        className="file-card"
+                        rating={file.rating || 4.2}
+                        showTrending={true}
+                        trendingThreshold={4.5}
+                      >
                         <CardImage src={file.imgUrl} alt={file.fileName} />
                         <CardContent>
                           <div className="file-info">
@@ -85,13 +94,13 @@ function Home() {
                           </Button>
                         </CardContent>
                       </Card>
-                      {(index + 1) % 6 === 0 && <Ads type="row" className="ad-row" />}
+                      {(index + 1) % 3 === 0 && <Ads type="row" className="ad-row" />}
                     </React.Fragment>
                   ))}
                 </div>
               ) : (
                 <div className="empty-state">
-                  <div className="empty-icon">🚀</div>
+                  <div className="empty-icon">📁</div>
                   <h3>No programs found</h3>
                   <p>Data cannot be fetched right now. Please try again later.</p>
                 </div>
@@ -118,10 +127,6 @@ function Home() {
               </div>
             )}
           </div>
-
-          <aside className="sidebar">
-            <Ads type="side" />
-          </aside>
         </div>
       </div>
 

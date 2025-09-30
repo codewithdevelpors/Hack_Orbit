@@ -1,5 +1,6 @@
 import React from 'react';
 import './Card.css';
+import { renderStars, isTrending } from '../utils/helpers';
 
 const Card = ({
   children,
@@ -7,6 +8,9 @@ const Card = ({
   hover = true,
   padding = 'md',
   shadow = 'sm',
+  rating,
+  showTrending = false,
+  trendingThreshold = 4.5,
   ...props
 }) => {
   const cardClasses = [
@@ -17,9 +21,21 @@ const Card = ({
     className
   ].filter(Boolean).join(' ');
 
+  const isItemTrending = showTrending && rating && isTrending(rating, trendingThreshold);
+
   return (
     <div className={cardClasses} {...props}>
+      {isItemTrending && (
+        <div className="trending-badge">
+          <span>🔥 Trending</span>
+        </div>
+      )}
       {children}
+      {rating && (
+        <div className="card-rating">
+          {renderStars(rating)}
+        </div>
+      )}
     </div>
   );
 };
