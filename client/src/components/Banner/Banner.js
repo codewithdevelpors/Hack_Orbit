@@ -19,15 +19,17 @@ function Banner() {
 
   return (
     <div className="banner">
-      <button onClick={() => setIndex((index - 1 + banners.length) % banners.length)}>◀</button>
+      
       <div className="banner-content">
+        <button onClick={() => setIndex((index - 1 + banners.length) % banners.length)}>◀</button>
         <img src={banners[index].img} alt={banners[index].title} />
         <div className="banner-text">
           <h3>{banners[index].title}</h3>
           <p>{banners[index].desc}</p>
         </div>
+        <button onClick={() => setIndex((index + 1) % banners.length)}>▶</button>
       </div>
-      <button onClick={() => setIndex((index + 1) % banners.length)}>▶</button>
+      
     </div>
   );
 }

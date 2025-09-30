@@ -9,7 +9,7 @@ function Footer() {
         {/* Left Section: Logo, Name, and Slogan */}
         <div className="footer-left">
           <div className="footer-brand">
-            <img src="/logo.png" alt="Code Galaxy Logo" className="footer-logo" />
+            <img src="/favicon.ico" alt="Code Galaxy Logo" className="footer-logo" />
             <div className="footer-brand-text">
               <h2 className="footer-name">Code Galaxy</h2>
               <p className="footer-slogan">Explore the Universe of Code</p>

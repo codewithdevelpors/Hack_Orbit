@@ -44,7 +44,7 @@ function Navbar() {
         {/* Logo and Brand Name */}
         <div className="navbar-brand">
           <Link to="/" className="navbar-logo" onClick={closeMenu}>
-            <img src="/logo.png" alt="Code Galaxy Logo" className="logo-icon" />
+            <img src="/favicon.ico" alt="Code Galaxy Logo" className="logo-icon" />
             <span className="logo-text">Code Galaxy</span>
           </Link>
         </div>
@@ -82,6 +82,7 @@ function Navbar() {
                 <span className="nav-text">Categories</span>
                 <span className="dropdown-arrow">▼</span>
               </button>
+              
               {showCategories && (
                 <div className="navbar-dropdown-menu modern-dropdown">
                   <div
@@ -142,10 +143,10 @@ function Navbar() {
             >
               <span className="theme-icon">
                 {theme === THEMES.dark ? "☀️" : "🌙"}
-              </span>
+              </span>{/*
               <span className="theme-text">
                 {theme === THEMES.dark ? "Light" : "Dark"}
-              </span>
+              </span>*/}
             </Button>
           </div>
         </div>
