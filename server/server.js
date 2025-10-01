@@ -26,7 +26,7 @@ connectDB();
 
 //for check deployment
 app.get('/', (req, res) => {
-  res.send({ 
+  res.json({ 
     activeStatus:true,
     error:false,              
   })
