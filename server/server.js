@@ -24,6 +24,14 @@ app.use("/developers", fileRoutes); // All file-related routes under /developers
 const connectDB = require("./config/db");
 connectDB();
 
+//for check deployment
+app.get('/', (req, res) => {
+  res.send({ 
+    ActiveStatus:"running",
+    error:"false"              
+  })
+});
+
 // Health check endpoint to verify server and DB status
 app.get("/developers/health", (req, res) => {
   res.json({ server: "running", db: mongoose.connection.readyState === 1 ? "connected" : "disconnected" });
