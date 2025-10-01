@@ -12,7 +12,26 @@
   min-height: calc(100vh - 160px); /* Account for footer */
 }
 
+.content-with-ads {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 200px; /* Space for left side ad */
+  padding-right: 200px; /* Space for right side ad */
+}
+
+.page-content {
+  width: 100%;
+}
+
 /* Responsive adjustments */
+@media (max-width: 1400px) {
+  .main-content {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .main-content {
     padding-top: 70px;

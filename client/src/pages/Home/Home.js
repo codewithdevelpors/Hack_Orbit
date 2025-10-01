@@ -43,10 +43,6 @@ function Home() {
 
   return (
     <div className="home">
-      {/* Side Ads */}
-      <Ads type="side" position="left" />
-      <Ads type="side" position="right" />
-
       <div className="hero-section">
         <h1 className="hero-title">Welcome to Code Galaxy</h1>
         <p className="hero-subtitle">Discover amazing Python programs and code snippets</p>

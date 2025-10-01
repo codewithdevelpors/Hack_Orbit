@@ -5,12 +5,15 @@
   border: 1px solid var(--border-color, var(--border-light));
   transition: all var(--transition-normal);
   overflow: hidden;
+  left: 160px;
+  width: 400px;
 }
 
 .card-hover:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   border-color: var(--border-medium);
+  left: 160px;
 }
 
 /* Card Shadows */
@@ -172,6 +175,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .card {
+    left: 160px;
     margin-bottom: var(--spacing-md);
   }
 

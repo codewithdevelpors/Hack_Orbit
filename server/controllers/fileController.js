@@ -15,17 +15,30 @@ const getFiles = async (req, res) => {
   }
 };
 
-// Controller to search files by name, type, or category
+// Controller to search files by name, type, or category, with optional filters
 const searchFiles = async (req, res) => {
   try {
-    const query = req.query.query; // Search query from request
-    const files = await File.find({
-      $or: [
+    const { query, category, type } = req.query; // Extract query params
+    let filter = {};
+
+    // Add exact filters for category and type if provided
+    if (category) {
+      filter.category = category;
+    }
+    if (type) {
+      filter.type = type;
+    }
+
+    // Add text search if query is provided
+    if (query) {
+      filter.$or = [
         { fileName: new RegExp(query, "i") }, // Case-insensitive search in fileName
         { type: new RegExp(query, "i") }, // Case-insensitive search in type
         { category: new RegExp(query, "i") }, // Case-insensitive search in category
-      ],
-    });
+      ];
+    }
+
+    const files = await File.find(filter);
     if (files.length === 0) {
       return res.status(404).json({ message: "No data found" }); // No results found
     }

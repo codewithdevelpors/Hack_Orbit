@@ -25,9 +25,13 @@ export const getFileDetails = async (id) => {
 // Search
 // =====================
 
-// Search files in DB (by name, type, category)
-export const searchFiles = async (query) => {
-  const response = await api.get(`/search?query=${query}`);
+// Search files in DB (by name, type, category, with optional filters)
+export const searchFiles = async ({ query, category, type } = {}) => {
+  const params = new URLSearchParams();
+  if (query) params.append('query', query);
+  if (category) params.append('category', category);
+  if (type) params.append('type', type);
+  const response = await api.get(`/search?${params.toString()}`);
   return response.data;
 };
 

@@ -49,14 +49,19 @@
   color: var(--text-primary);
   margin-bottom: var(--spacing-xl);
   text-align: center;
+  top: 600px;
+  text-align: 590px  top;
 }
 
 /* Files Grid */
 .files-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-2xl);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* File Card */
@@ -221,10 +226,12 @@
   .files-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
+    max-width: 400px;
   }
 
   .section-title {
     font-size: var(--font-size-2xl);
+    top: 600px;
   }
 
   .pagination {

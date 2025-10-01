@@ -16,23 +16,25 @@
 }
 
 .side-ads {
-  position: fixed;
-  top: 150px;
+  position: absolute;
+  top: 800px;
   width: 160px;
-  height: 600px;
+  
+  max-height: fit-content;
   z-index: 10;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin: 0;
+  padding-top: 20px;
 }
 
 .side-ads.left {
-  left: 20px;
+  left: -180px;
 }
 
 .side-ads.right {
-  right: 20px;
+  right: -180px;
 }
 
 .popup-ads {
@@ -72,9 +74,24 @@
   background-color: var(--bg-secondary);
 }
 
-/* Hide side ads on mobile */
-@media (max-width: 1400px) {
+/* Hide side ads on mobile and tablets */
+@media (max-width: 1200px) {
   .side-ads {
     display: none;
+  }
+}
+
+/* Adjust side ads positioning for medium screens */
+@media (max-width: 1400px) and (min-width: 1201px) {
+  .side-ads {
+    width: 140px;
+  }
+  
+  .side-ads.left {
+    left: 10px;
+  }
+  
+  .side-ads.right {
+    right: 10px;
   }
 }
