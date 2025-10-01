@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
     activeStatus:true,
     error:false,              
   })
-})
+});
 
 // Health check endpoint to verify server and DB status
 app.get("/developers/health", (req, res) => {
