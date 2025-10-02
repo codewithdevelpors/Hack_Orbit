@@ -37,6 +37,4 @@ app.get("/developers/health", (req, res) => {
   res.json({ server: "running", db: mongoose.connection.readyState === 1 ? "connected" : "disconnected" });
 });
 
-// Start the server
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}/developers`));
+module.exports = app;
