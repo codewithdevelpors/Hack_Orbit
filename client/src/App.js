@@ -13,7 +13,6 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import Details from "./pages/Details/Details";
-import Download from "./pages/Download/Download";
 
 // Main App component
 function App() {
@@ -24,7 +23,6 @@ function App() {
         <Route path="/about" element={<About />} /> {/* About page */}
         <Route path="/search" element={<SearchPage />} /> {/* Search results page */}
         <Route path="/details/:id" element={<Details />} /> {/* File details page */}
-        <Route path="/download/:id" element={<Download />} /> {/* File download page */}
       </Routes>
     </MainLayout>
   );

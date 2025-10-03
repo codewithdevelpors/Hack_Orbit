@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./SearchPage.css";
 import { searchFiles } from "../../utils/api";
+import { Card, CardContent, CardImage } from "../../ui/Card";
+import Button from "../../ui/Button";
+import { FILE_TYPES, CATEGORIES } from "../../constants";
 
 function SearchPage() {
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
   const location = useLocation();
+  const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
-  
+
   const query = searchParams.get("query");
   const category = searchParams.get("category");
   const type = searchParams.get("type");
@@ -41,19 +45,54 @@ function SearchPage() {
 
   return (
     <div className="search-page">
-      <h1>{getSearchTitle()}</h1>
-      {error && <p className="error-message">{error}</p>}
-      <div className="results">
-        {results.map((file) => (
-          <div key={file._id} className="result">
-            <h3>{file.fileName}</h3>
-            <p>{file.shortDescription}</p>
-            <div className="file-meta">
-              <span className="file-type">{file.type}</span>
-              <span className="file-category">{file.category}</span>
-            </div>
+      <div className="container">
+        <h1 className="search-title">{getSearchTitle()}</h1>
+        {error && <p className="error-message">{error}</p>}
+        {results.length > 0 ? (
+          <div className="files-grid">
+            {results.map((file) => (
+              <Card
+                key={file._id}
+                className="file-card"
+                rating={file.rating || 4.2}
+                showTrending={true}
+                trendingThreshold={4.5}
+              >
+                <CardImage src={file.imgUrl} alt={file.fileName} />
+                <CardContent>
+                  <div className="file-info">
+                    <h3 className="file-title">{file.fileName}</h3>
+                    <div className="file-meta">
+                      <span className="file-type">{FILE_TYPES[file.type] || file.type}</span>
+                      <span className={`file-category ${file.category}`}>
+                        {CATEGORIES[file.category]}
+                      </span>
+                    </div>
+                    <p className="file-date">
+                      Created: {new Date(file.createdDate).toLocaleDateString()}
+                    </p>
+                    <p className="file-description">{file.shortDescription}</p>
+                  </div>
+                  <Button
+                    variant="primary"
+                    onClick={() => navigate(`/details/${file._id}`)}
+                    className="file-action-btn"
+                  >
+                    View Details
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        ))}
+        ) : (
+          !error && (
+            <div className="empty-state">
+              <div className="empty-icon">🔍</div>
+              <h3>No results found</h3>
+              <p>Try adjusting your search criteria.</p>
+            </div>
+          )
+        )}
       </div>
     </div>
   );

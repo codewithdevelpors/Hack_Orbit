@@ -21,7 +21,8 @@ html {
 }
 
 body {
-  background-color: var(--page-bg, var(--bg-primary));
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
   color: var(--text-color, var(--text-primary));
   transition: background-color var(--transition-normal), color var(--transition-normal);
   overflow-x: hidden;
@@ -275,8 +276,7 @@ a:hover {
 
 /* Focus Styles for Accessibility */
 *:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
+  outline: none;
 }
 
 /* Animation Keyframes */
