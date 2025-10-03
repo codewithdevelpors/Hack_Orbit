@@ -198,7 +198,7 @@ function TermsOfService() {
             </p>
             <div className="contact-info">
               <p><strong>Code Galaxy Legal Team</strong></p>
-              <p>📧 Email: legal@codegalaxy.com</p>
+              <p>📧 Email: codewithdevelpors@gmail.com</p>
               <p>🌐 Website: <a href="/">Code Galaxy</a></p>
               <p>📍 Response time: Within 48 hours</p>
               <p>💬 We're committed to clear communication and fair resolution</p>

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getFileDetails, downloadFile } from "../../utils/api";
+import { useParams, useNavigate } from "react-router-dom";
+import { getFileDetails } from "../../utils/api";
 import { FILE_TYPES, CATEGORIES } from "../../constants";
 
 function Details() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -41,17 +42,8 @@ function Details() {
     setPreviewType("");
   };
 
-  const handleDownload = async () => {
-    try {
-      const downloadData = await downloadFile(file._id);
-      if (downloadData.fileUrl) {
-        window.open(downloadData.fileUrl, "_blank");
-      }
-    } catch (error) {
-      console.error("Download failed:", error);
-      // Fallback to opening image URL
-      window.open(file.imgUrl, "_blank");
-    }
+  const handleDownload = () => {
+    navigate(`/download/${file._id}`);
   };
 
   const renderStars = (rating) => {
@@ -294,7 +286,7 @@ console.log(result);`}
               <button className="btn btn-secondary" onClick={closePreview}>
                 Close
               </button>
-              <button className="btn btn-primary" onClick={handleDownload}>
+              <button className="btn btn-primary" onClick={() => navigate(`/download/${file._id}`)}>
                 Download
               </button>
             </div>

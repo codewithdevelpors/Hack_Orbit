@@ -130,7 +130,7 @@ function PrivacyPolicy() {
             </p>
             <div className="contact-info">
               <p><strong>Code Galaxy Team</strong></p>
-              <p>📧 Email: privacy@codegalaxy.com</p>
+              <p>📧 Email: codewithdevelpors@gmail.com</p>
               <p>🌐 Website: <a href="/">Code Galaxy</a></p>
               <p>📍 We're committed to responding to your inquiries within 48 hours</p>
             </div>

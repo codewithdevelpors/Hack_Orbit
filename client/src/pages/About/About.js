@@ -122,19 +122,6 @@ function About() {
             </p>
           </section>
 
-          <section className="legal-section">
-            <h2>🛠️ Technology Stack</h2>
-            <p>
-              Code Galaxy is built with modern, reliable technologies:
-            </p>
-            <ul>
-              <li><strong>Frontend:</strong> React 18 with responsive design and dark mode support</li>
-              <li><strong>Backend:</strong> Node.js and Express.js for robust API services</li>
-              <li><strong>Database:</strong> MongoDB for flexible and scalable data storage</li>
-              <li><strong>Search:</strong> Advanced full-text search capabilities</li>
-              <li><strong>Performance:</strong> Optimized for speed and reliability</li>
-            </ul>
-          </section>
 
           <section className="legal-section">
             <h2>🎯 Future Roadmap</h2>

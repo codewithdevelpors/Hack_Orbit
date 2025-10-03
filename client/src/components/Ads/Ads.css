@@ -1,0 +1,170 @@
+/* Side Ads */
+.ads-side {
+  width: 300px;
+  height: 600px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: sticky;
+  top: 20px;
+}
+
+.ads-side .ad-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Row Ads */
+.ads-row {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.ads-row .ad-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Popup Ads */
+.ads-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.ads-popup {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: hidden;
+  position: relative;
+  animation: popupSlideIn 0.3s ease-out;
+}
+
+@keyframes popupSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.ads-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ff4757;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+.ads-close-btn:hover {
+  background: #ff3742;
+  transform: scale(1.1);
+}
+
+/* Ad Content Placeholder */
+.ad-content {
+  padding: 20px;
+}
+
+.ad-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.ad-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.ad-text h4 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ad-text p {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ads-side {
+    width: 250px;
+    height: 500px;
+  }
+
+  .ads-row {
+    height: 100px;
+  }
+
+  .ads-popup {
+    width: 95%;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ads-side {
+    width: 200px;
+    height: 400px;
+  }
+
+  .ads-row {
+    height: 80px;
+  }
+
+  .ad-icon {
+    font-size: 36px;
+  }
+
+  .ad-text h4 {
+    font-size: 18px;
+  }
+
+  .ad-text p {
+    font-size: 14px;
+  }
+}

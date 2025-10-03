@@ -17,12 +17,21 @@
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding-left: 200px; /* Space for left side ad */
-  padding-right: 200px; /* Space for right side ad */
+  display: flex;
+  gap: 20px;
+}
+
+.left-ad,
+.right-ad {
+  flex-shrink: 0;
+  width: 300px;
 }
 
 .page-content {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Responsive adjustments */
@@ -32,10 +41,26 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .left-ad,
+  .right-ad {
+    width: 250px;
+  }
+}
+
 @media (max-width: 768px) {
   .main-content {
     padding-top: 70px;
     min-height: calc(100vh - 140px);
+  }
+
+  .content-with-ads {
+    gap: 10px;
+  }
+
+  .left-ad,
+  .right-ad {
+    width: 200px;
   }
 }
 
@@ -43,5 +68,17 @@
   .main-content {
     padding-top: 60px;
     min-height: calc(100vh - 120px);
+  }
+
+  .content-with-ads {
+    gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .left-ad,
+  .right-ad {
+    width: 80px;
+    height: 400px;
   }
 }
