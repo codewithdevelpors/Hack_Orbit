@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { getBannerFiles } from "../../utils/api";
 import "./Banner.css";
 
 function Banner() {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [banners, setBanners] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -128,6 +130,12 @@ function Banner() {
             <p className="banner-type">{currentBanner.fileType}</p>
             <p className="banner-upload">{currentBanner.uploadingData}</p>
             <p className="banner-description">{currentBanner.shortDescription}</p>
+            <button
+              className="banner-view-detail-btn"
+              onClick={() => navigate(`/details/${currentBanner.id}`)}
+            >
+              View Detail
+            </button>
           </div>
         </div>
 

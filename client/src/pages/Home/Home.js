@@ -4,7 +4,6 @@ import { getFiles } from "../../utils/api";
 import { Card, CardContent, CardImage } from "../../ui/Card";
 import Button from "../../ui/Button";
 import Banner from "../../components/Banner/Banner";
-import Ads from "../../components/Ads/Ads";
 import RateUs from "../../components/RateUs/RateUs";
 import { useNavigate } from "react-router-dom";
 import { FILE_TYPES, CATEGORIES } from "../../constants";
@@ -23,7 +22,7 @@ function Home() {
         const data = await getFiles(page);
         setFiles(data);
       } catch (err) {
-        console.error("Failed to fetch files", err);
+        // Error handled silently - empty state will show
       }
     };
     fetchData();
@@ -59,39 +58,37 @@ function Home() {
               {files.length > 0 ? (
                 <div className="files-grid">
                   {files.map((file, index) => (
-                    <React.Fragment key={file._id}>
-                      <Card
-                        className="file-card"
-                        rating={file.rating || 4.2}
-                        showTrending={true}
-                        trendingThreshold={4.5}
-                      >
-                        <CardImage src={file.imgUrl} alt={file.fileName} />
-                        <CardContent>
-                          <div className="file-info">
-                            <h3 className="file-title">{file.fileName}</h3>
-                            <div className="file-meta">
-                              <span className="file-type">{FILE_TYPES[file.type] || file.type}</span>
-                              <span className={`file-category ${file.category}`}>
-                                {CATEGORIES[file.category]}
-                              </span>
-                            </div>
-                            <p className="file-date">
-                              Created: {new Date(file.createdDate).toLocaleDateString()}
-                            </p>
-                            <p className="file-description">{file.shortDescription}</p>
+                    <Card
+                      key={file._id}
+                      className="file-card"
+                      rating={file.rating || 4.2}
+                      showTrending={true}
+                      trendingThreshold={4.5}
+                    >
+                      <CardImage src={file.imgUrl} alt={file.fileName} />
+                      <CardContent>
+                        <div className="file-info">
+                          <h3 className="file-title">{file.fileName}</h3>
+                          <div className="file-meta">
+                            <span className="file-type">{FILE_TYPES[file.type] || file.type}</span>
+                            <span className={`file-category ${file.category}`}>
+                              {CATEGORIES[file.category]}
+                            </span>
                           </div>
-                          <Button
-                            variant="primary"
-                            onClick={() => handleNextClick(file)}
-                            className="file-action-btn"
-                          >
-                            View Details
-                          </Button>
-                        </CardContent>
-                      </Card>
-                      {(index + 1) % 3 === 0 && <Ads type="row" className="ad-row" />}
-                    </React.Fragment>
+                          <p className="file-date">
+                            Created: {new Date(file.createdDate).toLocaleDateString()}
+                          </p>
+                          <p className="file-description">{file.shortDescription}</p>
+                        </div>
+                        <Button
+                          variant="primary"
+                          onClick={() => handleNextClick(file)}
+                          className="file-action-btn"
+                        >
+                          View Details
+                        </Button>
+                      </CardContent>
+                    </Card>
                   ))}
                 </div>
               ) : (

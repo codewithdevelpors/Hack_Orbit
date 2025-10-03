@@ -2,6 +2,7 @@
 .home {
   min-height: 100vh;
   background-color: var(--bg-primary);
+  animation: fadeIn 0.8s ease-out;
 }
 
 /* Hero Section */
@@ -10,6 +11,20 @@
   color: var(--text-light);
   padding: var(--spacing-3xl) 0;
   text-align: center;
+  animation: fadeInUp 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: float 6s ease-in-out infinite;
 }
 
 .hero-title {
@@ -68,12 +83,22 @@
 .file-card {
   height: 100%;
   overflow: hidden;
-  transition: transform var(--transition-normal);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
 }
 
 .file-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
+
+.file-card:nth-child(1) { animation-delay: 0.1s; }
+.file-card:nth-child(2) { animation-delay: 0.2s; }
+.file-card:nth-child(3) { animation-delay: 0.3s; }
+.file-card:nth-child(4) { animation-delay: 0.4s; }
+.file-card:nth-child(5) { animation-delay: 0.5s; }
+.file-card:nth-child(6) { animation-delay: 0.6s; }
 
 .file-info {
   height: 100%;
