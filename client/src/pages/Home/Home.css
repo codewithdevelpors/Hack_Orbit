@@ -168,9 +168,9 @@
 .empty-state {
   text-align: center;
   padding: var(--spacing-3xl) var(--spacing-xl);
-  background-color: var(--bg-secondary);
+  background-color: green;
   border-radius: var(--radius-lg);
-  border: 2px dashed var(--border-medium);
+  border: 2px solid black;
   align-items: center;
 }
 

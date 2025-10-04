@@ -42,13 +42,6 @@ function Home() {
 
   return (
     <div className="home">
-      <div className="hero-section-fullwidth">
-        <div className="hero-section">
-          <h1 className="hero-title">Welcome to Code Galaxy</h1>
-          <p className="hero-subtitle">Discover amazing Python programs and code snippets</p>
-        </div>
-      </div>
-
       <Banner />
 
       <div className="container">
