@@ -16,6 +16,24 @@ function validateDataItem(item) {
   return true;
 }
 
+// Function to map input field names to DB field names
+function mapFieldNames(item) {
+  const fieldMapping = {
+    'fileType': 'type',
+    'Raw File Link': 'rawFileLink',
+    'Direct Download Link': 'directDownloadLink',
+    'RawFileLink': 'rawFileLink',
+    'DirectDownloadLink': 'directDownloadLink'
+  };
+
+  const mappedItem = {};
+  for (const [key, value] of Object.entries(item)) {
+    const dbKey = fieldMapping[key] || key;
+    mappedItem[dbKey] = value;
+  }
+  return mappedItem;
+}
+
 // Function to process data array
 function processData(data) {
   if (!Array.isArray(data)) {
@@ -24,14 +42,26 @@ function processData(data) {
   const processedData = [];
   for (const item of data) {
     try {
-      validateDataItem(item);
+      const mappedItem = mapFieldNames(item);
+      // Normalize category
+      if (mappedItem.category) {
+        mappedItem.category = mappedItem.category.toLowerCase();
+      }
+      // Normalize price
+      if (typeof mappedItem.price === 'string') {
+        const priceMatch = mappedItem.price.match(/\$?(\d+(\.\d+)?)/);
+        mappedItem.price = priceMatch ? parseFloat(priceMatch[1]) : 0;
+      }
+      validateDataItem(mappedItem);
       // Add default values if not present
       const processedItem = {
-        ...item,
-        createdDate: item.createdDate || new Date(),
-        price: item.price || 0,
-        rating: item.rating || 0,
-        ratingsCount: item.ratingsCount || 0
+        ...mappedItem,
+        createdDate: mappedItem.createdDate || new Date(),
+        price: mappedItem.price || 0,
+        rating: mappedItem.rating || 0,
+        ratingsCount: mappedItem.ratingsCount || 0,
+        rawFileLink: mappedItem.rawFileLink || '',
+        directDownloadLink: mappedItem.directDownloadLink || ''
       };
       processedData.push(processedItem);
     } catch (error) {

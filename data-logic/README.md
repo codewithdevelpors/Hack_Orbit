@@ -10,18 +10,21 @@ This folder contains the logic and scripts to update the database with new data.
 
 ## Usage
 
-1. **Prepare your data**: Edit `data.json` and paste your data as an array of objects. Each object should have the following required fields:
-   - `imgUrl`: URL of the file's image
-   - `fileName`: Name of the file
-   - `type`: Type of the file (e.g., python, html&css)
-   - `category`: Either "free" or "paid"
+1. **Prepare your data**: Edit `data.json` and paste your data as an array of objects. You can use either database field names or the exact display names. Each object should have the following required fields:
+   - `imgUrl` or `imgUrl`
+   - `fileName` or `fileName`
+   - `type` or `fileType`: Type of the file (e.g., python, html&css)
+   - `category` or `category`: Either "free" or "paid"
 
    Optional fields:
-   - `shortDescription`: Brief description
-   - `pageDescription`: Detailed description
-   - `price`: Price if paid (default 0)
-   - `rating`: Average rating (default 0)
-   - `ratingsCount`: Number of ratings (default 0)
+   - `shortDescription` or `shortDescription`: Brief description
+   - `pageDescription` or `pageDescription`: Detailed description
+   - `price` or `price`: Price if paid (default 0)
+   - `rating` or `rating`: Average rating (default 0)
+   - `ratingsCount` or `ratingsCount`: Number of ratings (default 0)
+   - `rawFileLink` or `Raw File Link`: Raw file link
+   - `directDownloadLink` or `Direct Download Link`: Direct download link
+   - `createdDate` or `createdDate`: Creation date (defaults to now)
 
 2. **Run the update script**:
    - From the root directory, run: `node data-logic/update.js`

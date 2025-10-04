@@ -132,13 +132,31 @@ function Details() {
           </div>
 
           {/* Date */}
-          <p className="text-muted" style={{ marginBottom: "2rem" }}>
-            Created: {new Date(file.createdDate).toLocaleDateString()}
+          <p className="text-muted" style={{ marginBottom: "1rem" }}>
+            <strong>createdDate:</strong> {new Date(file.createdDate).toLocaleDateString()}
           </p>
+
+          {/* Category */}
+          <p className="text-muted" style={{ marginBottom: "1rem" }}>
+            <strong>category:</strong> {CATEGORIES[file.category]}
+          </p>
+
+          {/* File Type */}
+          <p className="text-muted" style={{ marginBottom: "1rem" }}>
+            <strong>fileType:</strong> {FILE_TYPES[file.type] || file.type}
+          </p>
+
+          {/* Price */}
+          <p className="text-muted" style={{ marginBottom: "1rem" }}>
+            <strong>price:</strong> {file.price === 0 ? 'Free' : `$${file.price}`}
+          </p>
+
+
 
           {/* Description */}
           <p style={{ fontSize: "1.1rem", lineHeight: "1.6", marginBottom: "2rem", maxWidth: "600px", margin: "0 auto 2rem" }}>
-            {file.pageDescription || file.shortDescription}
+            <strong>shortDescription:</strong> {file.shortDescription}<br/>
+            <strong>pageDescription:</strong> {file.pageDescription}
           </p>
         </div>
 
@@ -146,16 +164,16 @@ function Details() {
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
           {isHtmlCss && (
             <>
-              <button className="btn btn-primary" onClick={() => handlePreview("html")}>
+              <button className="btn btn-primary" onClick={() => window.open(file.rawFileLink, '_blank')}>
                 Preview HTML
               </button>
-              <button className="btn btn-primary" onClick={() => handlePreview("css")}>
+              <button className="btn btn-primary" onClick={() => window.open(file.rawFileLink, '_blank')}>
                 Preview CSS
               </button>
             </>
           )}
           {!isHtmlCss && (
-            <button className="btn btn-primary" onClick={() => handlePreview("code")}>
+            <button className="btn btn-primary" onClick={() => window.open(file.rawFileLink, '_blank')}>
               Preview Code
             </button>
           )}

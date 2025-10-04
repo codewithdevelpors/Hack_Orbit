@@ -12,7 +12,9 @@ const fileSchema = new mongoose.Schema({
   category: { type: String, enum: ["free", "paid"], required: true }, // Category: free or paid
   price: { type: Number, default: 0 }, // Price if paid
   rating: { type: Number, default: 0 }, // Average rating
-  ratingsCount: { type: Number, default: 0 } // Number of ratings
+  ratingsCount: { type: Number, default: 0 }, // Number of ratings
+  rawFileLink: { type: String }, // Raw file link
+  directDownloadLink: { type: String } // Direct download link
 });
 
 // Export the model
