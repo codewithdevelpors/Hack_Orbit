@@ -53,6 +53,16 @@ function Ads({ type, onClose }) {
         </div>
       );
 
+    case 'popup-top-right':
+      return (
+        <div className="ads-popup-overlay top-right">
+          <div className="ads-popup">
+            <button className="ads-close-btn" onClick={handleClose}>×</button>
+            {renderAdContent()}
+          </div>
+        </div>
+      );
+
     case 'row':
       return (
         <div className="ads-row">

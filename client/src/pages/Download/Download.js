@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { downloadFile, getFileDetails } from "../../utils/api";
+import Ads from "../../components/Ads/Ads";
 
 function Download() {
   const { id } = useParams();
@@ -47,6 +48,7 @@ function Download() {
 
   return (
     <div className="container" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <Ads type="row" />
       <div className="card" style={{ textAlign: "center", padding: "3rem", maxWidth: "500px", margin: "0 auto" }}>
         <h1 style={{ marginBottom: "2rem", fontSize: "2.5rem" }}>Download Starting</h1>
 

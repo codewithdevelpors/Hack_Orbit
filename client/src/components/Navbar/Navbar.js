@@ -12,12 +12,36 @@ function Navbar() {
   const [showFreeSub, setShowFreeSub] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem(STORAGE_KEYS.theme, theme);
   }, [theme]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past 100px
+        setIsHidden(true);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        setIsHidden(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
 
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === THEMES.light ? THEMES.dark : THEMES.light);
@@ -39,7 +63,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isHidden ? 'navbar-hidden' : ''}`}>
       <div className="navbar-container">
         {/* Logo and Brand Name */}
         <div className="navbar-brand">

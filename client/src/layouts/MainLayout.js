@@ -22,26 +22,26 @@ const MainLayout = ({ children }) => {
       <main className="main-content">
         <div className="content-with-ads">
           {/* Left Side Ad */}
-          {/* <div className="left-ad">
+          <div className="left-ad">
             <Ads type="side" />
-          </div> */}
+          </div>
 
           <div className="page-content">
             {children}
           </div>
 
           {/* Right Side Ad */}
-          {/* <div className="right-ad">
+          <div className="right-ad">
             <Ads type="side" />
-          </div> */}
+          </div>
         </div>
       </main>
       <Footer />
 
       {/* Popup Ad */}
-      {/* {showPopup && (
-        <Ads type="popup" onClose={() => setShowPopup(false)} />
-      )} */}
+      {showPopup && (
+        <Ads type="popup-top-right" onClose={() => setShowPopup(false)} />
+      )}
     </div>
   );
 };

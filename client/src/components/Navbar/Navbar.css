@@ -9,7 +9,11 @@
   border-bottom: 1px solid var(--border-color, var(--border-light));
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   z-index: var(--z-fixed);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+.navbar.navbar-hidden {
+  transform: translateY(-100%);
 }
 
 .navbar-container {

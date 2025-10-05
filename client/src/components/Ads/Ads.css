@@ -1,13 +1,13 @@
 /* Side Ads */
 .ads-side {
-  width: 300px;
+  width: 150px;
   height: 600px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: sticky;
-  top: 20px;
+  top: 100px;
 }
 
 .ads-side .ad-content {
@@ -48,6 +48,14 @@
   justify-content: center;
   z-index: 1000;
   backdrop-filter: blur(4px);
+}
+
+.ads-popup-overlay.top-right {
+  background: none;
+  backdrop-filter: none;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 20px;
 }
 
 .ads-popup {
