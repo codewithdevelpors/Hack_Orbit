@@ -75,18 +75,46 @@ All endpoints are prefixed with `/developers`:
 ### File Model
 ```javascript
 {
-  imgUrl: String, // Required
-  fileName: String, // Required
+  _id: ObjectId, // Auto-generated
+  imgUrl: String, // Required - URL of the file's preview image
+  fileName: String, // Required - Name of the file
   type: String, // Required (e.g., python, html&css)
-  shortDescription: String,
-  pageDescription: String,
+  shortDescription: String, // Brief description for listings
+  pageDescription: String, // Detailed description for full page
   createdDate: Date, // Default: Date.now
   category: String, // Required: "free" or "paid"
   price: Number, // Default: 0
   rating: Number, // Default: 0 (average rating)
-  ratingsCount: Number // Default: 0
+  ratingsCount: Number, // Default: 0 (number of ratings)
+  rawFileLink: String, // Raw file link
+  directDownloadLink: String // Direct download link
 }
 ```
+
+## Data Fetching and Usage
+
+The server fetches the following fields from MongoDB for all queries (except rating updates):
+
+- `_id`: Unique identifier
+- `imgUrl`: Used in frontend for displaying file preview images
+- `fileName`: Displayed as file title in listings and details
+- `type`: Shows file type/category in UI
+- `shortDescription`: Used in file cards on home page
+- `pageDescription`: Used on details page for full description
+- `category`: Determines if file is free/paid, affects UI styling
+- `price`: Displayed for paid files
+- `rating`: Shows average user rating
+- `createdDate`: Displayed as creation date
+- `directDownloadLink`: Used for file downloads
+- `rawFileLink`: Raw file access link
+
+### Where Data is Used in Frontend:
+
+- **Home Page (`/src/pages/Home/Home.js`)**: Displays file cards with imgUrl, fileName, type, shortDescription, category, price, rating, createdDate
+- **Details Page (`/src/pages/Details/Details.js`)**: Shows full file details including pageDescription, and imgUrl for preview
+- **Download Page (`/src/pages/Download/Download.js`)**: Uses imgUrl for preview image, fileName for download filename, directDownloadLink for download URL
+- **Search Results**: Same fields as home page listings
+- **Banner (`/src/components/Banner/Banner.js`)**: Uses imgUrl for banner images, fileName, etc.
 
 ## Project Structure
 

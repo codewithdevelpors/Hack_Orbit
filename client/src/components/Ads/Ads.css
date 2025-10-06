@@ -1,4 +1,16 @@
-/* Side Ads */
+/**
+ * Generic Ads Component Styles
+ *
+ * Comprehensive styling for the generic Ads component that supports
+ * multiple ad types: side, row, popup, and popup-top-right.
+ * This file works alongside the specialized LeftAd and RightAd components.
+ */
+
+/* ===========================================
+   SIDE ADVERTISEMENTS
+   =========================================== */
+
+/* Main container for side advertisements */
 .ads-side {
   width: 150px;
   height: 600px;
@@ -7,9 +19,10 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: sticky;
-  top: 100px;
+  top: 100px; /* Stick to top with offset for navbar */
 }
 
+/* Content area within side ads */
 .ads-side .ad-content {
   height: 100%;
   display: flex;
@@ -17,17 +30,22 @@
   justify-content: center;
 }
 
-/* Row Ads */
+/* ===========================================
+   ROW ADVERTISEMENTS
+   =========================================== */
+
+/* Horizontal row advertisements for content insertion */
 .ads-row {
   width: 100%;
   height: 120px;
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  margin: 20px 0;
+  margin: 20px 0; /* Vertical spacing from content */
   overflow: hidden;
 }
 
+/* Content area within row ads */
 .ads-row .ad-content {
   height: 100%;
   display: flex;
@@ -35,60 +53,92 @@
   justify-content: center;
 }
 
-/* Popup Ads */
+/* ===========================================
+   POPUP ADVERTISEMENTS
+   =========================================== */
+
+/* Full-screen popup overlay - non-intrusive version */
 .ads-popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.3); /* Much lighter overlay */
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  backdrop-filter: blur(4px);
+  z-index: 500; /* Lower z-index to be less intrusive */
+  backdrop-filter: blur(1px); /* Minimal blur effect */
+  pointer-events: none; /* Allow clicks through overlay */
 }
 
+/* Non-intrusive popup styling */
+.ads-popup-overlay.non-intrusive {
+  background: rgba(0, 0, 0, 0.1); /* Very light overlay */
+  backdrop-filter: none; /* No blur for better user experience */
+}
+
+/* Top-right positioned popup overlay - completely non-intrusive */
 .ads-popup-overlay.top-right {
-  background: none;
+  background: none; /* No overlay background */
   backdrop-filter: none;
   justify-content: flex-end;
   align-items: flex-start;
-  padding: 20px;
+  padding: 20px; /* Spacing from edges */
+  pointer-events: none; /* Allow clicks through */
 }
 
+/* Make top-right popup clickable but not the overlay */
+.ads-popup-overlay.top-right .ads-popup {
+  pointer-events: auto;
+}
+
+/* Popup container styling - non-intrusive design */
 .ads-popup {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  max-width: 500px;
-  width: 90%;
-  max-height: 80vh;
+  background: rgba(255, 255, 255, 0.95); /* Semi-transparent background */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 300px; /* Smaller size to be less intrusive */
+  width: 280px;
+  max-height: 200px; /* Compact height */
   overflow: hidden;
   position: relative;
-  animation: popupSlideIn 0.3s ease-out;
+  animation: subtleSlideIn 0.5s ease-out; /* Gentle entrance animation */
+  backdrop-filter: blur(10px); /* Glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0.9; /* Slightly transparent to be less prominent */
 }
 
-@keyframes popupSlideIn {
+/* Non-intrusive popup for top-right */
+.ads-popup-overlay.top-right .ads-popup {
+  max-width: 250px;
+  width: 240px;
+  max-height: 150px;
+  opacity: 0.8; /* Even more transparent for corner placement */
+}
+
+/* Subtle popup entrance animation */
+@keyframes subtleSlideIn {
   from {
     opacity: 0;
-    transform: scale(0.8) translateY(-20px);
+    transform: translateY(-10px); /* Gentle slide effect */
   }
   to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+    opacity: 0.9;
+    transform: translateY(0);
   }
 }
 
+/* Close button for popup ads */
 .ads-close-btn {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: #ff4757;
+  background: #ff4757; /* Red background for visibility */
   color: white;
   border: none;
-  border-radius: 50%;
+  border-radius: 50%; /* Circular button */
   width: 32px;
   height: 32px;
   font-size: 18px;
@@ -97,20 +147,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
-  transition: all 0.2s ease;
+  z-index: 1; /* Above ad content */
+  transition: all 0.2s ease; /* Smooth hover effects */
 }
 
+/* Close button hover effect */
 .ads-close-btn:hover {
-  background: #ff3742;
-  transform: scale(1.1);
+  background: #ff3742; /* Darker red on hover */
+  transform: scale(1.1); /* Slight scale increase */
 }
 
-/* Ad Content Placeholder */
+/* ===========================================
+   SHARED AD CONTENT STYLES
+   =========================================== */
+
+/* Main content wrapper for all ad types */
 .ad-content {
   padding: 20px;
 }
 
+/* Placeholder content structure */
 .ad-placeholder {
   display: flex;
   flex-direction: column;
@@ -119,51 +175,60 @@
   color: white;
 }
 
+/* Ad icon styling */
 .ad-icon {
   font-size: 48px;
   margin-bottom: 16px;
-  opacity: 0.9;
+  opacity: 0.9; /* Slightly transparent for softer look */
 }
 
+/* Ad heading styles */
 .ad-text h4 {
   margin: 0 0 8px 0;
   font-size: 20px;
   font-weight: 600;
 }
 
+/* Ad description styles */
 .ad-text p {
   margin: 0;
   font-size: 16px;
-  opacity: 0.9;
+  opacity: 0.9; /* Slightly transparent for hierarchy */
 }
 
-/* Responsive Design */
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+
+/* Tablet responsive breakpoint */
 @media (max-width: 768px) {
   .ads-side {
-    width: 250px;
-    height: 500px;
+    width: 250px; /* Wider on tablets */
+    height: 500px; /* Shorter height */
   }
 
   .ads-row {
-    height: 100px;
+    height: 100px; /* Reduced height for mobile */
   }
 
   .ads-popup {
-    width: 95%;
-    margin: 20px;
+    width: 95%; /* Nearly full width */
+    margin: 20px; /* Margin for breathing room */
   }
 }
 
+/* Mobile responsive breakpoint */
 @media (max-width: 480px) {
   .ads-side {
-    width: 200px;
-    height: 400px;
+    width: 200px; /* Smaller width for mobile */
+    height: 400px; /* Reduced height */
   }
 
   .ads-row {
-    height: 80px;
+    height: 80px; /* Compact height for mobile */
   }
 
+  /* Smaller text and icons for mobile */
   .ad-icon {
     font-size: 36px;
   }
@@ -174,5 +239,44 @@
 
   .ad-text p {
     font-size: 14px;
+  }
+}
+
+/* ===========================================
+   ACCESSIBILITY & PRINT STYLES
+   =========================================== */
+
+/* Hide ads when printing */
+@media print {
+  .ads-side,
+  .ads-row,
+  .ads-popup-overlay {
+    display: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .ads-popup {
+    border: 2px solid black;
+  }
+  
+  .ads-close-btn {
+    border: 2px solid white;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .ads-popup {
+    animation: none; /* Disable entrance animation */
+  }
+  
+  .ads-close-btn {
+    transition: none; /* Disable hover transitions */
+  }
+  
+  .ads-close-btn:hover {
+    transform: none; /* Disable scale effect */
   }
 }

@@ -1,0 +1,236 @@
+/**
+ * LeftAd Component Styles
+ * 
+ * Styles specifically designed for the left sidebar advertisement component.
+ * Features responsive design, smooth animations, and accessibility considerations.
+ */
+
+/* Main container for left ad */
+.left-ad-container {
+  width: 160px;
+  height: 600px;
+  background: linear-gradient(135deg, #ff0037 0%, #00f2fe 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(79, 172, 254, 0.2);
+  overflow: hidden;
+  position: sticky;
+  top: 100px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Hover effect for the entire ad container */
+.left-ad-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 48px rgba(79, 172, 254, 0.3);
+}
+
+/* Close button styles */
+.left-ad-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.2s ease;
+  opacity: 0.7; /* Always visible but semi-transparent */
+  backdrop-filter: blur(10px);
+}
+
+/* Enhance close button visibility on container hover */
+.left-ad-container:hover .left-ad-close-btn {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Close button hover effect */
+.left-ad-close-btn:hover {
+  background: rgba(255, 77, 87, 0.8);
+  transform: scale(1.1);
+}
+
+/* Main content area */
+.left-ad-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Ad content placeholder */
+.left-ad-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  width: 100%;
+}
+
+/* Ad icon styling */
+.left-ad-icon {
+  font-size: 42px;
+  margin-bottom: 16px;
+  opacity: 0.9;
+  animation: pulse 2s infinite;
+}
+
+/* Pulse animation for the icon */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* Ad text container */
+.left-ad-text {
+  width: 100%;
+}
+
+/* Ad heading styles */
+.left-ad-text h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ad description styles */
+.left-ad-text p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.9;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus styles for accessibility */
+.left-ad-content:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Tablet responsive design */
+@media (max-width: 1024px) {
+  .left-ad-container {
+    width: 140px;
+    height: 500px;
+  }
+  
+  .left-ad-icon {
+    font-size: 36px;
+  }
+  
+  .left-ad-text h4 {
+    font-size: 15px;
+  }
+  
+  .left-ad-text p {
+    font-size: 11px;
+  }
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+  .left-ad-container {
+    width: 120px;
+    height: 400px;
+  }
+  
+  .left-ad-content {
+    padding: 15px;
+  }
+  
+  .left-ad-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  
+  .left-ad-text h4 {
+    font-size: 14px;
+  }
+  
+  .left-ad-text p {
+    font-size: 10px;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .left-ad-container {
+    width: 100px;
+    height: 300px;
+  }
+  
+  .left-ad-content {
+    padding: 10px;
+  }
+  
+  .left-ad-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  
+  .left-ad-text h4 {
+    font-size: 12px;
+  }
+  
+  .left-ad-text p {
+    font-size: 9px;
+  }
+}
+
+/* Print media - hide ads when printing */
+@media print {
+  .left-ad-container {
+    display: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .left-ad-container {
+    border: 2px solid white;
+    background: #0066cc;
+  }
+  
+  .left-ad-text h4,
+  .left-ad-text p {
+    text-shadow: none;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .left-ad-container,
+  .left-ad-close-btn,
+  .left-ad-icon {
+    animation: none;
+    transition: none;
+  }
+  
+  .left-ad-container:hover {
+    transform: none;
+  }
+}

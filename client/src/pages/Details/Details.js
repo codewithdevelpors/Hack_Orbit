@@ -83,7 +83,7 @@ function Details() {
 
   return (
     <div className="details-container">
-      <Ads type="row" />
+     
       <div className="details-card">
         {/* File Image */}
         <div className="details-image-container">
@@ -140,7 +140,10 @@ function Details() {
             <strong>price:</strong> {file.price === 0 ? 'Free' : `$${file.price}`}
           </p>
 
-
+           {/*Short Description */}
+          <p className="details-shortDescription">
+            <strong>shortDescription:</strong> {file.shortDescription}
+          </p>
 
           {/* Description */}
           <p className="details-description">

@@ -1,63 +1,125 @@
+/**
+ * Navbar Component
+ *
+ * The main navigation component for the application that provides:
+ * - Brand logo and navigation links
+ * - Search functionality with query handling
+ * - Theme toggle (light/dark mode)
+ * - Responsive mobile menu
+ * - Auto-hide on scroll down functionality
+ * - Category dropdown menus with submenus
+ *
+ * Features:
+ * - Sticky navigation with scroll behavior
+ * - Keyboard and mouse interaction support
+ * - Local storage theme persistence
+ * - Mobile-first responsive design
+ */
+
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../ui/Button";
 import "./Navbar.css";
 import { THEMES, STORAGE_KEYS } from "../../constants";
 
+/**
+ * Main Navbar functional component
+ * Handles all navigation, search, and theme functionality
+ */
 function Navbar() {
+  // Theme state - initialized from localStorage or defaults to light
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem(STORAGE_KEYS.theme) || THEMES.light;
   });
+  
+  // Dropdown menu states for category navigation
   const [showCategories, setShowCategories] = useState(false);
   const [showFreeSub, setShowFreeSub] = useState(false);
+  
+  // Search functionality state
   const [searchQuery, setSearchQuery] = useState("");
+  
+  // Mobile menu state
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  // Navbar auto-hide functionality states
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  
+  // Navigation hook for programmatic routing
   const navigate = useNavigate();
 
+  /**
+   * Effect to handle theme changes
+   * Updates the DOM data-theme attribute and persists theme preference to localStorage
+   */
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem(STORAGE_KEYS.theme, theme);
   }, [theme]);
 
+  /**
+   * Effect to handle navbar auto-hide on scroll
+   * Hides navbar when scrolling down past 100px, shows when scrolling up
+   * Uses passive event listener for better performance
+   */
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down and past 100px
+        // Scrolling down and past 100px threshold - hide navbar
         setIsHidden(true);
       } else if (currentScrollY < lastScrollY) {
-        // Scrolling up
+        // Scrolling up - show navbar
         setIsHidden(false);
       }
 
+      // Update last scroll position for next comparison
       setLastScrollY(currentScrollY);
     };
 
+    // Add scroll event listener with passive flag for performance
     window.addEventListener('scroll', handleScroll, { passive: true });
 
+    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
 
+  /**
+   * Toggle between light and dark themes
+   * Switches theme state between THEMES.light and THEMES.dark
+   */
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === THEMES.light ? THEMES.dark : THEMES.light);
   };
 
+  /**
+   * Handle search form submission
+   * Navigates to search page with encoded query parameter
+   *
+   * @param {Event} e - Form submission event
+   */
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
+      // Navigate to search page with URL-encoded query
       navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
     }
   };
 
+  /**
+   * Toggle mobile menu open/closed state
+   */
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  /**
+   * Close mobile menu - used when navigation links are clicked
+   */
   const closeMenu = () => {
     setIsMenuOpen(false);
   };

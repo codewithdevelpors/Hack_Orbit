@@ -8,7 +8,7 @@ const getFiles = async (req, res) => {
     const limit = 14; // Number of files per page
     const skip = (page - 1) * limit; // Number of files to skip
 
-    const files = await File.find().skip(skip).limit(limit); // Fetch files from DB
+    const files = await File.find().select('_id imgUrl fileName type shortDescription pageDescription category price rating createdDate directDownloadLink rawFileLink').skip(skip).limit(limit); // Fetch files from DB
     res.json(files); // Return files as JSON
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch files" }); // Error response
@@ -38,7 +38,7 @@ const searchFiles = async (req, res) => {
       ];
     }
 
-    const files = await File.find(filter);
+    const files = await File.find(filter).select('_id imgUrl fileName type shortDescription pageDescription category price rating createdDate directDownloadLink rawFileLink');
     if (files.length === 0) {
       return res.status(404).json({ message: "No data found" }); // No results found
     }
@@ -51,7 +51,7 @@ const searchFiles = async (req, res) => {
 // Controller to get details of a specific file by ID
 const getFileDetails = async (req, res) => {
   try {
-    const file = await File.findById(req.params.id); // Find file by ID
+    const file = await File.findById(req.params.id).select('_id imgUrl fileName type shortDescription pageDescription category price rating createdDate directDownloadLink rawFileLink'); // Find file by ID
     if (!file) return res.status(404).json({ message: "File not found" }); // File not found
     res.json(file); // Return file details
   } catch (error) {
@@ -63,7 +63,7 @@ const getFileDetails = async (req, res) => {
 const rateFile = async (req, res) => {
   try {
     const { rating } = req.body; // Rating value from request body
-    const file = await File.findById(req.params.id); // Find file by ID
+    const file = await File.findById(req.params.id).select('rating ratingsCount'); // Find file by ID
     if (!file) return res.status(404).json({ message: "File not found" }); // File not found
 
     // Update rating as average of all ratings
@@ -80,10 +80,10 @@ const rateFile = async (req, res) => {
 // Controller to initiate file download (mock implementation)
 const downloadFile = async (req, res) => {
   try {
-    const file = await File.findById(req.params.id); // Find file by ID
+    const file = await File.findById(req.params.id).select('_id imgUrl fileName type shortDescription pageDescription category price rating createdDate directDownloadLink rawFileLink'); // Find file by ID
     if (!file) return res.status(404).json({ message: "File not found" }); // File not found
 
-    res.json({ message: "Download started", fileUrl: file.imgUrl }); // Return download info
+    res.json({ message: "Download started", fileUrl: file.directDownloadLink }); // Return download info
   } catch (error) {
     res.status(500).json({ message: "Download failed" }); // Error response
   }
