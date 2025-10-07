@@ -1,6 +1,6 @@
-# Code Galaxy - Backend
+# HackOrbit - Backend
 
-A Node.js/Express backend for the Code Galaxy website, providing API endpoints for file management, search, ratings, and downloads.
+A Node.js/Express backend for the HackOrbit website, providing API endpoints for file management, search, ratings, and downloads.
 
 ## Features
 

@@ -6,18 +6,18 @@ function About() {
     <div className="about">
       <div className="legal-container">
         <header className="legal-header">
-          <h1>About Code Galaxy</h1>
+          <h1>About HackOrbit</h1>
           <p className="tagline">Your Ultimate Destination for Amazing Code Resources 🚀</p>
         </header>
 
         <div className="legal-content">
           <section className="legal-section">
-            <h2>🌟 Welcome to Code Galaxy</h2>
+            <h2>🌟 Welcome to HackOrbit</h2>
             <p>
-              Code Galaxy is more than just a code repository – it's a thriving community where developers,
+              HackOrbit is more than just a code repository – it's a thriving community where developers,
               students, and coding enthusiasts come together to discover, share, and learn from amazing code resources.
               Whether you're a beginner taking your first steps in programming or an experienced developer looking
-              for inspiration, Code Galaxy has something special for you.
+              for inspiration, HackOrbit has something special for you.
             </p>
           </section>
 
@@ -66,7 +66,7 @@ function About() {
           <section className="legal-section">
             <h2>👥 Our Community</h2>
             <p>
-              Code Galaxy is powered by an amazing community of developers who believe in sharing knowledge:
+              HackOrbit is powered by an amazing community of developers who believe in sharing knowledge:
             </p>
             <ul>
               <li><strong>Students:</strong> Learning programming fundamentals and best practices</li>
@@ -79,7 +79,7 @@ function About() {
           <section className="legal-section">
             <h2>🚀 Our Journey</h2>
             <p>
-              Code Galaxy was born from a simple idea: programming should be accessible, enjoyable, and collaborative.
+              HackOrbit was born from a simple idea: programming should be accessible, enjoyable, and collaborative.
               We started as a small project to help developers find quality code examples, and we've grown into a
               comprehensive platform that serves thousands of users worldwide.
             </p>
@@ -126,7 +126,7 @@ function About() {
           <section className="legal-section">
             <h2>🎯 Future Roadmap</h2>
             <p>
-              We're constantly working to improve Code Galaxy. Here's what's coming:
+              We're constantly working to improve HackOrbit. Here's what's coming:
             </p>
             <ul>
               <li><strong>AI-Powered Recommendations:</strong> Personalized code suggestions</li>
@@ -143,10 +143,10 @@ function About() {
               We love hearing from our community! Whether you have questions, suggestions, or just want to say hello:
             </p>
             <div className="contact-info">
-              <p><strong>Code Galaxy Team</strong></p>
+              <p><strong>HackOrbit Team</strong></p>
               <p>📧 Email: hello@codegalaxy.com</p>
               <p>💬 Support: support@codegalaxy.com</p>
-              <p>🌐 Website: <a href="/">Code Galaxy</a></p>
+              <p>🌐 Website: <a href="/">HackOrbit</a></p>
               <p>📱 Follow us for updates and coding tips</p>
               <p>⏰ We typically respond within 24 hours</p>
             </div>
@@ -154,7 +154,7 @@ function About() {
 
           <div className="legal-footer">
             <p>
-              <strong>Join thousands of developers who trust Code Galaxy for their coding journey.
+              <strong>Join thousands of developers who trust HackOrbit for their coding journey.
               Together, we're building the future of programming education! 🌟</strong>
             </p>
           </div>

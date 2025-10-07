@@ -1,7 +1,7 @@
 /**
  * App Component - Main Application Entry Point
  *
- * This is the root component of the Code Galaxy application that sets up:
+ * This is the root component of the HackOrbit application that sets up:
  * - React Router configuration for client-side routing
  * - Main application layout wrapper
  * - All page route definitions

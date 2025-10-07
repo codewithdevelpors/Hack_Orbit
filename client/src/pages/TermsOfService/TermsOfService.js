@@ -12,9 +12,9 @@ function TermsOfService() {
 
         <div className="legal-content">
           <section className="legal-section">
-            <h2>🌟 Welcome to Code Galaxy</h2>
+            <h2>🌟 Welcome to HackOrbit</h2>
             <p>
-              Welcome to Code Galaxy, your premier destination for discovering, downloading, and sharing amazing code resources! 
+              Welcome to HackOrbit, your premier destination for discovering, downloading, and sharing amazing code resources! 
               By accessing or using our platform, you agree to be bound by these Terms of Service. Please read them carefully.
             </p>
           </section>
@@ -22,19 +22,19 @@ function TermsOfService() {
           <section className="legal-section">
             <h2>✅ Acceptance of Terms</h2>
             <p>
-              By accessing Code Galaxy, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service 
+              By accessing HackOrbit, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service 
               and our Privacy Policy. If you do not agree to these terms, please do not use our service.
             </p>
             <ul>
               <li>These terms apply to all users, including visitors, registered users, and contributors</li>
-              <li>You must be at least 13 years old to use Code Galaxy</li>
+              <li>You must be at least 13 years old to use HackOrbit</li>
               <li>You are responsible for ensuring your use complies with applicable laws</li>
             </ul>
           </section>
 
           <section className="legal-section">
             <h2>🎯 Service Description</h2>
-            <p>Code Galaxy provides:</p>
+            <p>HackOrbit provides:</p>
             <ul>
               <li><strong>Free Code Resources:</strong> Access to Python, HTML/CSS, and other programming files</li>
               <li><strong>Premium Content:</strong> Paid programs and advanced code resources</li>
@@ -49,7 +49,7 @@ function TermsOfService() {
             <h2>👤 User Responsibilities</h2>
             
             <h3>Acceptable Use</h3>
-            <p>You agree to use Code Galaxy responsibly and ethically:</p>
+            <p>You agree to use HackOrbit responsibly and ethically:</p>
             <ul>
               <li>Use downloaded code in compliance with applicable licenses</li>
               <li>Provide honest and constructive ratings and reviews</li>
@@ -74,7 +74,7 @@ function TermsOfService() {
             
             <h3>Our Content</h3>
             <ul>
-              <li>Code Galaxy owns the platform, design, and original content</li>
+              <li>HackOrbit owns the platform, design, and original content</li>
               <li>Our logo, branding, and interface are protected by copyright</li>
               <li>You may not reproduce our platform or create derivative works</li>
             </ul>
@@ -101,7 +101,7 @@ function TermsOfService() {
             
             <h3>Free Content</h3>
             <ul>
-              <li>Many resources on Code Galaxy are completely free</li>
+              <li>Many resources on HackOrbit are completely free</li>
               <li>Free content is supported by advertisements</li>
               <li>No payment required for basic platform access</li>
             </ul>
@@ -147,7 +147,7 @@ function TermsOfService() {
 
             <h3>Limitation of Liability</h3>
             <p>
-              Code Galaxy and its operators shall not be liable for any indirect, incidental, special, 
+              HackOrbit and its operators shall not be liable for any indirect, incidental, special, 
               consequential, or punitive damages arising from your use of the platform.
             </p>
           </section>
@@ -184,7 +184,7 @@ function TermsOfService() {
               Either party may terminate this agreement:
             </p>
             <ul>
-              <li><strong>You:</strong> Can stop using Code Galaxy at any time</li>
+              <li><strong>You:</strong> Can stop using HackOrbit at any time</li>
               <li><strong>We:</strong> May suspend accounts for terms violations</li>
               <li><strong>Effect:</strong> Termination doesn't affect previously downloaded content</li>
               <li><strong>Data:</strong> We may retain some data as required by law</li>
@@ -197,9 +197,9 @@ function TermsOfService() {
               Questions about these Terms of Service? We're here to help!
             </p>
             <div className="contact-info">
-              <p><strong>Code Galaxy Legal Team</strong></p>
+              <p><strong>HackOrbit Legal Team</strong></p>
               <p>📧 Email: codewithdevelpors@gmail.com</p>
-              <p>🌐 Website: <a href="/">Code Galaxy</a></p>
+              <p>🌐 Website: <a href="/">HackOrbit</a></p>
               <p>📍 Response time: Within 48 hours</p>
               <p>💬 We're committed to clear communication and fair resolution</p>
             </div>
@@ -207,7 +207,7 @@ function TermsOfService() {
 
           <div className="legal-footer">
             <p>
-              <strong>Thank you for being part of the Code Galaxy community! Together, we're building an amazing platform for developers worldwide. 🚀</strong>
+              <strong>Thank you for being part of the HackOrbit community! Together, we're building an amazing platform for developers worldwide. 🚀</strong>
             </p>
           </div>
         </div>

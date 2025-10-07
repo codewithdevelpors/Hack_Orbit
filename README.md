@@ -1,10 +1,10 @@
-# Code Galaxy
+# HackOrbit
 
 A full-stack web application for sharing and downloading code files. Built with React frontend and Node.js/Express backend with MongoDB.
 
 ## Project Overview
 
-Code Galaxy is a platform where developers can:
+HackOrbit is a platform where developers can:
 - Browse code files with previews
 - Search for specific files or categories
 - Download free and paid code resources
@@ -94,7 +94,7 @@ Code Galaxy is a platform where developers can:
 3. Create `.env` file with:
    ```
    REACT_APP_API_URL=http://localhost:8000/developers
-   REACT_APP_WEBSITE_NAME=Code Galaxy
+   REACT_APP_WEBSITE_NAME=HackOrbit
    REACT_APP_DEFAULT_THEME=light
    ```
 

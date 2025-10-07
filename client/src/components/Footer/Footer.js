@@ -32,10 +32,10 @@ function Footer() {
         <div className="footer-left">
           <div className="footer-brand">
             {/* Brand logo - matches navbar branding */}
-            <img src="/favicon.ico" alt="Code Galaxy Logo" className="footer-logo" />
+            <img src="/favicon.ico" alt="HackOrbit Logo" className="footer-logo" />
             <div className="footer-brand-text">
               {/* Main brand name */}
-              <h2 className="footer-name">Code Galaxy</h2>
+              <h2 className="footer-name">HackOrbit</h2>
               {/* Brand tagline/slogan */}
               <p className="footer-slogan">Explore the Universe of Code</p>
             </div>
@@ -101,7 +101,7 @@ function Footer() {
         </div>
         {/* Copyright notice */}
         <div className="footer-copyright">
-          <p>&copy; 2024 Code Galaxy. All rights reserved. This website is copyright protected.</p>
+          <p>&copy; 2024 HackOrbit. All rights reserved. This website is copyright protected.</p>
         </div>
       </div>
     </footer>

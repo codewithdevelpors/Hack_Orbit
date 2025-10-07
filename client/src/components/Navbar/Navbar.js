@@ -130,8 +130,8 @@ function Navbar() {
         {/* Logo and Brand Name */}
         <div className="navbar-brand">
           <Link to="/" className="navbar-logo" onClick={closeMenu}>
-            <img src="/favicon.ico" alt="Code Galaxy Logo" className="logo-icon" />
-            <span className="logo-text">Code Galaxy</span>
+            <img src="/favicon.ico" alt="HackOrbit Logo" className="logo-icon" />
+            <span className="logo-text">HackOrbit</span>
           </Link>
         </div>
 

@@ -14,7 +14,7 @@ function PrivacyPolicy() {
           <section className="legal-section">
             <h2>🛡️ Your Privacy Matters</h2>
             <p>
-              At Code Galaxy, we are committed to protecting your privacy and ensuring the security of your personal information. 
+              At HackOrbit, we are committed to protecting your privacy and ensuring the security of your personal information. 
               This Privacy Policy explains how we collect, use, and safeguard your data when you use our platform.
             </p>
           </section>
@@ -64,7 +64,7 @@ function PrivacyPolicy() {
           <section className="legal-section">
             <h2>🍪 Cookies and Local Storage</h2>
             <p>
-              Code Galaxy uses cookies and local storage to enhance your experience:
+              HackOrbit uses cookies and local storage to enhance your experience:
             </p>
             <ul>
               <li><strong>Essential Cookies:</strong> Required for basic site functionality</li>
@@ -106,7 +106,7 @@ function PrivacyPolicy() {
           <section className="legal-section">
             <h2>👶 Children's Privacy</h2>
             <p>
-              Code Galaxy is designed for general audiences and does not knowingly collect personal information from children under 13. 
+              HackOrbit is designed for general audiences and does not knowingly collect personal information from children under 13. 
               If we become aware that we have collected personal information from a child under 13, we will take steps to delete such information.
             </p>
           </section>
@@ -129,16 +129,16 @@ function PrivacyPolicy() {
               If you have any questions about this Privacy Policy or our data practices, please contact us:
             </p>
             <div className="contact-info">
-              <p><strong>Code Galaxy Team</strong></p>
+              <p><strong>HackOrbit Team</strong></p>
               <p>📧 Email: codewithdevelpors@gmail.com</p>
-              <p>🌐 Website: <a href="/">Code Galaxy</a></p>
+              <p>🌐 Website: <a href="/">HackOrbit</a></p>
               <p>📍 We're committed to responding to your inquiries within 48 hours</p>
             </div>
           </section>
 
           <div className="legal-footer">
             <p>
-              <strong>Thank you for trusting Code Galaxy with your data. We're committed to maintaining your privacy while providing you with the best coding resources!</strong>
+              <strong>Thank you for trusting HackOrbit with your data. We're committed to maintaining your privacy while providing you with the best coding resources!</strong>
             </p>
           </div>
         </div>
