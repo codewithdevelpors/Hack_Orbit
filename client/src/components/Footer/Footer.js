@@ -66,22 +66,22 @@ function Footer() {
               */}
               <li>
                 <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                  <span className="social-icon">📺</span> YouTube
+                  <span className="social-icon">🔴</span> YouTube
                 </a>
               </li>
               <li>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                  <span className="social-icon">📘</span> Facebook
+                  <span className="social-icon">🔵</span> Facebook
                 </a>
               </li>
               <li>
                 <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">
-                  <span className="social-icon">🎵</span> TikTok
+                  <span className="social-icon">🟣</span> TikTok
                 </a>
               </li>
               <li>
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                  <span className="social-icon">📷</span> Instagram
+                  <span className="social-icon">📸</span> Instagram
                 </a>
               </li>
             </ul>
