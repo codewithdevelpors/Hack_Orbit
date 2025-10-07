@@ -8,7 +8,6 @@ function Banner() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [banners, setBanners] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     const fetchBannerData = async () => {
