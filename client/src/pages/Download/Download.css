@@ -58,12 +58,55 @@
   /* Width will be set dynamically via JavaScript */
 }
 
+/* Download action container */
+.download-action-container {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Countdown container */
+.countdown-container {
+  margin-bottom: 2rem;
+}
+
 /* Countdown display */
 .countdown-display {
   font-size: 4rem;
   font-weight: bold;
   color: var(--primary-color);
   margin-bottom: 1rem;
+  text-align: center;
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.2));
+}
+
+/* Download button container */
+.download-button-container {
+  margin-bottom: 1rem;
+}
+
+/* Download button styling */
+.download-button {
+  min-width: 200px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.download-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
 }
 
 /* Loading spinner container */
@@ -74,4 +117,19 @@
 /* Bottom information section */
 .download-info {
   margin-top: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .countdown-display {
+    font-size: 3rem;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .download-button {
+    min-width: 150px;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
 }

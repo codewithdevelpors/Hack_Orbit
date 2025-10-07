@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import { downloadFile, getFileDetails } from "../../utils/api";
 // Import the Ads component to display advertisements
 import Ads from "../../components/Ads/Ads";
+// Import Button component for download functionality
+import Button from "../../ui/Button";
 // Import the CSS styles for this component
 import "./Download.css";
 
@@ -16,9 +18,21 @@ function Download() {
   
   // State to store file details (name, image URL, etc.)
   const [fileDetails, setFileDetails] = useState(null);
+  
+  // State for countdown timer (15 seconds)
+  const [countdown, setCountdown] = useState(15);
+  
+  // State to track if countdown is finished
+  const [countdownFinished, setCountdownFinished] = useState(false);
+  
+  // State to track if download is in progress
+  const [isDownloading, setIsDownloading] = useState(false);
 
-  // Callback function to handle automatic download
-  const handleAutoDownload = useCallback(async (details) => {
+  // Callback function to handle manual download
+  const handleDownload = useCallback(async () => {
+    if (!countdownFinished || isDownloading) return;
+    
+    setIsDownloading(true);
     try {
       // Call API to get download data for the file ID
       const downloadData = await downloadFile(id);
@@ -33,7 +47,7 @@ function Download() {
         // Create a temporary anchor element for triggering download
         const link = document.createElement('a');
         link.href = url;
-        link.download = details.fileName || 'download';
+        link.download = fileDetails.fileName || 'download';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -44,8 +58,10 @@ function Download() {
     } catch (error) {
       // Log any download errors to the console
       console.error("Download failed:", error);
+    } finally {
+      setIsDownloading(false);
     }
-  }, [id]); // Dependency array includes 'id' to recreate callback when ID changes
+  }, [id, fileDetails]); // Dependency array includes 'id' and 'fileDetails'
 
   // useEffect hook to fetch file details when component mounts or ID changes
   useEffect(() => {
@@ -56,8 +72,6 @@ function Download() {
         const details = await getFileDetails(id);
         // Update state with the retrieved file details
         setFileDetails(details);
-        // Immediately trigger the download
-        handleAutoDownload(details);
       } catch (error) {
         // Log any errors that occur during file details fetching
         console.error("Failed to fetch file details:", error);
@@ -66,7 +80,27 @@ function Download() {
 
     // Execute the fetch function
     fetchFileDetails();
-  }, [id, handleAutoDownload]); // Re-run effect when 'id' or 'handleAutoDownload' changes
+  }, [id]); // Re-run effect when 'id' changes
+
+  // useEffect hook for countdown timer
+  useEffect(() => {
+    if (!fileDetails || countdownFinished) return;
+
+    // Create interval for countdown
+    const timer = setInterval(() => {
+      setCountdown((prevCountdown) => {
+        if (prevCountdown <= 1) {
+          setCountdownFinished(true);
+          clearInterval(timer);
+          return 0;
+        }
+        return prevCountdown - 1;
+      });
+    }, 1000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(timer);
+  }, [fileDetails, countdownFinished]); // Re-run effect when fileDetails or countdownFinished changes
 
   // JSX return statement - renders the component UI
   return (
@@ -77,7 +111,9 @@ function Download() {
       {/* Main card container for download content */}
       <div className="download-card">
         {/* Main heading for the download page */}
-        <h1 className="download-heading">Download Starting</h1>
+        <h1 className="download-heading">
+          {countdownFinished ? "Download Ready" : "Preparing Download"}
+        </h1>
 
         {/* Container for file details and countdown/loading content */}
         <div className="file-details-container">
@@ -96,13 +132,32 @@ function Download() {
             </div>
           )}
 
-          {/* Show loading interface since download starts immediately */}
+          {/* Show countdown or download button based on countdown status */}
           {fileDetails && (
-            <div>
-              {/* Loading spinner element */}
-              <div className="spinner loading-spinner"></div>
-              {/* Loading status text */}
-              <p className="text-muted">Downloading...</p>
+            <div className="download-action-container">
+              {!countdownFinished ? (
+                // Show countdown timer
+                <div className="countdown-container">
+                  <div className="countdown-display">{countdown}</div>
+                  <p className="text-muted">
+                    Download will be available in {countdown} second{countdown !== 1 ? 's' : ''}
+                  </p>
+                </div>
+              ) : (
+                // Show download button when countdown is finished
+                <div className="download-button-container">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    onClick={handleDownload}
+                    disabled={isDownloading}
+                    loading={isDownloading}
+                    className="download-button"
+                  >
+                    {isDownloading ? 'Downloading...' : 'Download Now'}
+                  </Button>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -111,7 +166,10 @@ function Download() {
         <div className="download-info">
           {/* Helpful information text for users */}
           <p className="text-sm text-muted">
-            Your download should start shortly. If it doesn't, please check your browser settings.
+            {countdownFinished
+              ? "Click the button above to start your download."
+              : "Please wait for the countdown to finish before downloading."
+            }
           </p>
         </div>
       </div>
