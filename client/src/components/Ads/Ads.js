@@ -88,20 +88,22 @@ function Ads({ type, onClose }) {
       );
 
     case 'popup':
-      // Full-screen popup overlay advertisement - no close button, less intrusive
+      // Full-screen popup overlay advertisement with close button
       return (
         <div className="ads-popup-overlay non-intrusive">
           <div className="ads-popup">
+            <button className="ad-close-btn" onClick={handleClose}>×</button>
             {renderAdContent()}
           </div>
         </div>
       );
 
     case 'popup-top-right':
-      // Top-right corner popup advertisement - no close button, less intrusive
+      // Top-right corner popup advertisement with close button
       return (
         <div className="ads-popup-overlay top-right non-intrusive">
           <div className="ads-popup">
+            <button className="ad-close-btn" onClick={handleClose}>×</button>
             {renderAdContent()}
           </div>
         </div>

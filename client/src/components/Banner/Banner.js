@@ -8,7 +8,7 @@ function Banner() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [banners, setBanners] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  // const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     const fetchBannerData = async () => {
@@ -70,7 +70,7 @@ function Banner() {
     fetchBannerData();
   }, []);
 
-  const filteredBanners = selectedCategory ? banners.filter(b => b.category === selectedCategory) : banners;
+  const filteredBanners = banners;
 
   useEffect(() => {
     if (filteredBanners.length === 0) return;
@@ -86,7 +86,7 @@ function Banner() {
 
   useEffect(() => {
     setCurrentIndex(0);
-  }, [selectedCategory]);
+  }, []);
 
   const handlePrev = () => {
     setCurrentIndex(currentIndex === 0 ? filteredBanners.length - 1 : currentIndex - 1);

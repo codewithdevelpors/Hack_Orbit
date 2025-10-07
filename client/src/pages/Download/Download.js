@@ -4,8 +4,6 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 // Import API functions for downloading files and fetching file details
 import { downloadFile, getFileDetails } from "../../utils/api";
-// Import the Ads component to display advertisements
-import Ads from "../../components/Ads/Ads";
 // Import Button component for download functionality
 import Button from "../../ui/Button";
 // Import the CSS styles for this component
@@ -47,7 +45,7 @@ function Download() {
         // Create a temporary anchor element for triggering download
         const link = document.createElement('a');
         link.href = url;
-        link.download = fileDetails.fileName || 'download';
+        link.download = fileDetails?.fileName || 'download';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -61,7 +59,7 @@ function Download() {
     } finally {
       setIsDownloading(false);
     }
-  }, [id, fileDetails]); // Dependency array includes 'id' and 'fileDetails'
+  }, [id, fileDetails, countdownFinished, isDownloading]); // Include all dependencies
 
   // useEffect hook to fetch file details when component mounts or ID changes
   useEffect(() => {
