@@ -98,14 +98,32 @@
   transform: translateX(5px);
 }
 
+.footer-social-list li a:hover .fa-youtube {
+  color: #ff0000;
+}
+
+.footer-social-list li a:hover .fa-facebook {
+  color: #1877f2;
+}
+
+.footer-social-list li a:hover .fa-instagram {
+  color: #e4405f;
+}
+
+.footer-social-list li a:hover .fa-tiktok {
+  color: #000000;
+}
+
 /* Right Section */
 .footer-right {
   display: flex;
   justify-content: flex-end;
 }
 
-.social-icon {
-  font-size: var(--font-size-lg);
+.footer-social-list li a i {
+  font-size: 30px;
+  margin-right: 10px;
+  transition: color 0.3s;
 }
 
 /* Bottom Section */
