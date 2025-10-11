@@ -25,9 +25,11 @@ function Banner() {
           uploadingData: index === 0 ? 'Featured Today' : index === 1 ? 'Trending Now' : 'Most Popular'
         }));
         setBanners(transformedBanners);
-      } catch (error) {
+      } catch (error) 
+      {
         console.error('Failed to fetch banner data:', error);
         // Fallback to placeholder data
+        {/*
         const mockBanners = [
           {
             id: '1',
@@ -59,7 +61,7 @@ function Banner() {
             category: 'css',
             uploadingData: 'Most Popular'
           }
-        ];
+        ];*/}
         setBanners(mockBanners);
       } finally {
         setLoading(false);
