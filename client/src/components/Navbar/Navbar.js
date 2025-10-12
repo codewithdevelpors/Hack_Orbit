@@ -39,8 +39,7 @@ function Navbar() {
   // Search functionality state
   const [searchQuery, setSearchQuery] = useState("");
   
-  // Mobile menu state
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   
   // Navbar auto-hide functionality states
   const [isHidden, setIsHidden] = useState(false);
@@ -110,47 +109,26 @@ function Navbar() {
     }
   };
 
-  /**
-   * Toggle mobile menu open/closed state
-   */
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
-  /**
-   * Close mobile menu - used when navigation links are clicked
-   */
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
 
   return (
     <nav className={`navbar ${isHidden ? 'navbar-hidden' : ''}`}>
       <div className="navbar-container">
         {/* Logo and Brand Name */}
         <div className="navbar-brand">
-          <Link to="/" className="navbar-logo" onClick={closeMenu}>
+          <Link to="/" className="navbar-logo">
             <img src="/favicon.ico" alt="HackOrbit Logo" className="logo-icon" />
             <span className="logo-text">HackOrbit</span>
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className={`navbar-toggle ${isMenuOpen ? 'active' : ''}`}
-          onClick={toggleMenu}
-          aria-label="Toggle navigation menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+
 
         {/* Main Navigation Row - All elements in one amazing line */}
-        <div className={`navbar-main ${isMenuOpen ? 'active' : ''}`}>
+        <div className="navbar-main">
           {/* Navigation Links with Icons */}
           <div className="navbar-nav-section">
-            <Link to="/" className="navbar-link modern-nav-item" onClick={closeMenu}>
+            <Link to="/" className="navbar-link modern-nav-item">
               <span className="nav-icon">🏠</span>
               <span className="nav-text">Home</span>
             </Link>
@@ -179,16 +157,16 @@ function Navbar() {
                     <span>🆓 Free Programs</span>
                     {showFreeSub && (
                       <div className="navbar-submenu">
-                        <Link to="/search?category=free&type=python" onClick={closeMenu}>
+                        <Link to="/search?category=free&type=python">
                           🐍 Python
                         </Link>
-                        <Link to="/search?category=free&type=htmlcss" onClick={closeMenu}>
+                        <Link to="/search?category=free&type=htmlcss">
                           🎨 HTML & CSS
                         </Link>
                       </div>
                     )}
                   </div>
-                  <Link to="/search?category=paid" className="navbar-dropdown-item" onClick={closeMenu}>
+                  <Link to="/search?category=paid" className="navbar-dropdown-item">
                     💎 Paid Programs
                   </Link>
                 </div>

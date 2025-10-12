@@ -1,5 +1,5 @@
-- [x] Edit README.md to replace "HacksOrbit" with "Hacks Orbit"
-- [x] Edit client/README.md to replace "HacksOrbit" and "HackOrbit" with "Hacks Orbit"
-- [x] Edit server/README.md to replace "HackOrbit" with "Hacks Orbit"
-- [x] Edit client/src/constants/index.js to change 'HackOrbit' to 'Hacks Orbit'
-- [x] Rename hackorbit.ico to hacks-orbit.ico
+- [x] Remove isMenuOpen state from Navbar.js
+- [x] Remove toggleMenu and closeMenu functions from Navbar.js
+- [x] Remove the navbar-toggle button from Navbar.js
+- [x] Remove 'active' class logic from navbar-main in Navbar.js
+- [x] Remove onClick={closeMenu} from all Link elements in Navbar.js

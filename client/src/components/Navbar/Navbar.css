@@ -522,38 +522,14 @@
     height: 60px;
   }
 
-  .navbar-toggle {
-    display: flex;
-  }
-
-  .navbar-center {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: var(--navbar-bg, var(--bg-card));
-    border-top: 1px solid var(--border-color, var(--border-light));
+  .navbar-main {
     flex-direction: column;
-    padding: 1rem;
     gap: 1rem;
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    justify-content: flex-start;
   }
 
-  .navbar-center .navbar-menu {
+  .navbar-nav-section {
     flex-direction: column;
-    width: 100%;
     gap: 0.5rem;
-  }
-
-  .navbar-center.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
   }
 
   .navbar-nav {
