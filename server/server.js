@@ -17,9 +17,6 @@ app.use(express.json()); // Parse JSON bodies
 app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(morgan("dev")); // Log HTTP requests in development mode
 
-// Serve static files from client/public directory
-app.use(express.static(path.join(__dirname, '../client/public')));
-
 // Import and use file routes
 const fileRoutes = require("./routes/fileRoutes");
 app.use("/developers", fileRoutes); // All file-related routes under /developers
@@ -30,11 +27,14 @@ connectDB();
 
 //for check deployment
 app.get('/', (req, res) => {
-  res.json({ 
+  res.json({
     activeStatus:true,
-    error:false,              
+    error:false,
   })
 });
+
+// Serve static files from client/public directory
+app.use(express.static(path.join(__dirname, '../client/public')));
 
 // Health check endpoint to verify server and DB status
 app.get("/developers/health", (req, res) => {
