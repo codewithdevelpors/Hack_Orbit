@@ -3,3 +3,5 @@
 - [x] Remove the navbar-toggle button from Navbar.js
 - [x] Remove 'active' class logic from navbar-main in Navbar.js
 - [x] Remove onClick={closeMenu} from all Link elements in Navbar.js
+- [x] Install @vercel/analytics and @vercel/speed-insights packages
+- [x] Update client/src/index.js to import and add Analytics and SpeedInsights components

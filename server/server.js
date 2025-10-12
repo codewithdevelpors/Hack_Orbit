@@ -1,5 +1,6 @@
 // Import required modules
 const express = require("express"); // Web framework for Node.js
+const path = require("path"); // Path module for file paths
 const dotenv = require("dotenv"); // Load environment variables
 const mongoose = require("mongoose"); // MongoDB ODM
 const cors = require("cors"); // Enable CORS
@@ -15,6 +16,9 @@ const app = express();
 app.use(express.json()); // Parse JSON bodies
 app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(morgan("dev")); // Log HTTP requests in development mode
+
+// Serve static files from client/public directory
+app.use(express.static(path.join(__dirname, '../client/public')));
 
 // Import and use file routes
 const fileRoutes = require("./routes/fileRoutes");
