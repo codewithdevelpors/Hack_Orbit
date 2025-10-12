@@ -173,7 +173,7 @@ function Navbar() {
               )}
             </div>
 
-            <Link to="/about" className="navbar-link modern-nav-item" onClick={closeMenu}>
+            <Link to="/about" className="navbar-link modern-nav-item">
               <span className="nav-icon">ℹ️</span>
               <span className="nav-text">About Us</span>
             </Link>
