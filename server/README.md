@@ -1,6 +1,6 @@
-# HackOrbit - Backend
+# Hacks Orbit - Backend
 
-A Node.js/Express backend for the HackOrbit website, providing API endpoints for file management, search, ratings, and downloads.
+A Node.js/Express backend for the Hacks Orbit website, providing API endpoints for file management, search, ratings, and downloads.
 
 ## Features
 

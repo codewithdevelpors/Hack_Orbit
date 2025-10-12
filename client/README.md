@@ -1,6 +1,6 @@
-# HackOrbit - Frontend
+# Hacks Orbit - Frontend
 
-A React-based frontend for the HackOrbit website, a platform for sharing and downloading code files.
+A React-based frontend for the Hacks Orbit website, a platform for sharing and downloading code files.
 
 ## Features
 
@@ -28,7 +28,7 @@ Create a `.env` file in the client directory:
 
 ```
 REACT_APP_API_URL=http://localhost:8000/developers
-REACT_APP_WEBSITE_NAME=HackOrbit
+REACT_APP_WEBSITE_NAME=Hacks Orbit
 REACT_APP_DEFAULT_THEME=light
 ```
 

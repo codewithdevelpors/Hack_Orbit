@@ -1,0 +1,5 @@
+- [x] Edit README.md to replace "HacksOrbit" with "Hacks Orbit"
+- [x] Edit client/README.md to replace "HacksOrbit" and "HackOrbit" with "Hacks Orbit"
+- [x] Edit server/README.md to replace "HackOrbit" with "Hacks Orbit"
+- [x] Edit client/src/constants/index.js to change 'HackOrbit' to 'Hacks Orbit'
+- [x] Rename hackorbit.ico to hacks-orbit.ico

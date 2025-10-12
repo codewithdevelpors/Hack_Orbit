@@ -1,6 +1,6 @@
 // Application Constants
 export const APP_CONFIG = {
-  name: 'HackOrbit',
+  name: 'Hacks Orbit',
   description: 'Discover and download amazing Python programs and code snippets',
   version: '1.0.0',
   author: 'CodeWithDevelpors',
