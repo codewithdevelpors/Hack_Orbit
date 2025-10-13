@@ -77,23 +77,23 @@ function LeftAd({
       </button>
       
       {/* Main ad content area */}
-      <div 
-        className="left-ad-content" 
+      <div
+        className="left-ad-content"
         onClick={handleAdClick}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => e.key === 'Enter' && handleAdClick()}
       >
-        <div className="left-ad-placeholder">
-          {/* Ad icon/visual indicator */}
-          <div className="left-ad-icon">📢</div>
-          
-          {/* Ad text content */}
-          <div className="left-ad-text">
-            <h4>Left Side Ad</h4>
-            <p>{adContent || 'Premium ad space available'}</p>
-          </div>
-        </div>
+        {/* Google AdSense Ad Unit */}
+        <ins className="adsbygoogle"
+             style={{display: 'block'}}
+             data-ad-client="ca-pub-5014011475160512"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </div>
     </div>
   );

@@ -96,28 +96,23 @@ function RightAd({
       </button>
       
       {/* Main ad content area */}
-      <div 
-        className="right-ad-content" 
+      <div
+        className="right-ad-content"
         onClick={handleAdClick}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => e.key === 'Enter' && handleAdClick()}
       >
-        <div className="right-ad-placeholder">
-          {/* Ad icon/visual indicator */}
-          <div className="right-ad-icon">🎯</div>
-          
-          {/* Ad text content */}
-          <div className="right-ad-text">
-            <h4>Right Side Ad</h4>
-            <p>{adContent || 'Featured content here'}</p>
-          </div>
-          
-          {/* Call-to-action button */}
-          <div className="right-ad-cta">
-            <span>Learn More</span>
-          </div>
-        </div>
+        {/* Google AdSense Ad Unit */}
+        <ins className="adsbygoogle"
+             style={{display: 'block'}}
+             data-ad-client="ca-pub-5014011475160512"
+             data-ad-slot="0987654321"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </div>
     </div>
   );

@@ -3,10 +3,10 @@
   min-height: 100vh;
 }
 
-.details-card {
+.details-row {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .details-image {
@@ -18,12 +18,12 @@
 
 .details-image-container {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .details-info {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .details-meta {
@@ -47,9 +47,9 @@
 .details-description {
   font-size: 1.1rem;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   max-width: 600px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
 }
 
 .details-actions {
@@ -57,4 +57,19 @@
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+/* Responsive adjustments for rows */
+@media (max-width: 768px) {
+  .details-row {
+    padding: 0.5rem;
+  }
+
+  .details-info {
+    margin-bottom: 0.5rem;
+  }
+
+  .details-actions {
+    gap: 0.5rem;
+  }
 }

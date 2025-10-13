@@ -91,15 +91,15 @@ const MainLayout = ({ children }) => {
       {/* Main navigation component */}
       <Navbar />
       
-      {/* Main content area with sidebar ads */}
+      {/* Main content area */}
       <main className="main-content">
         <div className="content-with-ads">
-          {/* Left sidebar advertisement */}
+          {/* Left side advertisement */}
           <div className="left-ad">
             <LeftAd
-              onAdClick={handleLeftAdClick}
-              adContent="Premium space for your brand"
               autoHide={false}
+              onAdClick={handleLeftAdClick}
+              adContent="Sponsored Content"
             />
           </div>
 
@@ -108,33 +108,23 @@ const MainLayout = ({ children }) => {
             {children}
           </div>
 
-          {/* Right sidebar advertisement */}
+          {/* Right side advertisement */}
           <div className="right-ad">
             <RightAd
-              onAdClick={handleRightAdClick}
-              adContent="Discover amazing deals"
               autoHide={false}
-              showAnimation={true}
+              onAdClick={handleRightAdClick}
+              adContent="Premium Ads"
             />
           </div>
         </div>
       </main>
 
-      {/* Row ad above footer for Details and Download pages */}
-      {(location.pathname.includes('/details') || location.pathname.includes('/download')) && (
-        <Ads type="row" />
-      )}
+
 
       {/* Site footer */}
       <Footer />
 
-      {/* Conditional popup advertisement */}
-      {showPopup && (
-        <Ads
-          type="popup-top-right"
-          onClose={handlePopupClose}
-        />
-      )}
+
     </div>
   );
 };

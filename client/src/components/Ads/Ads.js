@@ -61,16 +61,16 @@ function Ads({ type, onClose }) {
    */
   const renderAdContent = () => (
     <div className="ad-content">
-      <div className="ad-placeholder">
-        {/* Ad visual indicator */}
-        <div className="ad-icon">📢</div>
-        
-        {/* Ad text content */}
-        <div className="ad-text">
-          <h4>Advertisement</h4>
-          <p>Your ad content here</p>
-        </div>
-      </div>
+      {/* Google AdSense Ad Unit */}
+      <ins className="adsbygoogle"
+           style={{display: 'block'}}
+           data-ad-client="ca-pub-5014011475160512"
+           data-ad-slot="1122334455"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
   );
 

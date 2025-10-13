@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getFileDetails } from "../../utils/api";
 import { FILE_TYPES, CATEGORIES } from "../../constants";
 import PreviewPopup from "../../components/PreviewPopup/PreviewPopup";
+import Ads from "../../components/Ads/Ads";
 import "./Details.css";
 
 function Details() {
@@ -82,9 +83,8 @@ function Details() {
 
   return (
     <div className="details-container">
-     
-      <div className="details-card">
-        {/* File Image */}
+      {/* Row 1: File Image */}
+      <div className="details-row">
         <div className="details-image-container">
           <img
             src={file.imgUrl}
@@ -95,8 +95,12 @@ function Details() {
             }}
           />
         </div>
+      </div>
 
-        {/* File Info */}
+
+
+      {/* Row 2: File Info Header */}
+      <div className="details-row">
         <div className="details-info">
           <h1 style={{ marginBottom: "1rem", fontSize: "2.5rem" }}>{file.fileName}</h1>
 
@@ -110,7 +114,14 @@ function Details() {
               {CATEGORIES[file.category]}
             </span>
           </div>
+        </div>
+      </div>
 
+
+
+      {/* Row 3: Rating and Details */}
+      <div className="details-row">
+        <div className="details-info">
           {/* Rating */}
           <div className="details-rating">
             <div className="details-rating-stars">
@@ -138,8 +149,15 @@ function Details() {
           <p className="text-muted" style={{ marginBottom: "1rem" }}>
             <strong>price:</strong> {file.price === 0 ? 'Free' : `$${file.price}`}
           </p>
+        </div>
+      </div>
 
-           {/*Short Description */}
+
+
+      {/* Row 4: Descriptions */}
+      <div className="details-row">
+        <div className="details-info">
+          {/*Short Description */}
           <p className="details-shortDescription">
             <strong>shortDescription:</strong> {file.shortDescription}
           </p>
@@ -149,8 +167,12 @@ function Details() {
             <strong>Description:</strong> {file.pageDescription}
           </p>
         </div>
+      </div>
 
-        {/* Action Buttons */}
+
+
+      {/* Row 5: Action Buttons */}
+      <div className="details-row">
         <div className="details-actions">
           {isHtmlCss && (
             <>
@@ -159,6 +181,9 @@ function Details() {
               </button>
               <button className="btn btn-primary" onClick={() => setShowPreview(true)}>
                 Preview CSS
+              </button>
+              <button className="btn btn-primary" onClick={() => setShowPreview(true)}>
+                Preview JS
               </button>
             </>
           )}
