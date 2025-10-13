@@ -27,6 +27,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
+// Vercel Analytics import
+import { Analytics } from "@vercel/analytics/react";
+
 // Global application styles - loaded first for cascading
 import "./styles/global.css";
 
@@ -60,23 +63,24 @@ function App() {
       <Routes>
         {/* Home page - main landing page */}
         <Route path="/" element={<Home />} />
-        
+
         {/* About page - company/project information */}
         <Route path="/about" element={<About />} />
-        
+
         {/* Search results page - handles query parameters */}
         <Route path="/search" element={<SearchPage />} />
-        
+
         {/* Dynamic file details page - :id parameter for specific files */}
         <Route path="/details/:id" element={<Details />} />
-        
+
         {/* Dynamic download page - :id parameter for file downloads */}
         <Route path="/download/:id" element={<Download />} />
-        
+
         {/* Legal/policy pages */}
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
       </Routes>
+      <Analytics />
     </MainLayout>
   );
 }
