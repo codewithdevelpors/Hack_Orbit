@@ -17,10 +17,11 @@
  */
 
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../../ui/Button";
 import "./Navbar.css";
 import { THEMES, STORAGE_KEYS } from "../../constants";
+import { searchFiles } from "../../utils/api";
 
 /**
  * Main Navbar functional component
@@ -32,31 +33,26 @@ function Navbar() {
     return localStorage.getItem(STORAGE_KEYS.theme) || THEMES.light;
   });
   
-  // Dropdown menu states for category navigation
-  const [showCategories, setShowCategories] = useState(false);
-  const [showFreeSub, setShowFreeSub] = useState(false);
-  
+
   // Search functionality state
   const [searchQuery, setSearchQuery] = useState("");
-  
 
-  
+  // Dropdown menu states
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
   // Navbar auto-hide functionality states
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  
+
+  // Menu icon state
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   // Navigation hook for programmatic routing
   const navigate = useNavigate();
 
-  // Menu toggle state for desktop collapsible menu
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  /**
-   * Toggle the menu open/closed state
-   */
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   /**
    * Effect to handle theme changes
@@ -119,87 +115,113 @@ function Navbar() {
     }
   };
 
+  /**
+   * Handle category selection and fetch data from database
+   * @param {string} category - The selected category (free or paid)
+   * @param {string} type - The selected type (python or html-css)
+   */
+  const handleCategorySelect = async (category, type) => {
+    try {
+      const data = await searchFiles({ category, type });
+      // Navigate to search page with category and type filters
+      navigate(`/search?category=${category}&type=${type}`);
+      setIsDropdownOpen(false);
+      setIsSubmenuOpen(false);
+    } catch (error) {
+      console.error('Error fetching category data:', error);
+    }
+  };
+
+  /**
+   * Toggle dropdown menu
+   */
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+    setIsSubmenuOpen(false);
+  };
+
+  /**
+   * Toggle submenu for free/paid categories
+   * @param {string} category - The category to toggle submenu for
+   */
+  const toggleSubmenu = (category) => {
+    setSelectedCategory(category);
+    setIsSubmenuOpen(!isSubmenuOpen);
+  };
+
+  /**
+   * Toggle menu icon between hamburger and cancel
+   */
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
 
 
   return (
     <nav className={`navbar ${isHidden ? 'navbar-hidden' : ''}`}>
       <div className="navbar-container">
-        {/* Logo and Brand Name */}
-        <div className="navbar-brand">
-          <Link to="/" className="navbar-logo">
-            <img src="/favicon.ico" alt="HackOrbit Logo" className="logo-icon" />
-            <span className="logo-text">HackOrbit</span>
-          </Link>
-        </div>
-
-
-
-        {/* Main Navigation Row - All elements in one amazing line */}
-        <div className="navbar-main">
-          {/* Hamburger Icon for Desktop Collapsible Menu */}
-          <button
-            className={`hamburger-icon ${isMenuOpen ? 'open' : ''}`}
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          {/* Navigation Links with Icons */}
-          <div className={`navbar-nav-section ${isMenuOpen ? 'open' : ''}`}>
-            <Link to="/" className="navbar-link modern-nav-item">
-              <span className="nav-icon">🏠</span>
-              <span className="nav-text">Home</span>
-            </Link>
-
-            <div
-              className="navbar-dropdown modern-nav-item"
-              onMouseEnter={() => setShowCategories(true)}
-              onMouseLeave={() => {
-                setShowCategories(false);
-                setShowFreeSub(false);
-              }}
-            >
-              <button className="navbar-dropdown-btn">
-                <span className="nav-icon">📂</span>
-                <span className="nav-text">Categories</span>
-                <span className="dropdown-arrow">▼</span>
-              </button>
-
-              {showCategories && (
-                <div className="navbar-dropdown-menu modern-dropdown">
-                  <div
-                    className="navbar-dropdown-item"
-                    onMouseEnter={() => setShowFreeSub(true)}
-                    onMouseLeave={() => setShowFreeSub(false)}
-                  >
-                    <span>🆓 Free Programs</span>
-                    {showFreeSub && (
-                      <div className="navbar-submenu">
-                        <Link to="/search?category=free&type=python">
-                          🐍 Python
-                        </Link>
-                        <Link to="/search?category=free&type=htmlcss">
-                          🎨 HTML & CSS
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                  <Link to="/search?category=paid" className="navbar-dropdown-item">
-                    💎 Paid Programs
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            <Link to="/about" className="navbar-link modern-nav-item">
-              <span className="nav-icon">ℹ️</span>
-              <span className="nav-text">About Us</span>
-            </Link>
+        {/* Main Navigation Row - Only search and theme toggle */}
+        <div className={`navbar-main ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
+          <div className="navbar-brand">
+            <a className="navbar-logo" href="/">
+              <img src="/favicon.ico" alt="HackOrbit Logo" class="logo-icon"/>
+                <span class="logo-text">
+                 HackOrbit
+                </span>
+            </a>
           </div>
-
+          <div class="navbar-nav-section open">
+    <a class="navbar-link modern-nav-item" href="/">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-text">Home</span>
+    </a>
+    <div className="navbar-dropdown modern-nav-item">
+        <button className="navbar-dropdown-btn" onClick={toggleDropdown}>
+            <span className="nav-icon">📂</span>
+            <span className="nav-text">Categories</span>
+            <span className="dropdown-arrow">{isDropdownOpen ? '▲' : '▼'}</span>
+        </button>
+        {isDropdownOpen && (
+            <div className="navbar-dropdown-menu">
+                <button
+                    className="navbar-dropdown-item"
+                    onMouseEnter={() => toggleSubmenu('free')}
+                    onClick={() => toggleSubmenu('free')}
+                >
+                    Free
+                </button>
+                <button
+                    className="navbar-dropdown-item"
+                    onMouseEnter={() => toggleSubmenu('paid')}
+                    onClick={() => toggleSubmenu('paid')}
+                >
+                    Paid
+                </button>
+                {isSubmenuOpen && selectedCategory && (
+                    <div className="navbar-submenu">
+                        <button
+                            className="navbar-dropdown-item"
+                            onClick={() => handleCategorySelect(selectedCategory, 'python')}
+                        >
+                            Python
+                        </button>
+                        <button
+                            className="navbar-dropdown-item"
+                            onClick={() => handleCategorySelect(selectedCategory, 'html-css')}
+                        >
+                            HTML & CSS
+                        </button>
+                    </div>
+                )}
+            </div>
+        )}
+    </div>
+    <a class="navbar-link modern-nav-item" href="/about">
+        <span class="nav-icon">ℹ️</span>
+        <span class="nav-text">About Us</span>
+    </a>
+</div>
           {/* Modern Search Bar */}
           <form onSubmit={handleSearch} className="navbar-search modern-search">
             <div className="search-container">
@@ -228,11 +250,15 @@ function Navbar() {
             >
               <span className="theme-icon">
                 {theme === THEMES.dark ? "☀️" : "🌙"}
-              </span>{/*
-              <span className="theme-text">
-                {theme === THEMES.dark ? "Light" : "Dark"}
-              </span>*/}
+              </span>
             </Button>
+          </div>
+
+          {/* Menu Icon */}
+          <div className="menu-icon-container">
+            <span className="menu-icon" onClick={toggleMenu}>
+              {isMenuOpen ? '✕' : '☰'}
+            </span>
           </div>
         </div>
       </div>
