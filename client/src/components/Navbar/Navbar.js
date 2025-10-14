@@ -48,6 +48,16 @@ function Navbar() {
   // Navigation hook for programmatic routing
   const navigate = useNavigate();
 
+  // Menu toggle state for desktop collapsible menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  /**
+   * Toggle the menu open/closed state
+   */
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   /**
    * Effect to handle theme changes
    * Updates the DOM data-theme attribute and persists theme preference to localStorage
@@ -126,8 +136,19 @@ function Navbar() {
 
         {/* Main Navigation Row - All elements in one amazing line */}
         <div className="navbar-main">
+          {/* Hamburger Icon for Desktop Collapsible Menu */}
+          <button
+            className={`hamburger-icon ${isMenuOpen ? 'open' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
           {/* Navigation Links with Icons */}
-          <div className="navbar-nav-section">
+          <div className={`navbar-nav-section ${isMenuOpen ? 'open' : ''}`}>
             <Link to="/" className="navbar-link modern-nav-item">
               <span className="nav-icon">🏠</span>
               <span className="nav-text">Home</span>
@@ -146,7 +167,7 @@ function Navbar() {
                 <span className="nav-text">Categories</span>
                 <span className="dropdown-arrow">▼</span>
               </button>
-              
+
               {showCategories && (
                 <div className="navbar-dropdown-menu modern-dropdown">
                   <div
