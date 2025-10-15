@@ -742,21 +742,31 @@
 
   /* Ensure dropdown menus are visible in mobile menu */
   .navbar-main.mobile-menu-open .navbar-dropdown-menu {
-    position: static;
+    position: relative;
+    top: 0;
+    left: 0;
     box-shadow: none;
     border: none;
     background: transparent;
-    padding: 0;
+    padding: var(--spacing-sm) 0 0 0;
     margin-top: var(--spacing-sm);
+    width: 100%;
+    display: block !important;
+    visibility: visible !important;
   }
 
   .navbar-main.mobile-menu-open .navbar-submenu {
-    position: static;
+    position: relative;
+    top: 0;
+    left: 0;
     box-shadow: none;
     border: none;
     background: transparent;
     padding: var(--spacing-sm) 0 0 var(--spacing-md);
     margin-top: var(--spacing-xs);
+    width: 100%;
+    display: block !important;
+    visibility: visible !important;
   }
 
   .navbar-main.mobile-menu-open .navbar-dropdown-item {

@@ -83,95 +83,80 @@ function Details() {
 
   return (
     <div className="details-container">
-      {/* Row 1: File Image */}
+      {/* Row 1: Image and Description Side by Side */}
       <div className="details-row">
-        <div className="details-image-container">
-          <img
-            src={file.imgUrl}
-            alt={file.fileName}
-            className="details-image"
-            onError={(e) => {
-              e.target.src = "/placeholder-image.jpg";
-            }}
-          />
-        </div>
-      </div>
-
-
-
-      {/* Row 2: File Info Header */}
-      <div className="details-row">
-        <div className="details-info">
-          <h1 style={{ marginBottom: "1rem", fontSize: "2.5rem" }}>{file.fileName}</h1>
-
-          {/* Meta Info */}
-          <div className="details-meta">
-            <span className="text-sm bg-secondary text-secondary" style={{ padding: "0.5rem 1rem", borderRadius: "0.5rem" }}>
-              {FILE_TYPES[file.type] || file.type}
-            </span>
-            <span className={`text-sm ${file.category === 'free' ? 'bg-success text-light' : 'bg-warning text-dark'}`}
-                  style={{ padding: "0.5rem 1rem", borderRadius: "0.5rem" }}>
-              {CATEGORIES[file.category]}
-            </span>
-          </div>
-        </div>
-      </div>
-
-
-
-      {/* Row 3: Rating and Details */}
-      <div className="details-row">
-        <div className="details-info">
-          {/* Rating */}
-          <div className="details-rating">
-            <div className="details-rating-stars">
-              {renderStars(file.rating || 4.2)}
+        <div className="details-content-row">
+          {/* Image and name/type on the left */}
+          <div className="details-image-container">
+            <img
+              src={file.imgUrl}
+              alt={file.fileName}
+              className="details-image"
+              onError={(e) => {
+                e.target.src = "/placeholder-image.jpg";
+              }}
+            />
+            <div className="details-image-info">
+              <h2>{file.fileName}</h2>
+              <div className="details-meta">
+                <span className="text-sm bg-secondary text-secondary" style={{ padding: "0.5rem 1rem", borderRadius: "0.5rem" }}>
+                  {FILE_TYPES[file.type] || file.type}
+                </span>
+                <span className={`text-sm ${file.category === 'free' ? 'bg-success text-light' : 'bg-warning text-dark'}`}
+                      style={{ padding: "0.5rem 1rem", borderRadius: "0.5rem" }}>
+                  {CATEGORIES[file.category]}
+                </span>
+              </div>
             </div>
-            <p className="text-muted">{file.rating || 4.2} out of 5 stars</p>
           </div>
 
-          {/* Date */}
-          <p className="text-muted" style={{ marginBottom: "1rem" }}>
-            <strong>createdDate:</strong> {new Date(file.createdDate).toLocaleDateString()}
-          </p>
+          {/* Description on the right */}
+          <div className="details-description-container">
+            {/* Rating */}
+            <div className="details-rating">
+              <div className="details-rating-stars">
+                {renderStars(file.rating || 4.2)}
+              </div>
+              <p className="text-muted">{file.rating || 4.2} out of 5 stars</p>
+            </div>
 
-          {/* Category */}
-          <p className="text-muted" style={{ marginBottom: "1rem" }}>
-            <strong>category:</strong> {CATEGORIES[file.category]}
-          </p>
+            {/* Date */}
+            <p className="text-muted" style={{ marginBottom: "1rem" }}>
+              <strong>Created Date:</strong> {new Date(file.createdDate).toLocaleDateString()}
+            </p>
 
-          {/* File Type */}
-          <p className="text-muted" style={{ marginBottom: "1rem" }}>
-            <strong>fileType:</strong> {FILE_TYPES[file.type] || file.type}
-          </p>
+            {/* Category */}
+            <p className="text-muted" style={{ marginBottom: "1rem" }}>
+              <strong>Category:</strong> {CATEGORIES[file.category]}
+            </p>
 
-          {/* Price */}
-          <p className="text-muted" style={{ marginBottom: "1rem" }}>
-            <strong>price:</strong> {file.price === 0 ? 'Free' : `$${file.price}`}
-          </p>
+            {/* File Type */}
+            <p className="text-muted" style={{ marginBottom: "1rem" }}>
+              <strong>File Type:</strong> {FILE_TYPES[file.type] || file.type}
+            </p>
+
+            {/* Price */}
+            <p className="text-muted" style={{ marginBottom: "1rem" }}>
+              <strong>Price:</strong> {file.price === 0 ? 'Free' : `$${file.price}`}
+            </p>
+
+            {/* Short Description */}
+            <p className="details-shortDescription" style={{ marginBottom: "1rem" }}>
+              <strong>Short Description:</strong> {file.shortDescription}
+            </p>
+
+            {/* Full Description */}
+            <div className="details-description">
+              <strong>Description:</strong>
+              <p style={{ marginTop: "0.5rem", lineHeight: "1.6" }}>
+                {file.pageDescription}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-
-
-      {/* Row 4: Descriptions */}
-      <div className="details-row">
-        <div className="details-info">
-          {/*Short Description */}
-          <p className="details-shortDescription">
-            <strong>shortDescription:</strong> {file.shortDescription}
-          </p>
-
-          {/* Description */}
-          <p className="details-description">
-            <strong>Description:</strong> {file.pageDescription}
-          </p>
-        </div>
-      </div>
-
-
-
-      {/* Row 5: Action Buttons */}
+      {/* Row 3: Action Buttons */}
       <div className="details-row">
         <div className="details-actions">
           {isHtmlCss && (

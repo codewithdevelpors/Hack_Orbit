@@ -101,3 +101,11 @@
     order: 0;
   }
 }
+
+/* Hide side ads when mobile menu is open to prevent overlap */
+@media (max-width: 1023px) {
+  .navbar .navbar-main.mobile-menu-open ~ .main-content .left-ad,
+  .navbar .navbar-main.mobile-menu-open ~ .main-content .right-ad {
+    display: none;
+  }
+}
