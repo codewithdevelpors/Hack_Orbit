@@ -1,13 +1,33 @@
-# TODO: Add Hover Dropdown Menu to Category Button in Navbar
+# HacksOrbit UI Refactoring Tasks
 
-## Tasks
-- [x] Move file name (h2) and type/category badges (.details-meta) from left image container to right description container, above the rating section in Details.js
-- [x] Update Details.css to left-align the moved elements (change .details-meta justify-content to flex-start)
-- [ ] Verify the layout changes work correctly (optional: use browser to check)
-- [ ] Modify Navbar.js to make category dropdown open on hover (onMouseEnter) instead of click
-- [ ] Add onMouseLeave to close dropdown when not hovering
-- [ ] Ensure submenu opens on hover over Free/Paid options
-- [ ] Update Navbar.css for smooth hover transitions if needed
-- [ ] Test dropdown functionality by running the development server
-- [ ] Verify navigation to search page with category/type filters works
-- [ ] Check responsive behavior on mobile (keep click for touch devices if needed)
+## Completed
+- [x] Install and configure Tailwind CSS
+- [x] Set up custom design tokens and color palette
+- [x] Add Tailwind imports to index.js
+
+## In Progress
+- [ ] Refactor Navbar Component
+  - [ ] Make navbar sticky
+  - [ ] Implement hamburger menu for mobile
+  - [ ] Expand to full navigation on desktop/tablet
+  - [ ] Convert to Tailwind utility classes
+
+- [ ] Update Home Page Layout
+  - [ ] Single column grid on mobile without side ads
+  - [ ] Two-column grid on tablets with side ads
+  - [ ] Two-column grid on large desktops with sie ads
+  - [ ] Optimize article cards for touch targets
+
+- [ ] Refactor Details Page
+  - [ ] Constrain content width on large screens
+  - [ ] Make code blocks horizontally scrollable on mobile
+  - [ ] Ensure text legibility across all screen sizes
+
+- [ ] Update Main Layout
+  - [ ] Responsive ad placement
+  - [ ] Optimize spacing and positioning
+
+- [ ] General Improvements
+  - [ ] Ensure modern, clean, professional aesthetic
+  - [ ] Test responsive behavior across all screen sizes
+  - [ ] Replace existing CSS with Tailwind utilities where appropriate

@@ -5,11 +5,11 @@
   left: 0;
   right: 0;
   background: var(--navbar-bg, var(--bg-card));
-  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color, var(--border-light));
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   z-index: var(--z-fixed);
   transition: transform 0.3s ease;
+  overflow: visible;
 }
 
 .navbar.navbar-hidden {
@@ -308,7 +308,7 @@
 
 .navbar-dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 20px);
   left: 0;
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
@@ -316,7 +316,7 @@
   box-shadow: var(--shadow-lg);
   min-width: 200px;
   padding: var(--spacing-sm) 0;
-  z-index: var(--z-dropdown);
+  z-index: 99999;
   animation: fadeInDown 0.2s ease-out;
 }
 
@@ -344,6 +344,7 @@
   box-shadow: var(--shadow-lg);
   min-width: 150px;
   padding: var(--spacing-sm) 0;
+  z-index: 100000;
   animation: fadeInRight 0.2s ease-out;
 }
 

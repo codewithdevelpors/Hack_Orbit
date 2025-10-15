@@ -141,19 +141,24 @@ function Details() {
             <p className="text-muted" style={{ marginBottom: "1rem" }}>
               <strong>Price:</strong> {file.price === 0 ? 'Free' : `$${file.price}`}
             </p>
+          </div>
+        </div>
+      </div>
 
-            {/* Short Description */}
-            <p className="details-shortDescription" style={{ marginBottom: "1rem" }}>
-              <strong>Short Description:</strong> {file.shortDescription}
+      {/* Row 2: Short Description and Page Description Full Width */}
+      <div className="details-row">
+        <div className="details-descriptions-full">
+          {/* Short Description */}
+          <p className="details-shortDescription" style={{ marginBottom: "1rem" }}>
+            <strong>Short Description:</strong> {file.shortDescription}
+          </p>
+
+          {/* Full Description */}
+          <div className="details-description">
+            <strong>Description:</strong>
+            <p style={{ marginTop: "0.5rem", lineHeight: "1.6" }}>
+              {file.pageDescription}
             </p>
-
-            {/* Full Description */}
-            <div className="details-description">
-              <strong>Description:</strong>
-              <p style={{ marginTop: "0.5rem", lineHeight: "1.6" }}>
-                {file.pageDescription}
-              </p>
-            </div>
           </div>
         </div>
       </div>
