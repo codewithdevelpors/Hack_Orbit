@@ -86,7 +86,7 @@ function Details() {
       {/* Row 1: Image and Description Side by Side */}
       <div className="details-row">
         <div className="details-content-row">
-          {/* Image and name/type on the left */}
+          {/* Image on the left */}
           <div className="details-image-container">
             <img
               src={file.imgUrl}
@@ -96,7 +96,12 @@ function Details() {
                 e.target.src = "/placeholder-image.jpg";
               }}
             />
-            <div className="details-image-info">
+          </div>
+
+          {/* Description on the right */}
+          <div className="details-description-container">
+            {/* Name and Type above rating */}
+            <div className="details-header-info">
               <h2>{file.fileName}</h2>
               <div className="details-meta">
                 <span className="text-sm bg-secondary text-secondary" style={{ padding: "0.5rem 1rem", borderRadius: "0.5rem" }}>
@@ -108,10 +113,7 @@ function Details() {
                 </span>
               </div>
             </div>
-          </div>
 
-          {/* Description on the right */}
-          <div className="details-description-container">
             {/* Rating */}
             <div className="details-rating">
               <div className="details-rating-stars">

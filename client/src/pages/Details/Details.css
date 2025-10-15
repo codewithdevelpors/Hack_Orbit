@@ -30,19 +30,19 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.details-image-info {
-  margin-top: 1rem;
-  text-align: center;
+.details-header-info {
+  margin-bottom: 1rem;
+  text-align: left;
 }
 
-.details-image-info h2 {
+.details-header-info h2 {
   margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
   color: var(--text-primary);
 }
 
-.details-image-info .details-meta {
-  justify-content: center;
+.details-header-info .details-meta {
+  justify-content: flex-start;
   margin: 0;
 }
 

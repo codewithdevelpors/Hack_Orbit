@@ -298,6 +298,7 @@
   transition: all var(--transition-fast);
   font-size: inherit;
   font-family: inherit;
+  pointer-events: none; /* Disable click events since we use hover */
 }
 
 .navbar-dropdown-btn:hover {

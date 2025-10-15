@@ -133,20 +133,12 @@ function Navbar() {
   };
 
   /**
-   * Toggle dropdown menu
-   */
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-    setIsSubmenuOpen(false);
-  };
-
-  /**
    * Toggle submenu for free/paid categories
    * @param {string} category - The category to toggle submenu for
    */
   const toggleSubmenu = (category) => {
     setSelectedCategory(category);
-    setIsSubmenuOpen(!isSubmenuOpen);
+    setIsSubmenuOpen(true);
   };
 
   /**
@@ -176,8 +168,8 @@ function Navbar() {
         <span class="nav-icon">🏠</span>
         <span class="nav-text">Home</span>
     </a>
-    <div className="navbar-dropdown modern-nav-item">
-        <button className="navbar-dropdown-btn" onClick={toggleDropdown}>
+    <div className="navbar-dropdown modern-nav-item" onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => { setIsDropdownOpen(false); setIsSubmenuOpen(false); setSelectedCategory(null); }}>
+        <button className="navbar-dropdown-btn">
             <span className="nav-icon">📂</span>
             <span className="nav-text">Categories</span>
             <span className="dropdown-arrow">{isDropdownOpen ? '▲' : '▼'}</span>
@@ -187,19 +179,19 @@ function Navbar() {
                 <button
                     className="navbar-dropdown-item"
                     onMouseEnter={() => toggleSubmenu('free')}
-                    onClick={() => toggleSubmenu('free')}
+                    onMouseLeave={() => { setIsSubmenuOpen(false); setSelectedCategory(null); }}
                 >
                     Free
                 </button>
                 <button
                     className="navbar-dropdown-item"
                     onMouseEnter={() => toggleSubmenu('paid')}
-                    onClick={() => toggleSubmenu('paid')}
+                    onMouseLeave={() => { setIsSubmenuOpen(false); setSelectedCategory(null); }}
                 >
                     Paid
                 </button>
                 {isSubmenuOpen && selectedCategory && (
-                    <div className="navbar-submenu">
+                    <div className="navbar-submenu" onMouseEnter={() => setIsSubmenuOpen(true)} onMouseLeave={() => setIsSubmenuOpen(false)}>
                         <button
                             className="navbar-dropdown-item"
                             onClick={() => handleCategorySelect(selectedCategory, 'python')}

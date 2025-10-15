@@ -1,13 +1,13 @@
-# TODO: Add Full SEO Meta Tags to HacksOrbit Website
+# TODO: Add Hover Dropdown Menu to Category Button in Navbar
 
-## Steps to Complete:
-- [x] Update the title tag in client/public/index.html to "HacksOrbit - Tech and Programming Tutorials & Hacks"
-- [x] Update the description meta tag with a keyword-rich summary
-- [x] Add canonical link meta tag (assuming base URL https://hackorbit.com)
-- [x] Add keywords meta tag with relevant terms
-- [x] Add OpenGraph tags for social sharing (og:title, og:description, og:image, og:url, og:type)
-- [x] Add Twitter Card tags for Twitter sharing (twitter:card, twitter:title, twitter:description, twitter:image)
-- [x] Verify all tags are properly formatted and optimized
-
-## Progress Tracking:
-- All steps completed successfully. Meta tags added to client/public/index.html.
+## Tasks
+- [x] Move file name (h2) and type/category badges (.details-meta) from left image container to right description container, above the rating section in Details.js
+- [x] Update Details.css to left-align the moved elements (change .details-meta justify-content to flex-start)
+- [ ] Verify the layout changes work correctly (optional: use browser to check)
+- [ ] Modify Navbar.js to make category dropdown open on hover (onMouseEnter) instead of click
+- [ ] Add onMouseLeave to close dropdown when not hovering
+- [ ] Ensure submenu opens on hover over Free/Paid options
+- [ ] Update Navbar.css for smooth hover transitions if needed
+- [ ] Test dropdown functionality by running the development server
+- [ ] Verify navigation to search page with category/type filters works
+- [ ] Check responsive behavior on mobile (keep click for touch devices if needed)
