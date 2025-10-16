@@ -49,6 +49,7 @@ function Navbar() {
   // Menu icon state
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
+  const [isThemesSubmenuOpen, setIsThemesSubmenuOpen] = useState(false);
 
   // Navigation hook for programmatic routing
   const navigate = useNavigate();
@@ -154,6 +155,14 @@ function Navbar() {
    */
   const toggleMenuDropdown = () => {
     setIsMenuDropdownOpen(!isMenuDropdownOpen);
+    setIsThemesSubmenuOpen(false); // Close submenu when main dropdown toggles
+  };
+
+  /**
+   * Toggle themes submenu
+   */
+  const toggleThemesSubmenu = () => {
+    setIsThemesSubmenuOpen(!isThemesSubmenuOpen);
   };
 
 
