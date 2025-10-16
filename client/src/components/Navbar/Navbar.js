@@ -263,7 +263,7 @@ function Navbar() {
                     <span className="menu-icon">
                       {theme === THEMES.dark ? "☀️" : "🌙"}
                     </span>
-                    <span>Dark Mode</span>
+                    <span>{theme === THEMES.dark ? "Light Mode" : "Dark Mode"}</span>
                   </button>
                 </div>
               )}
