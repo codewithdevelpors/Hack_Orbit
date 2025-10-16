@@ -88,9 +88,9 @@ const MainLayout = ({ children }) => {
 
   return (
     <div className="main-layout">
-      {/* Main navigation component */}
+      {/* Navigation bar */}
       <Navbar />
-      
+
       {/* Main content area */}
       <main className="main-content">
         <div className="content-with-ads">

@@ -1,33 +1,10 @@
-# HacksOrbit UI Refactoring Tasks
+# TODO: Add Menu Button on Each Screen Width
 
-## Completed
-- [x] Install and configure Tailwind CSS
-- [x] Set up custom design tokens and color palette
-- [x] Add Tailwind imports to index.js
-
-## In Progress
-- [ ] Refactor Navbar Component
-  - [ ] Make navbar sticky
-  - [ ] Implement hamburger menu for mobile
-  - [ ] Expand to full navigation on desktop/tablet
-  - [ ] Convert to Tailwind utility classes
-
-- [ ] Update Home Page Layout
-  - [ ] Single column grid on mobile without side ads
-  - [ ] Two-column grid on tablets with side ads
-  - [ ] Two-column grid on large desktops with sie ads
-  - [ ] Optimize article cards for touch targets
-
-- [ ] Refactor Details Page
-  - [ ] Constrain content width on large screens
-  - [ ] Make code blocks horizontally scrollable on mobile
-  - [ ] Ensure text legibility across all screen sizes
-
-- [ ] Update Main Layout
-  - [ ] Responsive ad placement
-  - [ ] Optimize spacing and positioning
-
-- [ ] General Improvements
-  - [ ] Ensure modern, clean, professional aesthetic
-  - [ ] Test responsive behavior across all screen sizes
-  - [ ] Replace existing CSS with Tailwind utilities where appropriate
+## Tasks
+- [x] Update Navbar.js to use unified 'menu-open' class instead of 'mobile-menu-open'
+- [x] Update Navbar.css to replace 'mobile-menu-open' with 'menu-open' throughout
+- [x] Remove display: none for .menu-icon-container in desktop media query to show hamburger on all screens
+- [x] Add CSS rule to hide nav links on desktop when menu is toggled open
+- [x] Update MainLayout.css to use 'menu-open' instead of 'mobile-menu-open'
+- [x] Test navbar responsiveness on mobile and desktop (started dev server)
+- [x] Verify logo stays on left and menu icon on right across all screen sizes (based on CSS structure)

@@ -48,6 +48,7 @@ function Navbar() {
 
   // Menu icon state
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
 
   // Navigation hook for programmatic routing
   const navigate = useNavigate();
@@ -148,13 +149,20 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  /**
+   * Toggle menu dropdown
+   */
+  const toggleMenuDropdown = () => {
+    setIsMenuDropdownOpen(!isMenuDropdownOpen);
+  };
+
 
 
   return (
     <nav className={`navbar ${isHidden ? 'navbar-hidden' : ''}`}>
       <div className="navbar-container">
         {/* Main Navigation Row - Only search and theme toggle */}
-        <div className={`navbar-main ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
+        <div className={`navbar-main ${isMenuOpen ? 'menu-open' : ''}`}>
           <div className="navbar-brand">
             <a className="navbar-logo" href="/">
               <img src="/favicon.ico" alt="HackOrbit Logo" class="logo-icon"/>
@@ -231,26 +239,35 @@ function Navbar() {
             </div>
           </form>
 
-          {/* Modern Theme Toggle */}
-          <div className="theme-toggle-container">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleTheme}
-              className="theme-toggle modern-theme-toggle"
-              title={`Switch to ${theme === THEMES.dark ? 'Light' : 'Dark'} Mode`}
-            >
-              <span className="theme-icon">
-                {theme === THEMES.dark ? "☀️" : "🌙"}
-              </span>
-            </Button>
-          </div>
+
 
           {/* Menu Icon */}
           <div className="menu-icon-container">
-            <span className="menu-icon" onClick={toggleMenu}>
-              {isMenuOpen ? '✕' : '☰'}
-            </span>
+            <div className="menu-dropdown">
+              <span className="menu-icon" onClick={toggleMenuDropdown}>
+                {isMenuDropdownOpen ? '✕' : '☰'}
+              </span>
+              {isMenuDropdownOpen && (
+                <div className="menu-dropdown-menu">
+                  <button
+                    className="menu-dropdown-item"
+                    onClick={toggleTheme}
+                  >
+                    <span className="menu-icon">🎨</span>
+                    <span>Themes</span>
+                  </button>
+                  <button
+                    className="menu-dropdown-item"
+                    onClick={toggleTheme}
+                  >
+                    <span className="menu-icon">
+                      {theme === THEMES.dark ? "☀️" : "🌙"}
+                    </span>
+                    <span>Dark Mode</span>
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
