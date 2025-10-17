@@ -70,7 +70,7 @@
 /* Files Grid - Mobile First */
 .files-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Single column on mobile */
+  grid-template-columns: 1fr; /* Single column on mobile and default */
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-2xl);
   max-width: 1200px;

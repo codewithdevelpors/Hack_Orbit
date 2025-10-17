@@ -44,6 +44,7 @@ import Details from "./pages/Details/Details";
 import Download from "./pages/Download/Download";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService/TermsOfService";
+import Themes from "./pages/Themes/Themes";
 
 /**
  * Main App component
@@ -75,6 +76,9 @@ function App() {
 
         {/* Dynamic download page - :id parameter for file downloads */}
         <Route path="/download/:id" element={<Download />} />
+
+        {/* Themes page - animated theme showcase */}
+        <Route path="/themes" element={<Themes />} />
 
         {/* Legal/policy pages */}
         <Route path="/privacy" element={<PrivacyPolicy />} />

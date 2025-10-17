@@ -37,9 +37,7 @@ function Navbar() {
   // Search functionality state
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Dropdown menu states
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  // Dropdown menu states - removed click-based states for hover
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   // Navbar auto-hide functionality states
@@ -49,7 +47,6 @@ function Navbar() {
   // Menu icon state
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
-  const [isThemesSubmenuOpen, setIsThemesSubmenuOpen] = useState(false);
 
   // Navigation hook for programmatic routing
   const navigate = useNavigate();
@@ -127,20 +124,24 @@ function Navbar() {
       const data = await searchFiles({ category, type });
       // Navigate to search page with category and type filters
       navigate(`/search?category=${category}&type=${type}`);
-      setIsDropdownOpen(false);
-      setIsSubmenuOpen(false);
     } catch (error) {
       console.error('Error fetching category data:', error);
     }
   };
 
   /**
-   * Toggle submenu for free/paid categories
-   * @param {string} category - The category to toggle submenu for
+   * Handle submenu hover for free/paid categories
+   * @param {string} category - The category to show submenu for
    */
-  const toggleSubmenu = (category) => {
+  const handleSubmenuHover = (category) => {
     setSelectedCategory(category);
-    setIsSubmenuOpen(true);
+  };
+
+  /**
+   * Clear submenu on mouse leave
+   */
+  const handleSubmenuLeave = () => {
+    setSelectedCategory(null);
   };
 
   /**
@@ -155,85 +156,56 @@ function Navbar() {
    */
   const toggleMenuDropdown = () => {
     setIsMenuDropdownOpen(!isMenuDropdownOpen);
-    setIsThemesSubmenuOpen(false); // Close submenu when main dropdown toggles
   };
 
-  /**
-   * Toggle themes submenu
-   */
-  const toggleThemesSubmenu = () => {
-    setIsThemesSubmenuOpen(!isThemesSubmenuOpen);
-  };
+
 
 
 
   return (
     <nav className={`navbar ${isHidden ? 'navbar-hidden' : ''}`}>
       <div className="navbar-container">
-        {/* Main Navigation Row - Only search and theme toggle */}
+        {/* Main Navigation Row - Logo left, menu icon right */}
         <div className={`navbar-main ${isMenuOpen ? 'menu-open' : ''}`}>
           <div className="navbar-brand">
             <a className="navbar-logo" href="/">
-              <img src="/favicon.ico" alt="HackOrbit Logo" class="logo-icon"/>
-                <span class="logo-text">
-                 HackOrbit
-                </span>
+              <img src="/favicon.ico" alt="HackOrbit Logo" className="logo-icon"/>
+              <span className="logo-text">
+                HackOrbit
+              </span>
             </a>
           </div>
-          <div class="navbar-nav-section open">
-    <a class="navbar-link modern-nav-item" href="/">
-        <span class="nav-icon">🏠</span>
-        <span class="nav-text">Home</span>
-    </a>
-    <div className="navbar-dropdown modern-nav-item" onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => { setIsDropdownOpen(false); setIsSubmenuOpen(false); setSelectedCategory(null); }}>
-        <button className="navbar-dropdown-btn">
-            <span className="nav-icon">📂</span>
-            <span className="nav-text">Categories</span>
-            <span className="dropdown-arrow">{isDropdownOpen ? '▲' : '▼'}</span>
-        </button>
-        {isDropdownOpen && (
-            <div className="navbar-dropdown-menu">
-                <button
-                    className="navbar-dropdown-item"
-                    onMouseEnter={() => toggleSubmenu('free')}
-                    onMouseLeave={() => { setIsSubmenuOpen(false); setSelectedCategory(null); }}
-                >
-                    Free
-                </button>
-                <button
-                    className="navbar-dropdown-item"
-                    onMouseEnter={() => toggleSubmenu('paid')}
-                    onMouseLeave={() => { setIsSubmenuOpen(false); setSelectedCategory(null); }}
-                >
-                    Paid
-                </button>
-                {isSubmenuOpen && selectedCategory && (
-                    <div className="navbar-submenu" onMouseEnter={() => setIsSubmenuOpen(true)} onMouseLeave={() => setIsSubmenuOpen(false)}>
-                        <button
-                            className="navbar-dropdown-item"
-                            onClick={() => handleCategorySelect(selectedCategory, 'python')}
-                        >
-                            Python
-                        </button>
-                        <button
-                            className="navbar-dropdown-item"
-                            onClick={() => handleCategorySelect(selectedCategory, 'html-css')}
-                        >
-                            HTML & CSS
-                        </button>
-                    </div>
-                )}
+
+          {/* Desktop Navigation Links - Hidden on mobile/tablet */}
+          <div className="navbar-nav-section desktop-nav">
+            <a className="navbar-link" href="/">
+              <span className="nav-icon">🏠</span>
+              Home
+            </a>
+            <div className="navbar-dropdown desktop-dropdown">
+              <button className="navbar-dropdown-btn" onMouseEnter={() => handleSubmenuHover('categories')} onMouseLeave={handleSubmenuLeave}>
+                <span className="nav-icon">📂</span>
+                Categories
+                <span className="dropdown-arrow">▼</span>
+              </button>
+              {selectedCategory === 'categories' && (
+                <div className="navbar-dropdown-menu">
+                  <div className="navbar-submenu">
+                    <a href="/search?category=free" className="navbar-dropdown-item">
+                      Free
+                    </a>
+                    <a href="/search?category=paid" className="navbar-dropdown-item">
+                      Paid
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
-        )}
-    </div>
-    <a class="navbar-link modern-nav-item" href="/about">
-        <span class="nav-icon">ℹ️</span>
-        <span class="nav-text">About Us</span>
-    </a>
-</div>
-          {/* Modern Search Bar */}
-          <form onSubmit={handleSearch} className="navbar-search modern-search">
-            <div className="search-container">
+          </div>
+
+          {/* Modern Search Bar - Desktop */}
+          <div className="modern-search desktop-search">
+            <form onSubmit={handleSearch} className="search-container">
               <span className="search-icon">🔍</span>
               <input
                 type="text"
@@ -243,14 +215,24 @@ function Navbar() {
                 className="navbar-search-input"
               />
               <button type="submit" className="search-btn">
-                <span>Search</span>
+                Search
               </button>
-            </div>
-          </form>
+            </form>
+          </div>
 
+          {/* Modern Theme Toggle - Desktop */}
+          <div className="theme-toggle-container desktop-theme">
+            <button className="modern-theme-toggle" onClick={toggleTheme}>
+              <span className="theme-icon">
+                {theme === THEMES.dark ? "☀️" : "🌙"}
+              </span>
+              <span className="theme-text">
+                {theme === THEMES.dark ? "Light" : "Dark"}
+              </span>
+            </button>
+          </div>
 
-
-          {/* Menu Icon */}
+          {/* Menu Icon Container - Mobile/Tablet only */}
           <div className="menu-icon-container">
             <div className="menu-dropdown">
               <span className="menu-icon" onClick={toggleMenuDropdown}>
@@ -258,13 +240,96 @@ function Navbar() {
               </span>
               {isMenuDropdownOpen && (
                 <div className="menu-dropdown-menu">
-                  <button
+                  {/* Home Link */}
+                  <a
                     className="menu-dropdown-item"
-                    onClick={toggleTheme}
+                    href="/"
+                    onClick={() => setIsMenuDropdownOpen(false)}
+                  >
+                    <span className="menu-icon">🏠</span>
+                    <span>Home</span>
+                  </a>
+
+                  {/* Categories Dropdown */}
+                  <div className="menu-dropdown-submenu" onMouseLeave={handleSubmenuLeave}>
+                    <div
+                      className="menu-dropdown-item"
+                      onMouseEnter={() => handleSubmenuHover('categories')}
+                    >
+                      <span className="menu-icon">📂</span>
+                      <span>Categories</span>
+                      <span className="dropdown-arrow">▼</span>
+                    </div>
+                    {selectedCategory === 'categories' && (
+                      <div className="menu-submenu">
+                        <button
+                          className="menu-dropdown-item submenu-item"
+                          onClick={() => { handleCategorySelect('free', 'python'); setIsMenuDropdownOpen(false); }}
+                        >
+                          Free Python
+                        </button>
+                        <button
+                          className="menu-dropdown-item submenu-item"
+                          onClick={() => { handleCategorySelect('free', 'html-css'); setIsMenuDropdownOpen(false); }}
+                        >
+                          Free HTML & CSS
+                        </button>
+                        <button
+                          className="menu-dropdown-item submenu-item"
+                          onClick={() => { handleCategorySelect('paid', 'python'); setIsMenuDropdownOpen(false); }}
+                        >
+                          Paid Python
+                        </button>
+                        <button
+                          className="menu-dropdown-item submenu-item"
+                          onClick={() => { handleCategorySelect('paid', 'html-css'); setIsMenuDropdownOpen(false); }}
+                        >
+                          Paid HTML & CSS
+                        </button>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Themes Link */}
+                  <a
+                    className="menu-dropdown-item"
+                    href="/themes"
+                    onClick={() => setIsMenuDropdownOpen(false)}
                   >
                     <span className="menu-icon">🎨</span>
                     <span>Themes</span>
-                  </button>
+                  </a>
+
+                  {/* About Us Link */}
+                  <a
+                    className="menu-dropdown-item"
+                    href="/about"
+                    onClick={() => setIsMenuDropdownOpen(false)}
+                  >
+                    <span className="menu-icon">ℹ️</span>
+                    <span>About Us</span>
+                  </a>
+
+                  {/* Search Bar in Menu */}
+                  <div className="menu-search-container">
+                    <form onSubmit={(e) => { handleSearch(e); setIsMenuDropdownOpen(false); }} className="menu-search-form">
+                      <div className="menu-search-input-container">
+                        <span className="search-icon">🔍</span>
+                        <input
+                          type="text"
+                          placeholder="Search amazing programs..."
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          className="menu-search-input"
+                        />
+                        <button type="submit" className="menu-search-btn">
+                          <span>Search</span>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+
+                  {/* Theme Toggle */}
                   <button
                     className="menu-dropdown-item"
                     onClick={toggleTheme}

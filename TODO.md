@@ -1,10 +1,19 @@
-# TODO: Add Menu Button on Each Screen Width
+# TODO: Additional Layout Updates
 
-## Tasks
-- [x] Update Navbar.js to use unified 'menu-open' class instead of 'mobile-menu-open'
-- [x] Update Navbar.css to replace 'mobile-menu-open' with 'menu-open' throughout
-- [x] Remove display: none for .menu-icon-container in desktop media query to show hamburger on all screens
-- [x] Add CSS rule to hide nav links on desktop when menu is toggled open
-- [x] Update MainLayout.css to use 'menu-open' instead of 'mobile-menu-open'
-- [x] Test navbar responsiveness on mobile and desktop (started dev server)
-- [x] Verify logo stays on left and menu icon on right across all screen sizes (based on CSS structure)
+## New Tasks to Complete
+
+### 1. Desktop Layout Adjustments
+- [x] Update `client/src/pages/SearchPage/SearchPage.css` for 2 cards per row on desktop
+- [x] Ensure side ads are shown on desktop in `client/src/layouts/MainLayout.css`
+- [x] Center the cards grid on all screen sizes
+
+### 2. Desktop Navigation
+- [x] Add desktop navigation links (Home, About Us, Categories) to navbar for desktop view
+- [x] Hide these links on mobile/tablet, keep menu icon
+
+## Previous Tasks (Completed)
+- [x] Navbar hover dropdown
+- [x] Search by category/type
+- [x] Mobile: 1 card per row, no side ads
+- [x] Tablet: 2 cards per row, no side ads
+- [x] White background

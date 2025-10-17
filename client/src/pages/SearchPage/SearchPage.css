@@ -15,12 +15,13 @@
 
 .files-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr; /* Single column by default (mobile-first) */
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-2xl);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  justify-items: center;
 }
 
 /* File Card */
@@ -143,7 +144,8 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  /* Mobile: 1 placeholder per row */
   .files-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
@@ -152,5 +154,27 @@
 
   .search-title {
     font-size: var(--font-size-2xl);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet: 2 placeholders per row */
+  .files-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 800px;
+  }
+
+  .search-title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Desktop: 2 cards per row */
+  .files-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 1000px;
   }
 }

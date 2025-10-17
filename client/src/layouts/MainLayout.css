@@ -36,8 +36,8 @@
 }
 
 /* Responsive Design - Mobile First */
-@media (min-width: 768px) {
-  /* Tablet: Larger navbar, show ads */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet: Hide side ads, larger navbar */
   .main-content {
     padding-top: 80px;
     min-height: calc(100vh - 160px);
@@ -45,7 +45,7 @@
 
   .left-ad,
   .right-ad {
-    width: 180px;
+    display: none;
   }
 
   .page-content {
@@ -54,10 +54,11 @@
 }
 
 @media (min-width: 1024px) {
-  /* Desktop: Full layout */
+  /* Desktop: Full layout with ads */
   .left-ad,
   .right-ad {
     width: 200px;
+    display: block;
   }
 
   .page-content {
@@ -74,18 +75,7 @@
 
   .left-ad,
   .right-ad {
-    width: 100%;
-    height: 80px;
-    position: static;
-    order: -1;
-  }
-
-  .left-ad {
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .right-ad {
-    margin-top: var(--spacing-sm);
+    display: none;
   }
 
   .page-content {

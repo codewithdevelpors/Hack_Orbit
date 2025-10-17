@@ -21,8 +21,7 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  background-attachment: fixed;
+  background: white;
   color: var(--text-color, var(--text-primary));
   transition: background-color var(--transition-normal), color var(--transition-normal);
   overflow-x: hidden;

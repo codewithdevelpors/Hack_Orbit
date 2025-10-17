@@ -19,6 +19,9 @@ function Download() {
   
   // State for countdown timer (15 seconds)
   const [countdown, setCountdown] = useState(15);
+
+  // Calculate progress percentage for the circle
+  const progress = (15 - countdown) / 15;
   
   // State to track if countdown is finished
   const [countdownFinished, setCountdownFinished] = useState(false);
@@ -136,7 +139,7 @@ function Download() {
               {!countdownFinished ? (
                 // Show countdown timer
                 <div className="countdown-container">
-                  <div className="countdown-display">{countdown}</div>
+                  <div className="countdown-display" style={{ '--progress': progress }}>{countdown}</div>
                   <p className="text-muted">
                     Download will be available in {countdown} second{countdown !== 1 ? 's' : ''}
                   </p>
