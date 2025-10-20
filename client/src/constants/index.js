@@ -64,7 +64,8 @@ export const ANIMATIONS = {
 // Local Storage Keys
 export const STORAGE_KEYS = {
   theme: 'codegalaxy_theme',
-  userPreferences: 'codegalaxy_preferences'
+  userPreferences: 'codegalaxy_preferences',
+  language: 'hackorbit_language'
 };
 
 // Error Messages

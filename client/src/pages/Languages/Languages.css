@@ -1,0 +1,93 @@
+.languages-page {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.languages-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.languages-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.languages-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+}
+
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.language-button {
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.language-button:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.language-button.active {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+}
+
+.language-native {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.language-name {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.language-button.active .language-name {
+  opacity: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .languages-title {
+    font-size: 2rem;
+  }
+
+  .languages-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .language-button {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .language-native {
+    font-size: 1.2rem;
+  }
+}

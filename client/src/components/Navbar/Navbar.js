@@ -18,6 +18,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import Button from "../../ui/Button";
 import "./Navbar.css";
 import { THEMES, STORAGE_KEYS } from "../../constants";
@@ -28,11 +29,13 @@ import { searchFiles } from "../../utils/api";
  * Handles all navigation, search, and theme functionality
  */
 function Navbar() {
+  const { t } = useTranslation();
+
   // Theme state - initialized from localStorage or defaults to light
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem(STORAGE_KEYS.theme) || THEMES.light;
   });
-  
+
 
   // Search functionality state
   const [searchQuery, setSearchQuery] = useState("");
@@ -180,12 +183,12 @@ function Navbar() {
           <div className="navbar-nav-section desktop-nav">
             <a className="navbar-link" href="/">
               <span className="nav-icon">🏠</span>
-              Home
+              {t('home')}
             </a>
             <div className="navbar-dropdown desktop-dropdown">
               <button className="navbar-dropdown-btn" onMouseEnter={() => handleSubmenuHover('categories')} onMouseLeave={handleSubmenuLeave}>
                 <span className="nav-icon">📂</span>
-                Categories
+                {t('categories')}
                 <span className="dropdown-arrow">▼</span>
               </button>
               {selectedCategory === 'categories' && (
@@ -209,7 +212,7 @@ function Navbar() {
               <span className="search-icon">🔍</span>
               <input
                 type="text"
-                placeholder="Search amazing programs..."
+                placeholder={t('searchPlaceholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="navbar-search-input"
@@ -227,7 +230,7 @@ function Navbar() {
                 {theme === THEMES.dark ? "☀️" : "🌙"}
               </span>
               <span className="theme-text">
-                {theme === THEMES.dark ? "Light" : "Dark"}
+                {theme === THEMES.dark ? t('lightMode') : t('darkMode')}
               </span>
             </button>
           </div>
@@ -247,7 +250,7 @@ function Navbar() {
                     onClick={() => setIsMenuDropdownOpen(false)}
                   >
                     <span className="menu-icon">🏠</span>
-                    <span>Home</span>
+                    <span>{t('home')}</span>
                   </a>
 
                   {/* Categories Dropdown */}
@@ -257,7 +260,7 @@ function Navbar() {
                       onMouseEnter={() => handleSubmenuHover('categories')}
                     >
                       <span className="menu-icon">📂</span>
-                      <span>Categories</span>
+                      <span>{t('categories')}</span>
                       <span className="dropdown-arrow">▼</span>
                     </div>
                     {selectedCategory === 'categories' && (
@@ -266,25 +269,25 @@ function Navbar() {
                           className="menu-dropdown-item submenu-item"
                           onClick={() => { handleCategorySelect('free', 'python'); setIsMenuDropdownOpen(false); }}
                         >
-                          Free Python
+                          {t('free')} {t('python')}
                         </button>
                         <button
                           className="menu-dropdown-item submenu-item"
                           onClick={() => { handleCategorySelect('free', 'html-css'); setIsMenuDropdownOpen(false); }}
                         >
-                          Free HTML & CSS
+                          {t('free')} {t('htmlCss')}
                         </button>
                         <button
                           className="menu-dropdown-item submenu-item"
                           onClick={() => { handleCategorySelect('paid', 'python'); setIsMenuDropdownOpen(false); }}
                         >
-                          Paid Python
+                          {t('paid')} {t('python')}
                         </button>
                         <button
                           className="menu-dropdown-item submenu-item"
                           onClick={() => { handleCategorySelect('paid', 'html-css'); setIsMenuDropdownOpen(false); }}
                         >
-                          Paid HTML & CSS
+                          {t('paid')} {t('htmlCss')}
                         </button>
                       </div>
                     )}
@@ -297,7 +300,17 @@ function Navbar() {
                     onClick={() => setIsMenuDropdownOpen(false)}
                   >
                     <span className="menu-icon">🎨</span>
-                    <span>Themes</span>
+                    <span>{t('themes')}</span>
+                  </a>
+
+                  {/* Languages Link */}
+                  <a
+                    className="menu-dropdown-item"
+                    href="/languages"
+                    onClick={() => setIsMenuDropdownOpen(false)}
+                  >
+                    <span className="menu-icon">🌐</span>
+                    <span>{t('language')}</span>
                   </a>
 
                   {/* About Us Link */}
@@ -307,7 +320,7 @@ function Navbar() {
                     onClick={() => setIsMenuDropdownOpen(false)}
                   >
                     <span className="menu-icon">ℹ️</span>
-                    <span>About Us</span>
+                    <span>{t('about')}</span>
                   </a>
 
                   {/* Search Bar in Menu */}
@@ -317,7 +330,7 @@ function Navbar() {
                         <span className="search-icon">🔍</span>
                         <input
                           type="text"
-                          placeholder="Search amazing programs..."
+                          placeholder={t('searchPlaceholder')}
                           value={searchQuery}
                           onChange={(e) => setSearchQuery(e.target.value)}
                           className="menu-search-input"
@@ -337,7 +350,7 @@ function Navbar() {
                     <span className="menu-icon">
                       {theme === THEMES.dark ? "☀️" : "🌙"}
                     </span>
-                    <span>{theme === THEMES.dark ? "Light Mode" : "Dark Mode"}</span>
+                    <span>{theme === THEMES.dark ? t('lightMode') : t('darkMode')}</span>
                   </button>
                 </div>
               )}

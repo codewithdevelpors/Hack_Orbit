@@ -17,7 +17,6 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import LeftAd from '../components/LeftAd/LeftAd';
 import RightAd from '../components/RightAd/RightAd';
-import Ads from '../components/Ads/Ads';
 import './MainLayout.css';
 
 /**
@@ -29,15 +28,19 @@ import './MainLayout.css';
 const MainLayout = ({ children }) => {
   const location = useLocation();
 
-  // State to control popup ad visibility
-  const [showPopup, setShowPopup] = useState(false);
-
   // State to track ad interactions for analytics
   const [adInteractions, setAdInteractions] = useState({
     leftAdClicks: 0,
-    rightAdClicks: 0,
-    popupShown: false
+    rightAdClicks: 0
   });
+
+  // Define routes where ads should be displayed (pages with substantial content)
+  const adEnabledRoutes = ['/', '/search', '/details', '/about', '/privacy', '/terms'];
+
+  // Check if current route should display ads
+  const shouldShowAds = adEnabledRoutes.some(route =>
+    location.pathname === route || location.pathname.startsWith(`${route}/`)
+  );
 
   /**
    * Effect to handle popup ad timing
@@ -78,13 +81,7 @@ const MainLayout = ({ children }) => {
     console.log('Right ad clicked - total clicks:', adInteractions.rightAdClicks + 1);
   };
 
-  /**
-   * Handle popup ad close
-   */
-  const handlePopupClose = () => {
-    setShowPopup(false);
-    console.log('Popup ad closed by user');
-  };
+
 
   return (
     <div className="main-layout">
@@ -93,30 +90,39 @@ const MainLayout = ({ children }) => {
 
       {/* Main content area */}
       <main className="main-content">
-        <div className="content-with-ads">
-          {/* Left side advertisement */}
-          <div className="left-ad">
-            <LeftAd
-              autoHide={false}
-              onAdClick={handleLeftAdClick}
-              adContent="Sponsored Content"
-            />
-          </div>
+        {shouldShowAds ? (
+          <div className="content-with-ads">
+            {/* Left side advertisement */}
+            <div className="left-ad">
+              <LeftAd
+                autoHide={false}
+                onAdClick={handleLeftAdClick}
+                adContent="Sponsored Content"
+              />
+            </div>
 
-          {/* Main page content area */}
-          <div className="page-content">
-            {children}
-          </div>
+            {/* Main page content area */}
+            <div className="page-content">
+              {children}
+            </div>
 
-          {/* Right side advertisement */}
-          <div className="right-ad">
-            <RightAd
-              autoHide={false}
-              onAdClick={handleRightAdClick}
-              adContent="Premium Ads"
-            />
+            {/* Right side advertisement */}
+            <div className="right-ad">
+              <RightAd
+                autoHide={false}
+                onAdClick={handleRightAdClick}
+                adContent="Premium Ads"
+              />
+            </div>
           </div>
-        </div>
+        ) : (
+          /* Pages without ads - centered content */
+          <div className="content-without-ads">
+            <div className="page-content-centered">
+              {children}
+            </div>
+          </div>
+        )}
       </main>
 
 

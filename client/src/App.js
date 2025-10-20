@@ -45,6 +45,7 @@ import Download from "./pages/Download/Download";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService/TermsOfService";
 import Themes from "./pages/Themes/Themes";
+import Languages from "./pages/Languages/Languages";
 
 /**
  * Main App component
@@ -79,6 +80,9 @@ function App() {
 
         {/* Themes page - animated theme showcase */}
         <Route path="/themes" element={<Themes />} />
+
+        {/* Languages page - language selection */}
+        <Route path="/languages" element={<Languages />} />
 
         {/* Legal/policy pages */}
         <Route path="/privacy" element={<PrivacyPolicy />} />

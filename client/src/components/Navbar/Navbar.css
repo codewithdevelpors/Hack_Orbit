@@ -354,6 +354,7 @@
 /* Dropdown Menu */
 .navbar-dropdown {
   position: relative;
+  z-index: 99999;
 }
 
 .navbar-dropdown-btn {

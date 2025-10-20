@@ -84,6 +84,36 @@
   }
 }
 
+/* Content without ads - centered layout for pages like themes, languages, download */
+.content-without-ads {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 180px);
+}
+
+.page-content-centered {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+  width: 100%;
+}
+
+/* Responsive adjustments for centered content */
+@media (min-width: 768px) {
+  .page-content-centered {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-content-centered {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
 /* Hide side ads when menu is open to prevent overlap */
 @media (max-width: 767px) {
   .navbar .navbar-main.menu-open ~ .main-content .left-ad,

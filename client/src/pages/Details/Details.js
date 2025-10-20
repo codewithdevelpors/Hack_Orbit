@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getFileDetails } from "../../utils/api";
 import { FILE_TYPES, CATEGORIES } from "../../constants";
 import PreviewPopup from "../../components/PreviewPopup/PreviewPopup";
-import Ads from "../../components/Ads/Ads";
 import "./Details.css";
 
 function Details() {

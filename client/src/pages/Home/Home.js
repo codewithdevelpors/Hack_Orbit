@@ -3,22 +3,9 @@ import "./Home.css";
 import { getFiles } from "../../utils/api";
 import { Card, CardContent, CardImage } from "../../ui/Card";
 import Button from "../../ui/Button";
-import Banner from "../../components/Banner/Banner";
 import RateUs from "../../components/RateUs/RateUs";
-import Ads from "../../components/Ads/Ads";
 import { useNavigate } from "react-router-dom";
 import { FILE_TYPES, CATEGORIES } from "../../constants";
-
-const insertAds = (items, adComponent) => {
-  const result = [];
-  items.forEach((item, index) => {
-    result.push(item);
-    if ((index + 1) % 4 === 0) {
-      result.push(adComponent);
-    }
-  });
-  return result;
-};
 
 function Home() {
   const [files, setFiles] = useState([]);

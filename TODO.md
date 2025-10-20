@@ -1,19 +1,28 @@
-# TODO: Additional Layout Updates
+# Language Persistence Implementation Plan
 
-## New Tasks to Complete
+## Information Gathered
+- The app uses i18next for internationalization with translations for 20 languages.
+- Current setup initializes with default 'en' language without persistence.
+- Languages page allows selection but doesn't save the choice.
+- Navbar displays current language but relies on i18n.language state.
 
-### 1. Desktop Layout Adjustments
-- [x] Update `client/src/pages/SearchPage/SearchPage.css` for 2 cards per row on desktop
-- [x] Ensure side ads are shown on desktop in `client/src/layouts/MainLayout.css`
-- [x] Center the cards grid on all screen sizes
+## Plan
+1. Add language storage key to constants
+2. Update i18n.js to load persisted language on initialization
+3. Modify Languages.js to persist selected language in localStorage
+4. Test language persistence across page reloads
 
-### 2. Desktop Navigation
-- [x] Add desktop navigation links (Home, About Us, Categories) to navbar for desktop view
-- [x] Hide these links on mobile/tablet, keep menu icon
+## Dependent Files to Edit
+- client/src/constants/index.js: Add language storage key
+- client/src/i18n.js: Load persisted language on init
+- client/src/pages/Languages/Languages.js: Save language on change
 
-## Previous Tasks (Completed)
-- [x] Navbar hover dropdown
-- [x] Search by category/type
-- [x] Mobile: 1 card per row, no side ads
-- [x] Tablet: 2 cards per row, no side ads
-- [x] White background
+## Followup Steps
+- Test language switching and persistence
+- Verify language persists after page refresh
+- Ensure fallback to 'en' if no stored language
+
+## Completed Tasks
+- [x] Added language storage key to constants
+- [x] Updated i18n.js to load persisted language on initialization
+- [x] Modified Languages.js to persist selected language in localStorage
