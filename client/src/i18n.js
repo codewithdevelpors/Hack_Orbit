@@ -47,7 +47,7 @@ const resources = {
       currentLanguage: 'Current Language',
     },
   },
-  // Add placeholder translations for other languages (in a real app, these would be fully translated)
+  // Spanish translations
   es: {
     translation: {
       home: 'Inicio',
@@ -65,6 +65,89 @@ const resources = {
       htmlCss: 'HTML y CSS',
       selectLanguage: 'Seleccionar Idioma',
       currentLanguage: 'Idioma Actual',
+      // About page translations
+      aboutTitle: 'Acerca de HackOrbit',
+      aboutTagline: 'Tu Destino Último para Recursos Increíbles de Código 🚀',
+      welcomeTitle: '🌟 Bienvenido a HackOrbit',
+      welcomeText: 'HackOrbit es más que un repositorio de código – es una comunidad vibrante donde desarrolladores, estudiantes y entusiastas del código se reúnen para descubrir, compartir y aprender de recursos de código increíbles. Ya sea que estés dando tus primeros pasos en programación o seas un desarrollador experimentado buscando inspiración, HackOrbit tiene algo especial para ti.',
+      missionTitle: '🎯 Nuestra Misión',
+      missionText: 'Creemos que el buen código debe ser accesible para todos. Nuestra misión es democratizar la educación en programación y acelerar el desarrollo de software proporcionando una plataforma donde:',
+      missionPoints: [
+        'Calidad de Código es Gratuita: Accede a miles de ejemplos de código bien documentados, probados',
+        'Aprendizaje es Interactivo: Previsualiza código antes de descargarlo para entender su funcionalidad',
+        'Comunidad Conduce Calidad: Las calificaciones y reseñas de usuarios ayudan a identificar los mejores recursos',
+        'Descubrimiento es Fácil: La búsqueda avanzada y categorización hacen que encontrar código sea effortless'
+      ],
+      specialTitle: '✨ Lo Que Nos Hace Especiales',
+      freePremiumTitle: '🆓 Recursos Gratuitos y Premium',
+      freePremiumPoints: [
+        'Programas Python: Desde scripts básicos hasta aplicaciones avanzadas',
+        'Desarrollo Web: Proyectos HTML, CSS y JavaScript',
+        'Contenido Premium: Soluciones de código avanzadas y profesionalmente elaboradas',
+        'Enfoque Educativo: Código diseñado para aprendizaje y comprensión'
+      ],
+      smartDiscoveryTitle: '🔍 Descubrimiento Inteligente',
+      smartDiscoveryPoints: [
+        'Búsqueda Inteligente: Encuentra exactamente lo que necesitas con nuestra búsqueda avanzada',
+        'Filtrado por Categoría: Navega por lenguaje de programación y complejidad',
+        'Sistema de Calificación: Evaluación de calidad impulsada por la comunidad',
+        'Característica de Previsualización: Ve la estructura del código antes de descargarlo'
+      ],
+      userExperienceTitle: '🎨 Experiencia de Usuario',
+      userExperiencePoints: [
+        'Interfaz Moderna: Diseño limpio e intuitivo que funciona en todos los dispositivos',
+        'Modo Oscuro: Fácil en los ojos para esas largas sesiones de codificación',
+        'Descargas Rápidas: Entrega de archivos rápida y confiable',
+        'Amigable con Móviles: Accede a tu código favorito en cualquier dispositivo'
+      ],
+      communityTitle: '👥 Nuestra Comunidad',
+      communityText: 'HackOrbit está impulsado por una comunidad increíble de desarrolladores que creen en compartir conocimiento:',
+      communityPoints: [
+        'Estudiantes: Aprendiendo fundamentos de programación y mejores prácticas',
+        'Educadores: Enseñando con ejemplos reales y prácticos',
+        'Profesionales: Compartiendo experiencia y acelerando el desarrollo',
+        'Aficionados: Explorando nuevas tecnologías y creando proyectos geniales'
+      ],
+      journeyTitle: '🚀 Nuestro Viaje',
+      journeyText: 'HackOrbit nació de una idea simple: la programación debería ser accesible, agradable y colaborativa. Comenzamos como un pequeño proyecto para ayudar a los desarrolladores a encontrar ejemplos de código de calidad, y hemos crecido hasta convertirnos en una plataforma integral que sirve a miles de usuarios en todo el mundo.',
+      milestonesTitle: 'Hitos Clave',
+      milestonesPoints: [
+        'Lanzamiento: Comenzó con una colección de recursos de Python y desarrollo web',
+        'Crecimiento de Comunidad: Expandido para incluir calificaciones y reseñas de usuarios',
+        'Evolución de Plataforma: Agregado búsqueda avanzada, categorías y contenido premium',
+        'Optimización Móvil: La plataforma se hizo completamente responsiva y amigable con móviles',
+        'Visión Futura: Mejorando continuamente basado en retroalimentación de la comunidad'
+      ],
+      valuesTitle: '💡 Nuestros Valores',
+      educationFirstTitle: '🎓 Educación Primero',
+      educationFirstText: 'Cada pieza de código en nuestra plataforma está seleccionada o creada con el aprendizaje en mente. Creemos que entender el código es tan importante como usarlo.',
+      communityDrivenTitle: '🤝 Impulsado por Comunidad',
+      communityDrivenText: 'Nuestros usuarios son nuestro mayor activo. La retroalimentación de la comunidad, calificaciones y contribuciones dan forma a la dirección de nuestra plataforma.',
+      openAccessTitle: '🔓 Acceso Abierto',
+      openAccessText: 'Estamos comprometidos a mantener recursos de programación de alta calidad accesibles para todos, independientemente de su background o situación financiera.',
+      innovationTitle: '⚡ Innovación',
+      innovationText: 'Evolucionamos continuamente nuestra plataforma con nuevas características, mejor experiencia de usuario y tecnología de vanguardia para servir mejor a nuestra comunidad.',
+      roadmapTitle: '🎯 Hoja de Ruta Futura',
+      roadmapText: 'Estamos trabajando constantemente para mejorar HackOrbit. Aquí está lo que viene:',
+      roadmapPoints: [
+        'Recomendaciones Impulsadas por IA: Sugerencias de código personalizadas',
+        'Tutoriales Interactivos: Guías paso a paso de codificación',
+        'Playground de Código: Prueba y modifica código directamente en el navegador',
+        'Herramientas de Colaboración: Comparte y trabaja en código con otros',
+        'App Móvil: Aplicaciones móviles nativas para iOS y Android'
+      ],
+      contactTitle: '📞 Ponte en Contacto',
+      contactText: 'Nos encanta escuchar de nuestra comunidad! Ya sea que tengas preguntas, sugerencias o solo quieras saludar:',
+      contactInfo: {
+        team: 'Equipo HackOrbit',
+        email: 'codewithdevelpors@gmail.com',
+        phone: '+923258247828',
+        support: 'codewithdevelpors@gmail.com',
+        website: 'HackOrbit',
+        updates: 'Sigue para actualizaciones y consejos de codificación',
+        response: 'Normalmente respondemos dentro de 24 horas'
+      },
+      footerText: 'Únete a miles de desarrolladores que confían en HackOrbit para su viaje de codificación. Juntos, estamos construyendo el futuro de la educación en programación! 🌟'
     },
   },
   fr: {

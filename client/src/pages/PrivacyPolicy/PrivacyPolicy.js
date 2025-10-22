@@ -131,6 +131,7 @@ function PrivacyPolicy() {
             <div className="contact-info">
               <p><strong>HackOrbit Team</strong></p>
               <p>📧 Email: codewithdevelpors@gmail.com</p>
+              <p>📞 Phone: +923258247828</p>
               <p>🌐 Website: <a href="/">HackOrbit</a></p>
               <p>📍 We're committed to responding to your inquiries within 48 hours</p>
             </div>

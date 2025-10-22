@@ -42,6 +42,7 @@ function Navbar() {
 
   // Dropdown menu states - removed click-based states for hover
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [isFreeSubmenuOpen, setIsFreeSubmenuOpen] = useState(false);
 
   // Navbar auto-hide functionality states
   const [isHidden, setIsHidden] = useState(false);
@@ -145,6 +146,7 @@ function Navbar() {
    */
   const handleSubmenuLeave = () => {
     setSelectedCategory(null);
+    setIsFreeSubmenuOpen(false);
   };
 
   /**
@@ -185,22 +187,32 @@ function Navbar() {
               <span className="nav-icon">🏠</span>
               {t('home')}
             </a>
-            <div className="navbar-dropdown desktop-dropdown">
-              <button className="navbar-dropdown-btn" onMouseEnter={() => handleSubmenuHover('categories')} onMouseLeave={handleSubmenuLeave}>
+            <div className="navbar-dropdown desktop-dropdown" onMouseEnter={() => handleSubmenuHover('categories')} onMouseLeave={handleSubmenuLeave}>
+              <button className="navbar-dropdown-btn">
                 <span className="nav-icon">📂</span>
                 {t('categories')}
                 <span className="dropdown-arrow">▼</span>
               </button>
               {selectedCategory === 'categories' && (
                 <div className="navbar-dropdown-menu">
-                  <div className="navbar-submenu">
-                    <a href="/search?category=free" className="navbar-dropdown-item">
+                  <button className="navbar-dropdown-item" onClick={() => setIsFreeSubmenuOpen(!isFreeSubmenuOpen)}>
                       Free
-                    </a>
+                      <span className="dropdown-arrow">{isFreeSubmenuOpen ? '▲' : '▼'}</span>
+                    </button>
+                    {isFreeSubmenuOpen && (
+                      <div className="navbar-submenu">
+                        <a href="/search?category=free&type=python" className="navbar-dropdown-item">
+                          Python
+                        </a>
+                        <a href="/search?category=free&type=html-css" className="navbar-dropdown-item">
+                          Html & Css
+                        </a>
+                      </div>
+                    )}
                     <a href="/search?category=paid" className="navbar-dropdown-item">
                       Paid
                     </a>
-                  </div>
+
                 </div>
               )}
             </div>
@@ -254,10 +266,9 @@ function Navbar() {
                   </a>
 
                   {/* Categories Dropdown */}
-                  <div className="menu-dropdown-submenu" onMouseLeave={handleSubmenuLeave}>
+                  <div className="menu-dropdown-submenu" onMouseEnter={() => handleSubmenuHover('categories')} onMouseLeave={handleSubmenuLeave}>
                     <div
                       className="menu-dropdown-item"
-                      onMouseEnter={() => handleSubmenuHover('categories')}
                     >
                       <span className="menu-icon">📂</span>
                       <span>{t('categories')}</span>
@@ -281,14 +292,9 @@ function Navbar() {
                           className="menu-dropdown-item submenu-item"
                           onClick={() => { handleCategorySelect('paid', 'python'); setIsMenuDropdownOpen(false); }}
                         >
-                          {t('paid')} {t('python')}
+                          {t('paid')}
                         </button>
-                        <button
-                          className="menu-dropdown-item submenu-item"
-                          onClick={() => { handleCategorySelect('paid', 'html-css'); setIsMenuDropdownOpen(false); }}
-                        >
-                          {t('paid')} {t('htmlCss')}
-                        </button>
+                        
                       </div>
                     )}
                   </div>

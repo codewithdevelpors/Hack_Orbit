@@ -199,6 +199,7 @@ function TermsOfService() {
             <div className="contact-info">
               <p><strong>HackOrbit Legal Team</strong></p>
               <p>📧 Email: codewithdevelpors@gmail.com</p>
+              <p>📞 Phone: +923258247828</p>
               <p>🌐 Website: <a href="/">HackOrbit</a></p>
               <p>📍 Response time: Within 48 hours</p>
               <p>💬 We're committed to clear communication and fair resolution</p>

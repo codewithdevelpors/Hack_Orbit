@@ -10,14 +10,14 @@ const api = axios.create({
 // =====================
 
 // Get files with pagination (14 per page)
-export const getFiles = async (page = 1) => {
-  const response = await api.get(`/files?page=${page}&limit=14`);
+export const getFiles = async (page = 1, language = 'en') => {
+  const response = await api.get(`/files?page=${page}&limit=14&lang=${language}`);
   return response.data;
 };
 
 // Get file details by ID
-export const getFileDetails = async (id) => {
-  const response = await api.get(`/details/${id}`);
+export const getFileDetails = async (id, language = 'en') => {
+  const response = await api.get(`/details/${id}?lang=${language}`);
   return response.data;
 };
 
@@ -26,11 +26,12 @@ export const getFileDetails = async (id) => {
 // =====================
 
 // Search files in DB (by name, type, category, with optional filters)
-export const searchFiles = async ({ query, category, type } = {}) => {
+export const searchFiles = async ({ query, category, type, language = 'en' } = {}) => {
   const params = new URLSearchParams();
   if (query) params.append('query', query);
   if (category) params.append('category', category);
   if (type) params.append('type', type);
+  params.append('lang', language);
   const response = await api.get(`/search?${params.toString()}`);
   return response.data;
 };
@@ -70,14 +71,14 @@ export const healthCheck = async () => {
 // =====================
 
 // Get featured files for banner display
-export const getBannerFiles = async () => {
+export const getBannerFiles = async (language = 'en') => {
   try {
     // Try to get featured files, fallback to regular files if no specific endpoint
-    const response = await api.get(`/files?featured=true&limit=3`);
+    const response = await api.get(`/files?featured=true&limit=3&lang=${language}`);
     return response.data;
   } catch (error) {
     // Fallback to getting first 3 files if featured endpoint doesn't exist
-    const response = await api.get(`/files?page=1&limit=3`);
+    const response = await api.get(`/files?page=1&limit=3&lang=${language}`);
     return response.data;
   }
 };
