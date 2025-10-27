@@ -43,7 +43,7 @@ function Navbar() {
   // Dropdown menu states - removed click-based states for hover
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isFreeSubmenuOpen, setIsFreeSubmenuOpen] = useState(false);
-
+ const [isPaidSubmenuOpen, setIsPaidSubmenuOpen] = useState(false);
   // Navbar auto-hide functionality states
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -147,8 +147,10 @@ function Navbar() {
   const handleSubmenuLeave = () => {
     setSelectedCategory(null);
     setIsFreeSubmenuOpen(false);
+    setIsPaidSubmenuOpen(false);
   };
 
+   
   /**
    * Toggle menu icon between hamburger and cancel
    */
@@ -209,10 +211,20 @@ function Navbar() {
                         </a>
                       </div>
                     )}
-                    <a href="/search?category=paid" className="navbar-dropdown-item">
+                    <button className="navbar-dropdown-item" onClick={() => setIsPaidSubmenuOpen(!isPaidSubmenuOpen)}>
                       Paid
-                    </a>
-
+                      <span className="dropdown-arrow">{isPaidSubmenuOpen ? '▲' : '▼'}</span>
+                    </button>
+                    {isPaidSubmenuOpen && (
+                      <div className="navbar-submenu">
+                        <a href="/search?category=free&type=managment" className="navbar-dropdown-item">
+                          Managment
+                        </a>
+                        <a href="/search?category=free&type=billing" className="navbar-dropdown-item">
+                          Billing
+                        </a>
+                      </div>
+                    )}
                 </div>
               )}
             </div>
@@ -276,18 +288,37 @@ function Navbar() {
                     </div>
                     {selectedCategory === 'categories' && (
                       <div className="menu-submenu">
+                        
                         <button
                           className="menu-dropdown-item submenu-item"
                           onClick={() => { handleCategorySelect('free', 'python'); setIsMenuDropdownOpen(false); }}
                         >
                           {t('free')} {t('python')}
                         </button>
+                        
                         <button
                           className="menu-dropdown-item submenu-item"
                           onClick={() => { handleCategorySelect('free', 'html-css'); setIsMenuDropdownOpen(false); }}
                         >
                           {t('free')} {t('htmlCss')}
                         </button>
+
+
+
+                        <button
+                          className="menu-dropdown-item submenu-item"
+                          onClick={() => { handleCategorySelect('Paid', 'python'); setIsMenuDropdownOpen(false); }}
+                        >
+                          {t('Paid')} {t('Managment')}
+                        </button>
+                        
+                        <button
+                          className="menu-dropdown-item submenu-item"
+                          onClick={() => { handleCategorySelect('Paid', 'html-css'); setIsMenuDropdownOpen(false); }}
+                        >
+                          {t('Paid')} {t('Billing')}
+                        </button>
+                        {/* 
                         <button
                           className="menu-dropdown-item submenu-item"
                           onClick={() => { handleCategorySelect('paid', 'python'); setIsMenuDropdownOpen(false); }}
@@ -295,6 +326,7 @@ function Navbar() {
                           {t('paid')}
                         </button>
                         
+                      */}
                       </div>
                     )}
                   </div>
