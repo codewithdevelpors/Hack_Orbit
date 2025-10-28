@@ -128,9 +128,9 @@ function About() {
             </p>
             <div className="contact-info">
               <p><strong>{t('contactInfo.team')}</strong></p>
-              <p>📧 Email: {t('contactInfo.email')}</p>
-              <p>📞 Phone: {t('contactInfo.phone')}</p>
-              <p>💬 Support: {t('contactInfo.support')}</p>
+              <p>📧 Email: codewithdevelpors@gmail.com</p>
+              <p>📞 Phone: +923258247828</p>
+              <p>💬 Support: codewithdevelpors@gmail.com</p>
               <p>🌐 Website: <a href="/">{t('contactInfo.website')}</a></p>
               <p>📱 {t('contactInfo.updates')}</p>
               <p>⏰ {t('contactInfo.response')}</p>

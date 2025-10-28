@@ -76,7 +76,7 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 5px; /* 5px gap on both sides for mobile */
+  padding: 0 var(--spacing-sm); /* Equal spacing on both sides for mobile */
 }
 
 /* File Card - Mobile First */
@@ -235,7 +235,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
     max-width: 800px;
-    padding: 0 var(--spacing-sm); /* Reset padding for tablet */
+    padding: 0 var(--spacing-sm); /* Equal spacing on both sides for tablet */
   }
 
   .file-card {
@@ -248,12 +248,12 @@
 }
 
 @media (min-width: 1024px) {
-  /* Desktop: Three columns */
+  /* Desktop: Two columns with side ads */
   .files-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-xl);
-    max-width: 1200px;
-    padding: 0 var(--spacing-sm); /* Reset padding for desktop */
+    max-width: 800px; /* Adjusted for side ads */
+    padding: 0 var(--spacing-sm); /* Equal spacing on both sides for desktop */
   }
 
   .content-grid {

@@ -1,12 +1,13 @@
 // Import the File model
 const File = require("../models/File");
 
-// Simple translation function (in production, use a proper translation service)
+// Enhanced translation function for comprehensive data translation
 const translateText = (text, targetLang) => {
   if (!text || targetLang === 'en') return text;
 
-  // Basic translation mappings for common terms
+  // Comprehensive translation mappings for common terms and phrases
   const translations = {
+    // Programming languages and technologies
     'Python': {
       'es': 'Python',
       'fr': 'Python',
@@ -48,12 +49,144 @@ const translateText = (text, targetLang) => {
       'no': 'HTML & CSS',
       'fi': 'HTML ja CSS',
       'he': 'HTML & CSS'
+    },
+    'Management': {
+      'es': 'Gestión',
+      'fr': 'Gestion',
+      'de': 'Verwaltung',
+      'zh': '管理',
+      'hi': 'प्रबंधन',
+      'ar': 'إدارة',
+      'pt': 'Gestão',
+      'ru': 'Управление',
+      'ja': '管理',
+      'ko': '관리',
+      'it': 'Gestione',
+      'tr': 'Yönetim',
+      'pl': 'Zarządzanie',
+      'nl': 'Beheer',
+      'sv': 'Hantering',
+      'da': 'Ledelse',
+      'no': 'Ledelse',
+      'fi': 'Hallinta',
+      'he': 'ניהול'
+    },
+    'Billing': {
+      'es': 'Facturación',
+      'fr': 'Facturation',
+      'de': 'Abrechnung',
+      'zh': '计费',
+      'hi': 'बिलिंग',
+      'ar': 'الفوترة',
+      'pt': 'Faturamento',
+      'ru': 'Выставление счетов',
+      'ja': '請求',
+      'ko': '청구',
+      'it': 'Fatturazione',
+      'tr': 'Faturalandırma',
+      'pl': 'Rozliczenia',
+      'nl': 'Facturering',
+      'sv': 'Fakturering',
+      'da': 'Fakturering',
+      'no': 'Fakturering',
+      'fi': 'Laskutus',
+      'he': 'חיוב'
+    },
+    // Common UI terms
+    'Home': {
+      'es': 'Inicio',
+      'fr': 'Accueil',
+      'de': 'Startseite',
+      'zh': '首页',
+      'hi': 'होम',
+      'ar': 'الرئيسية',
+      'pt': 'Início',
+      'ru': 'Главная',
+      'ja': 'ホーム',
+      'ko': '홈',
+      'it': 'Home',
+      'tr': 'Ana Sayfa',
+      'pl': 'Strona główna',
+      'nl': 'Home',
+      'sv': 'Hem',
+      'da': 'Hjem',
+      'no': 'Hjem',
+      'fi': 'Koti',
+      'he': 'בית'
+    },
+    'Categories': {
+      'es': 'Categorías',
+      'fr': 'Catégories',
+      'de': 'Kategorien',
+      'zh': '分类',
+      'hi': 'श्रेणियाँ',
+      'ar': 'الفئات',
+      'pt': 'Categorias',
+      'ru': 'Категории',
+      'ja': 'カテゴリ',
+      'ko': '카테고리',
+      'it': 'Categorie',
+      'tr': 'Kategoriler',
+      'pl': 'Kategorie',
+      'nl': 'Categorieën',
+      'sv': 'Kategorier',
+      'da': 'Kategorier',
+      'no': 'Kategorier',
+      'fi': 'Kategoriat',
+      'he': 'קטגוריות'
+    },
+    'Free': {
+      'es': 'Gratis',
+      'fr': 'Gratuit',
+      'de': 'Kostenlos',
+      'zh': '免费',
+      'hi': 'मुफ्त',
+      'ar': 'مجاني',
+      'pt': 'Grátis',
+      'ru': 'Бесплатно',
+      'ja': '無料',
+      'ko': '무료',
+      'it': 'Gratuito',
+      'tr': 'Ücretsiz',
+      'pl': 'Darmowy',
+      'nl': 'Gratis',
+      'sv': 'Gratis',
+      'da': 'Gratis',
+      'no': 'Gratis',
+      'fi': 'Ilmainen',
+      'he': 'חינם'
+    },
+    'Paid': {
+      'es': 'Pagado',
+      'fr': 'Payant',
+      'de': 'Bezahlt',
+      'zh': '付费',
+      'hi': 'सशुल्क',
+      'ar': 'مدفوع',
+      'pt': 'Pago',
+      'ru': 'Платный',
+      'ja': '有料',
+      'ko': '유료',
+      'it': 'A pagamento',
+      'tr': 'Ücretli',
+      'pl': 'Płatny',
+      'nl': 'Betaald',
+      'sv': 'Betald',
+      'da': 'Betalt',
+      'no': 'Betalt',
+      'fi': 'Maksullinen',
+      'he': 'בתשלום'
     }
   };
 
-  // For now, return the original text with a note that it's translated
-  // In production, integrate with Google Translate API or similar
-  return text + ` (${targetLang.toUpperCase()})`;
+  // Check if the text has an exact translation
+  if (translations[text] && translations[text][targetLang]) {
+    return translations[text][targetLang];
+  }
+
+  // For longer texts or descriptions, return original with language indicator
+  // In production, integrate with Google Translate API or similar service
+  return text; // Return original text for now - can be enhanced with full translation service
 };
 
 // Controller to get files with pagination (14 per page)

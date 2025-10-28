@@ -10,13 +10,13 @@ const api = axios.create({
 // =====================
 
 // Get files with pagination (14 per page)
-export const getFiles = async (page = 1, language = 'en') => {
+export const getFiles = async (page = 1, language = localStorage.getItem('i18nextLng') || 'en') => {
   const response = await api.get(`/files?page=${page}&limit=14&lang=${language}`);
   return response.data;
 };
 
 // Get file details by ID
-export const getFileDetails = async (id, language = 'en') => {
+export const getFileDetails = async (id, language = localStorage.getItem('i18nextLng') || 'en') => {
   const response = await api.get(`/details/${id}?lang=${language}`);
   return response.data;
 };
@@ -26,7 +26,7 @@ export const getFileDetails = async (id, language = 'en') => {
 // =====================
 
 // Search files in DB (by name, type, category, with optional filters)
-export const searchFiles = async ({ query, category, type, language = 'en' } = {}) => {
+export const searchFiles = async ({ query, category, type, language = localStorage.getItem('i18nextLng') || 'en' } = {}) => {
   const params = new URLSearchParams();
   if (query) params.append('query', query);
   if (category) params.append('category', category);
@@ -71,7 +71,7 @@ export const healthCheck = async () => {
 // =====================
 
 // Get featured files for banner display
-export const getBannerFiles = async (language = 'en') => {
+export const getBannerFiles = async (language = localStorage.getItem('i18nextLng') || 'en') => {
   try {
     // Try to get featured files, fallback to regular files if no specific endpoint
     const response = await api.get(`/files?featured=true&limit=3&lang=${language}`);

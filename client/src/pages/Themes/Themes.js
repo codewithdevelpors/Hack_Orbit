@@ -122,17 +122,39 @@ function Themes() {
   };
 
   /**
-   * Apply theme colors to CSS variables
+   * Apply theme colors to CSS variables and global styles
    */
   useEffect(() => {
     const root = document.documentElement;
     const colors = selectedTheme.colors;
 
+    // Set theme CSS variables
     root.style.setProperty('--theme-primary', colors.primary);
     root.style.setProperty('--theme-secondary', colors.secondary);
     root.style.setProperty('--theme-accent', colors.accent);
     root.style.setProperty('--theme-background', colors.background);
     root.style.setProperty('--theme-surface', colors.surface);
+
+    // Apply global background and text colors
+    document.body.style.backgroundColor = colors.background;
+    document.body.style.color = '#ffffff'; // Default text color for themes
+
+    // Update card backgrounds and text colors
+    const cards = document.querySelectorAll('.file-card, .card');
+    cards.forEach(card => {
+      card.style.backgroundColor = colors.surface;
+      card.style.color = '#ffffff';
+    });
+
+    // Update input placeholders
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.style.color = '#ffffff';
+      input.style.backgroundColor = colors.surface;
+      if (input.placeholder) {
+        input.style.setProperty('--placeholder-color', '#cccccc');
+      }
+    });
 
     // Add theme class to body for additional styling
     document.body.className = `theme-${selectedTheme.id}`;

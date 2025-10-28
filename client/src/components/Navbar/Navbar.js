@@ -217,10 +217,10 @@ function Navbar() {
                     </button>
                     {isPaidSubmenuOpen && (
                       <div className="navbar-submenu">
-                        <a href="/search?category=free&type=managment" className="navbar-dropdown-item">
-                          Managment
+                        <a href="/search?category=paid&type=management" className="navbar-dropdown-item">
+                          Management
                         </a>
-                        <a href="/search?category=free&type=billing" className="navbar-dropdown-item">
+                        <a href="/search?category=paid&type=billing" className="navbar-dropdown-item">
                           Billing
                         </a>
                       </div>
@@ -257,6 +257,13 @@ function Navbar() {
                 {theme === THEMES.dark ? t('lightMode') : t('darkMode')}
               </span>
             </button>
+          </div>
+
+          {/* Search Icon - Mobile/Tablet only */}
+          <div className="search-icon-container mobile-tablet-only">
+            <span className="search-icon" onClick={toggleMenu}>
+              🔍
+            </span>
           </div>
 
           {/* Menu Icon Container - Mobile/Tablet only */}
@@ -307,16 +314,16 @@ function Navbar() {
 
                         <button
                           className="menu-dropdown-item submenu-item"
-                          onClick={() => { handleCategorySelect('Paid', 'python'); setIsMenuDropdownOpen(false); }}
+                          onClick={() => { handleCategorySelect('paid', 'management'); setIsMenuDropdownOpen(false); }}
                         >
-                          {t('Paid')} {t('Managment')}
+                          {t('paid')} Management
                         </button>
-                        
+
                         <button
                           className="menu-dropdown-item submenu-item"
-                          onClick={() => { handleCategorySelect('Paid', 'html-css'); setIsMenuDropdownOpen(false); }}
+                          onClick={() => { handleCategorySelect('paid', 'billing'); setIsMenuDropdownOpen(false); }}
                         >
-                          {t('Paid')} {t('Billing')}
+                          {t('paid')} Billing
                         </button>
                         {/* 
                         <button
@@ -339,16 +346,6 @@ function Navbar() {
                   >
                     <span className="menu-icon">🎨</span>
                     <span>{t('themes')}</span>
-                  </a>
-
-                  {/* Languages Link */}
-                  <a
-                    className="menu-dropdown-item"
-                    href="/languages"
-                    onClick={() => setIsMenuDropdownOpen(false)}
-                  >
-                    <span className="menu-icon">🌐</span>
-                    <span>{t('language')}</span>
                   </a>
 
                   {/* About Us Link */}
@@ -380,16 +377,56 @@ function Navbar() {
                     </form>
                   </div>
 
-                  {/* Theme Toggle */}
-                  <button
+                  {/* Settings Submenu */}
+                  <div className="menu-dropdown-submenu">
+                    <div className="menu-dropdown-item">
+                      <span className="menu-icon">⚙️</span>
+                      <span>Settings</span>
+                      <span className="dropdown-arrow">▼</span>
+                    </div>
+                    <div className="menu-submenu">
+                      {/* Theme Toggle in Settings */}
+                      <button
+                        className="menu-dropdown-item submenu-item"
+                        onClick={toggleTheme}
+                      >
+                        <span className="menu-icon">
+                          {theme === THEMES.dark ? "☀️" : "🌙"}
+                        </span>
+                        <span>{theme === THEMES.dark ? t('lightMode') : t('darkMode')}</span>
+                      </button>
+
+                      {/* Language Link in Settings */}
+                      <a
+                        className="menu-dropdown-item submenu-item"
+                        href="/languages"
+                        onClick={() => setIsMenuDropdownOpen(false)}
+                      >
+                        <span className="menu-icon">🌐</span>
+                        <span>{t('language')}</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Privacy Policy Link */}
+                  <a
                     className="menu-dropdown-item"
-                    onClick={toggleTheme}
+                    href="/privacy"
+                    onClick={() => setIsMenuDropdownOpen(false)}
                   >
-                    <span className="menu-icon">
-                      {theme === THEMES.dark ? "☀️" : "🌙"}
-                    </span>
-                    <span>{theme === THEMES.dark ? t('lightMode') : t('darkMode')}</span>
-                  </button>
+                    <span className="menu-icon">🔒</span>
+                    <span>Privacy Policy</span>
+                  </a>
+
+                  {/* Terms of Service Link */}
+                  <a
+                    className="menu-dropdown-item"
+                    href="/terms"
+                    onClick={() => setIsMenuDropdownOpen(false)}
+                  >
+                    <span className="menu-icon">📋</span>
+                    <span>Terms of Service</span>
+                  </a>
                 </div>
               )}
             </div>
