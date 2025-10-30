@@ -248,7 +248,7 @@
 }
 
 @media (min-width: 1024px) {
-  /* Desktop: Two columns with side ads */
+  /* Desktop: Two cards per row with side ads */
   .files-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-xl);
