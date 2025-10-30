@@ -6,10 +6,10 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "axios": "^1.7.9",
-    "i18next": "^23.7.6",
+    "i18next": "^25.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-i18next": "^16.1.0",
+    "react-i18next": "^16.2.2",
     "react-router-dom": "^6.28.0",
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
