@@ -51,6 +51,7 @@ function Navbar() {
   // Menu icon state
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
+  const [isSettingsSubmenuOpen, setIsSettingsSubmenuOpen] = useState(false);
 
   // Navigation hook for programmatic routing
   const navigate = useNavigate();
@@ -163,6 +164,17 @@ function Navbar() {
    */
   const toggleMenuDropdown = () => {
     setIsMenuDropdownOpen(!isMenuDropdownOpen);
+    // Reset settings submenu when main menu closes
+    if (isMenuDropdownOpen) {
+      setIsSettingsSubmenuOpen(false);
+    }
+  };
+
+  /**
+   * Toggle settings submenu
+   */
+  const toggleSettingsSubmenu = () => {
+    setIsSettingsSubmenuOpen(!isSettingsSubmenuOpen);
   };
 
 
@@ -379,33 +391,38 @@ function Navbar() {
 
                   {/* Settings Submenu */}
                   <div className="menu-dropdown-submenu">
-                    <div className="menu-dropdown-item">
+                    <button
+                      className="menu-dropdown-item"
+                      onClick={toggleSettingsSubmenu}
+                    >
                       <span className="menu-icon">⚙️</span>
                       <span>Settings</span>
-                      <span className="dropdown-arrow">▼</span>
-                    </div>
-                    <div className="menu-submenu">
-                      {/* Theme Toggle in Settings */}
-                      <button
-                        className="menu-dropdown-item submenu-item"
-                        onClick={toggleTheme}
-                      >
-                        <span className="menu-icon">
-                          {theme === THEMES.dark ? "☀️" : "🌙"}
-                        </span>
-                        <span>{theme === THEMES.dark ? t('lightMode') : t('darkMode')}</span>
-                      </button>
+                      <span className="dropdown-arrow">{isSettingsSubmenuOpen ? '▲' : '▼'}</span>
+                    </button>
+                    {isSettingsSubmenuOpen && (
+                      <div className="menu-submenu" onMouseLeave={() => setIsSettingsSubmenuOpen(false)}>
+                        {/* Theme Toggle in Settings */}
+                        <button
+                          className="menu-dropdown-item submenu-item"
+                          onClick={toggleTheme}
+                        >
+                          <span className="menu-icon">
+                            {theme === THEMES.dark ? "☀️" : "🌙"}
+                          </span>
+                          <span>{theme === THEMES.dark ? t('lightMode') : t('darkMode')}</span>
+                        </button>
 
-                      {/* Language Link in Settings */}
-                      <a
-                        className="menu-dropdown-item submenu-item"
-                        href="/languages"
-                        onClick={() => setIsMenuDropdownOpen(false)}
-                      >
-                        <span className="menu-icon">🌐</span>
-                        <span>{t('language')}</span>
-                      </a>
-                    </div>
+                        {/* Language Link in Settings */}
+                        <a
+                          className="menu-dropdown-item submenu-item"
+                          href="/languages"
+                          onClick={() => setIsMenuDropdownOpen(false)}
+                        >
+                          <span className="menu-icon">🌐</span>
+                          <span>{t('language')}</span>
+                        </a>
+                      </div>
+                    )}
                   </div>
 
                   {/* Privacy Policy Link */}
